@@ -52,3 +52,7 @@ header h1 {
     margin: 10%;
     display: flex;
 }
+.page{
+    display: flex;
+    width: auto;
+}
