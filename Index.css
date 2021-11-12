@@ -20,6 +20,9 @@ font: inherit;
 vertical-align: baseline;  
 }
 /*GENERAL STYLES*/
+* {
+    background-color: brown;
+}
 html{
     font-size:62.5%;
 }
@@ -68,7 +71,5 @@ header h1 {
     text-align: left;
     margin: 2% 5%;
 }
-* {
-    background-color: brown;
-}
+
 }

@@ -4,26 +4,61 @@
     <link rel="stylesheet" href="cSheet.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> -->
+    <title>cSheet/room Interface</title>
 </head>
 <body>
-    <section id='cSheet'>
-        <div class = "cSheetTop">
-            <div class="map">This is a map</div>
-            <div class="charArt">Pixel art Character</div>
-        </div>
-        <div class="cSheetMid">
-            <div class="cSheetPlayerStats">
-                <div class="cSheetStatField">Stat1</div>
-                <div class="cSheetStatField">Stat2</div>
-                <div class="cSheetStatField">Stat3</div>
+    <div class= "pageContainer">
+        <section id='cSheet'>
+            <div class = "cSheetTop">
+                <div class="map"> <img src = "Dungeon_Map_1.jpg"></div>
+                <div class="charArt">
+                    <img src = "cSheet_Icons/Player1.png">
+                    <span>playerName</span>
+                    <span>Status: playerStatus</span>
+                </div>
             </div>
-            <div class="cSheetPlayerValues">
-                <div class="cSheetHealth">Health</div>
-                <div class="cSheetArmor">Armor</div>
-                <div class="cSheetWeapon">Weapon</div>
+            <div class="cSheetMid">
+                <div class="cSheetPlayerStats">
+                    <div class="cSheetStatField"><span>Stat1:</span></div>
+                    <div class="cSheetStatField"><span>Stat2:</span></div>
+                    <div class="cSheetStatField"><span>Stat3:</span></div>
+                </div>
+                <div class="cSheetPlayerValues">
+                    <div class="cSheetHealth"> 
+                        <img src = "cSheet_Icons/heart pixel art.png"> 
+                        <span>Health</span>
+                    </div>
+                    <div class="cSheetArmor"> 
+                        <img src = "cSheet_Icons/Shield1.png"> 
+                        <span>Armor</span>
+                    </div>
+                    <div class="cSheetWeapon">
+                        <img src = "cSheet_Icons/sword_small (1).png">
+                        <span>Weapon</span>
+                    </div>
+                </div>
             </div>
-        <div class="cSheetInventory">Inventory Box</div>    
-        </div>
-    </section>
+            <div class="cSheetBottom">
+                <h3>Inventory</h3>
+                    <div class="cSheetInventory">
+                            <p class = "items">Item 1</p>
+                            <p class = "items">Item 2</p>
+                            <p class = "items">Item 3</p>
+                            <p class = "items">Item 4</p>
+                            <p class = "items">Item 5</p>
+                            <p class = "items">Item 6</p>  
+                    </div>    
+                </div>
+            </section>
+        <section id='room'>
+
+            <!-- room stuff here -->
+        </section>
+    </div>
 </body>

@@ -30,3 +30,138 @@ footer, header, hgroup, menu, nav, section {
     max-width:100%;
     border:1px solid grey; 
 }
+
+html{
+	font-size:62.5%;
+}
+body{
+    font-size:1.6rem;
+    line-height: 1.5;
+    font-family: 'Oswald', sans-serif;
+font-family: 'Press Start 2P', cursive;
+background-color: #534837;
+/* padding: 20%; */
+margin: 15%;
+}
+
+.pageContainer{
+	display: flex;
+	flex-flow: row no-wrap;
+}
+
+#cSheet{
+	width: 50%;
+}
+/* Top of cSheet */
+.cSheetTop {
+	display: flex;
+	justify-content: space-between;
+}
+
+.map{
+	width:60%;
+	margin: 2%;
+}
+
+.charArt{
+	margin: 2%;
+	display: flex;
+	flex-direction: column;
+	justify-content:center;
+}
+
+.charArt img{
+	width: 30%;
+	height: 30%;
+	margin: auto;
+
+}
+
+charArt span{
+	width: 100%;
+	margin: 2%;
+}
+
+/* Middle of cSheet */
+
+.cSheetMid {
+	display: flex;
+	width: 100%;
+	flex-flow: row no-wrap;
+	justify-content: space-between;
+}
+
+.cSheetMid div{
+	width:100%;
+	align-content: center;
+}
+
+.cSheetPlayerStats{
+	width: 100%;	
+}
+
+.cSheetStatField div{
+	padding: 5%;
+}
+
+.cSheetPlayerValues{
+	width: 100%;
+}
+
+.cSheetHealth{
+	width: 100%;
+
+}
+.cSheetHealth img{
+	width: 15%;
+	height: 15%;
+}
+
+.cSheetArmor{
+
+}
+
+.cSheetArmor img{
+
+	width: 15%;
+	height: 15%;
+
+}
+
+.cSheetWeapon{
+
+}
+
+.cSheetWeapon img{
+
+	width: 15%;
+	height: 15%;
+}
+
+.cSheetBottom{
+	display: flex;
+	flex-direction: column;
+}
+
+.cSheetInventory{
+	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-evenly;
+	padding: 5%
+}
+
+.cSheetInventory h3{
+	text-align: center;
+}
+
+.items{
+	width: 30%;
+	padding: 4%;
+}
+
+#room{
+	width: 50%;
+	border: 6px solid black;
+}
+
