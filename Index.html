@@ -10,61 +10,85 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>Lambda RPG- A Journey Underground</title>
+    <script>
+        document.getElementById("cSheetStatField1").innerHTML = `Stat 1: ${player.stat1}`;
+        document.getElementById("cSheetStatField2").innerHTML = `Stat 2: ${player.stat2}`;
+        document.getElementById("cSheetStatField3").innerHTML = `Stat 3: ${player.stat3}`;
+        document.getElementById("cSheetHealth").innerHTML = `Health: ${player.hpCurrent}/${player.hpTotal}`;
+        document.getElementById("cSheetArmor").innerHTML = `Armor: ${player.armor}`;
+        document.getElementById("cSheetWeapon").innerHTML = `Damage: ${player.dmg}`;
+        document.getElementById("testTest").innerHTML = toggle;
+    </script> 
 </head>
-<header>
-    <h1>
-        Lambda RPG- A Journey Underground
-    </h1>
-</header>
-<body>
-
-    <div class= "pageContainer">
-        <section id='cSheet'>
-            <div class = "cSheetTop">
-                <div class="map"> <img src = "Dungeon_Map_1.jpg"></div>
-                <div class="charArt">
-                    <img src = "cSheet_Icons/Player1.png">
-                    <p>playerName</p>
-                    <p>Status: playerStatus</p>
-                </div>
-            </div>
-            <div class="cSheetMid">
-                <div class="cSheetPlayerStats">
-                    <div class="cSheetStatField1"><p class ="stat">Stat1:</p><p class = "statValue">Stat</p></div>
-                    <div class="cSheetStatField2"><p class ="stat">Stat2:</p><p class = "statValue">Stat</p></div>
-                    <div class="cSheetStatField3"><p class ="stat">Stat3:</p><p class = "statValue">Stat</p></div>
-                </div>
-                <div class="cSheetPlayerValues">
-                    <div class="cSheetHealth"> 
-                        <img src = "cSheet_Icons/heart pixel art.png"> 
-                        <p>Health:</p>
-                        <p>VAL</p>
-                    </div>
-                    <div class="cSheetArmor"> 
-                        <img src = "cSheet_Icons/Shield1.png"> 
-                        <p>Armor:</p>
-                        <p>VAL</p>
-                    </div>
-                    <div class="cSheetWeapon">
-                        <img src = "cSheet_Icons/sword_small (1).png">
-                        <p>Weapon:</p>
-                        <p>VAL</p>
+    <body>
+        <header>
+        <h1>
+            Lambda RPG- A Journey Underground
+        </h1>
+    </header>
+        <div class= "pageContainer">
+            <section id='cSheet'>
+                <div class = "cSheetTop">
+                    <div class="map"> <img src = "planning/Dungeon_Map_1.jpg"></div>
+                    <div class="charArt">
+                        <img src = "cSheet_Icons/Player1.png">
+                        <p>playerName</p>
+                        <p>Status: playerStatus</p>
                     </div>
                 </div>
-            </div>
-            <div class="cSheetBottom">
-                <h3>Inventory</h3>
-                    <div class="cSheetInventory">
-                            <p class = "items">Item 1</p>
-                            <p class = "items">Item 2</p>
-                            <p class = "items">Item 3</p>
-                            <p class = "items">Item 4</p>
-                            <p class = "items">Item 5</p>
-                            <p class = "items">Item 6</p>  
-                    </div>    
+                <div class="cSheetMid">
+                    <div class="cSheetPlayerStats">
+                        <div class="cSheetStatField"><p class ="stat">Stat1:</p><p class = "statValue">Stat</p></div>
+                        <div class="cSheetStatField"><p class ="stat">Stat2:</p><p class = "statValue">Stat</p></div>
+                        <div class="cSheetStatField"><p class ="stat">Stat3:</p><p class = "statValue">Stat</p></div>
+                    </div>
+                    <div class="cSheetPlayerValues">
+                        <div class="cSheetHealth"> 
+                            <img src = "cSheet_Icons/heart pixel art.png"> 
+                            <p>Health:</p>
+                            <p>VAL</p>
+                        </div>
+                        <div class="cSheetArmor"> 
+                            <img src = "cSheet_Icons/Shield1.png"> 
+                            <p>Armor:</p>
+                            <p>VAL</p>
+                        </div>
+                        <div class="cSheetWeapon">
+                            <img src = "cSheet_Icons/sword_small (1).png">
+                            <p>Weapon:</p>
+                            <p>VAL</p>
+                        </div>
+                    </div>
                 </div>
-            </section>
-        <section id='room'>
+                <div class="cSheetBottom">
+                    <h3>Inventory</h3>
+                        <div class="cSheetInventory">
+                                <p class = "items">Item 1</p>
+                                <p class = "items">Item 2</p>
+                                <p class = "items">Item 3</p>
+                                <p class = "items">Item 4</p>
+                                <p class = "items">Item 5</p>
+                                <p class = "items">Item 6</p>  
+                        </div>    
+                    </div>
+                </section>
+       <!-- Room HTML begins here -->
+<!--     <section id="room">
+        <select name="choices" id="rooms">
+            <option value="first">First</option>
+            <option value="second">Second</option>
+            <option value="third">Third</option>
+        </select>
+        <button onclick='Button()'>Room Button</button>
+        <button onclick='explore()'>Explore!</button>
+        <button onclick='stat1Increment()'>Increment stat1!</button>
+        <h2 id="tester">This is a thing!</h2>
+        <button id= roomOption1 onclick= ''></button>
+        <button id= roomOption2 onclick= ''></button>
+        <button id= roomOption3 onclick= ''></button> -->
+      
+      <section id='room'>
             <div class="map1">
                 <div id = room1>
                     <div id='rm1'>
@@ -371,30 +395,6 @@
             </div
         </section>
     </div>
-    <script>
-        document.getElementById("cSheetStatField1").innerHTML = `Stat 1: ${player.stat1}`;
-        document.getElementById("cSheetStatField2").innerHTML = `Stat 2: ${player.stat2}`;
-        document.getElementById("cSheetStatField3").innerHTML = `Stat 3: ${player.stat3}`;
-        document.getElementById("cSheetHealth").innerHTML = `Health: ${player.hpCurrent}/${player.hpTotal}`;
-        document.getElementById("cSheetArmor").innerHTML = `Armor: ${player.armor}`;
-        document.getElementById("cSheetWeapon").innerHTML = `Damage: ${player.dmg}`;
-        document.getElementById("testTest").innerHTML = toggle;
-    </script>    
-    <section id="room">
-        <select name="choices" id="rooms">
-            <option value="first">First</option>
-            <option value="second">Second</option>
-            <option value="third">Third</option>
-        </select>
-        <button onclick='Button()'>Room Button</button>
-        <button onclick='explore()'>Explore!</button>
-        <button onclick='stat1Increment()'>Increment stat1!</button>
-        <h2 id="tester">This is a thing!</h2>
-
-        <button id= roomOption1 onclick= ''></button>
-        <button id= roomOption2 onclick= ''></button>
-        <button id= roomOption3 onclick= ''></button>
-        
       <!-- Everthing below is proof of concept with JS 
             <script type="text/javascript">
             tester = document.getElementById("tester")
@@ -434,6 +434,7 @@
                    var obj_sel = document.example.selector;
                    document.example.populateme.value = myData[obj_sel.value];
              </script> -->
-          </section>
-      </section>
-</body>
+            </section>  
+        </div>         
+    </body>
+</html>

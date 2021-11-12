@@ -14,17 +14,14 @@ menu, nav, output, ruby, section, summary,
 time, mark, audio, video {  
     margin: 0;  
     padding: 0;  
-    border: 0;  
+    /* border: 0;   */
     font-size: 100%;  
     font: inherit;  
     vertical-align: baseline;  
 } 
 /*GENERAL STYLES*/
-* {
-    background-color: brown;
-}
-html{
-    font-size:62.5%;
+
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -38,22 +35,47 @@ footer, header, hgroup, menu, nav, section {
     margin:0;
     max-width:100%;
     border:3px solid black; 
-    background-color: brown;
+   
+}
+
+html{
+    font-size:62.5%;
+}
+
+body{
+    font-size:1.6rem;
+    line-height: 1.5;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #8b0000;
+	max-width: 100%;
+    margin:20%;
 }
 header {
     border-bottom: 4px solid black;
+
 }	
-header h1 {
+
+header h1{
+    text-align: left;
+}
+
+h1 {
     font-family: 'Press Start 2P', cursive;
     font-size: 4rem;
-    text-align: left;
     margin: 2% 5%;
 }
+
+/* BEGIN INTERFACE CSS */
+
 .pageContainer{
 	display: flex;
 	flex-flow: row no-wrap;
 	background-color: #695f4d;
 	border: 1px solid grey;
+    width: 100%;
+    margin: auto;
+
 }
 
 #cSheet{
@@ -94,8 +116,6 @@ charArt span{
 }
 
 /* Middle Section of cSheet */
-/* Problems Start Here */
-
 .cSheetMid {
 	display: flex;
 	width: 100%;
@@ -118,7 +138,7 @@ charArt span{
 	display: flex;
 }
 
-.stat p{
+.cSheetStatField p{
 	padding: 4%;
 	width: 50%;
 	margin: 1%;
@@ -190,7 +210,7 @@ div.cSheetPlayerValues{
 }
 
 #room{
-	width: 50%;
+	  width: 50%;
     height: 70vh;
 	border: 6px solid black;
 }
@@ -203,7 +223,6 @@ div.cSheetPlayerValues{
     width: 100%;
     height: 100%;
     border: 1px solid black;
-=======
 #cSheet {
     margin: 10%;
     display: flex;
