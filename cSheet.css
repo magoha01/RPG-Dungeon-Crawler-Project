@@ -26,7 +26,7 @@ footer, header, hgroup, menu, nav, section {
 *{
     box-sizing: border-box;
     padding:0;
-    margin:0;
+    margin: 0;
     max-width:100%;
     border:1px solid grey; 
 }
@@ -34,37 +34,45 @@ footer, header, hgroup, menu, nav, section {
 html{
 	font-size:62.5%;
 }
+
 body{
     font-size:1.6rem;
     line-height: 1.5;
     font-family: 'Oswald', sans-serif;
 font-family: 'Press Start 2P', cursive;
-background-color: #534837;
-/* padding: 20%; */
-margin: 15%;
+background-color: black;
+	margin: 20%;
 }
 
 .pageContainer{
 	display: flex;
 	flex-flow: row no-wrap;
+	background-color: #695f4d;
+	border: 1px solid grey;
 }
 
 #cSheet{
 	width: 50%;
+	border: 6px solid black;
 }
-/* Top of cSheet */
+
+/* Top Section of cSheet */
+
 .cSheetTop {
 	display: flex;
 	justify-content: space-between;
 }
 
-.map{
-	width:60%;
+.cSheetTop p{
 	margin: 2%;
 }
 
+.map{
+	width:60%;
+	margin: 3%;
+}
+
 .charArt{
-	margin: 2%;
 	display: flex;
 	flex-direction: column;
 	justify-content:center;
@@ -74,15 +82,14 @@ margin: 15%;
 	width: 30%;
 	height: 30%;
 	margin: auto;
-
 }
 
 charArt span{
 	width: 100%;
-	margin: 2%;
 }
 
-/* Middle of cSheet */
+/* Middle Section of cSheet */
+/* Problems Start Here */
 
 .cSheetMid {
 	display: flex;
@@ -97,50 +104,70 @@ charArt span{
 }
 
 .cSheetPlayerStats{
-	width: 100%;	
+	width: 40%;
+	display: flex;
+	flex-flow: column wrap;
 }
 
-.cSheetStatField div{
-	padding: 5%;
+.cSheetPlayerStats div{
+	display: flex;
+}
+
+.cSheetStatField p{
+	padding: 4%;
+	width: 50%;
+	margin: 1%;
+	font-size: 1.4rem;
 }
 
 .cSheetPlayerValues{
-	width: 100%;
+	width: 100%; 
+	display:flex;
+	flex-flow: column wrap;
+}
+
+div.cSheetPlayerValues{
+	margin: 1%;
 }
 
 .cSheetHealth{
-	width: 100%;
-
+	display:flex;
+	flex-flow: row no-wrap;
+	padding:5%;
+	font-size: 1.5rem;
 }
+
 .cSheetHealth img{
 	width: 15%;
-	height: 15%;
 }
 
 .cSheetArmor{
-
+	display:flex;
+	flex-flow: row no-wrap;
+	padding: 5%;
 }
 
 .cSheetArmor img{
-
 	width: 15%;
-	height: 15%;
-
 }
 
 .cSheetWeapon{
-
+	display:flex;
+	flex-flow: row no-wrap;
+	padding: 5%;
+	font-size: 1.5rem;
 }
 
 .cSheetWeapon img{
-
 	width: 15%;
-	height: 15%;
+	
 }
 
 .cSheetBottom{
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
+	text-align: center;
 }
 
 .cSheetInventory{
@@ -151,13 +178,10 @@ charArt span{
 	padding: 5%
 }
 
-.cSheetInventory h3{
-	text-align: center;
-}
-
 .items{
-	width: 30%;
+	width: 25%;
 	padding: 4%;
+	margin: 2%;
 }
 
 #room{
