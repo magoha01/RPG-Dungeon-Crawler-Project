@@ -2,8 +2,20 @@
 class Room {
     constructor(roomAtt){
         this.roomId = roomAtt.roomId
+        this.option1Text = roomAtt.option1Text
+        this.roomNorth = roomAtt.roomNorth
+        this.roomEast = roomAtt.roomEast
+        this.roomWest = roomAtt.roomWest
+        this.roomSouth = roomAtt.roomSouth
+
+    }
+    optionOne(){
+
+
     }
 }
+startingRoom = new Room({roomId:'1', option1Text: 'Advance to the next room!', roomNorth: 2, roomWest: 3, roomEast: null, roomSouth: null})
+roomArr= [startingRoom]
 
  let toggle = false
 function Button ()  {
@@ -18,7 +30,7 @@ function Button ()  {
 document.getElementById("testTest").innerHTML = toggle;
 }
 
-startingRoom = new Room({roomId:'testing room ID'})
+
 console.log(startingRoom.roomId)
 // function updateStats() {
 // document.getElementById("stat1").innerHTML = "New text!"
@@ -37,8 +49,20 @@ let player = {
     hpTotal: 15,
     armor: 20,
     dmg: 22,
-    room: 1,
+    room: 0,
 
+}
+function explore(){
+    let room = player.room
+    document.getElementById("roomOption1").innerHTML = `${roomArr[room].option1Text}`;
+    document.getElementById("roomOption2").innerHTML = `Stat 2: ${player.stat2}`;
+    if(player.stat4 != null){
+    document.getElementById("roomOption3").innerHTML = `Stat 4: ${player.stat4}`;
+    }
+}
+function option1(){
+    let room = player.room
+    roomArr[room].firstOption()
 }
 
 function stat1Increment(){

@@ -17,6 +17,7 @@
     </h1>
 </header>
 <body>
+
     <div class= "pageContainer">
         <section id='cSheet'>
             <div class = "cSheetTop">
@@ -370,28 +371,6 @@
             </div
         </section>
     </div>
-<!-- <body>
-    <div class="pageContainer">
-        <section id='cSheet'>
-            <div class = "cSheetTop">
-            <div class="map">This is a map</div>
-            <div class="charArt">Pixel art Character</div>
-        </div>
-        <div class="cSheetMid">
-            <div class="cSheetPlayerStats">
-                <div id="cSheetStatField1">Stat1</div>
-                <div id="cSheetStatField2">Stat2</div>
-                <div id="cSheetStatField3">Stat3</div>
-            </div>
-            <div class="cSheetPlayerValues">
-                <div id="cSheetHealth">Health</div>
-                <div id="cSheetArmor">Armor</div>
-                <div id="cSheetWeapon">Weapon</div>
-                <div id="testTest"></div>
-            </div>
-        <div class="cSheetInventory">Inventory Box</div>    
-        </div>
-    </section> -->
     <script>
         document.getElementById("cSheetStatField1").innerHTML = `Stat 1: ${player.stat1}`;
         document.getElementById("cSheetStatField2").innerHTML = `Stat 2: ${player.stat2}`;
@@ -408,16 +387,15 @@
             <option value="third">Third</option>
         </select>
         <button onclick='Button()'>Room Button</button>
+        <button onclick='explore()'>Explore!</button>
         <button onclick='stat1Increment()'>Increment stat1!</button>
         <h2 id="tester">This is a thing!</h2>
 
-<!--
-    importing csheet html to see difference
--->
-
-
+        <button id= roomOption1 onclick= ''></button>
+        <button id= roomOption2 onclick= ''></button>
+        <button id= roomOption3 onclick= ''></button>
         
-        <!-- Everthing below is proof of concept with JS 
+      <!-- Everthing below is proof of concept with JS 
             <script type="text/javascript">
             tester = document.getElementById("tester")
             roomButton = document.getElementById("room")
@@ -455,6 +433,7 @@
                  function updateText() {
                    var obj_sel = document.example.selector;
                    document.example.populateme.value = myData[obj_sel.value];
-             }
-             </script> -->     
+             </script> -->
+          </section>
+      </section>
 </body>
