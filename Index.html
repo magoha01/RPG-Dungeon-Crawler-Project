@@ -24,16 +24,77 @@
         </div>
         <div class="cSheetMid">
             <div class="cSheetPlayerStats">
-                <div class="cSheetStatField">Stat1</div>
-                <div class="cSheetStatField">Stat2</div>
-                <div class="cSheetStatField">Stat3</div>
+                <div id="cSheetStatField1">Stat1</div>
+                <div id="cSheetStatField2">Stat2</div>
+                <div id="cSheetStatField3">Stat3</div>
             </div>
             <div class="cSheetPlayerValues">
-                <div class="cSheetHealth">Health</div>
-                <div class="cSheetArmor">Armor</div>
-                <div class="cSheetWeapon">Weapon</div>
+                <div id="cSheetHealth">Health</div>
+                <div id="cSheetArmor">Armor</div>
+                <div id="cSheetWeapon">Weapon</div>
+                <div id="testTest"></div>
             </div>
         <div class="cSheetInventory">Inventory Box</div>    
         </div>
     </section>
+    <script>
+        document.getElementById("cSheetStatField1").innerHTML = `Stat 1: ${player.stat1}`;
+        document.getElementById("cSheetStatField2").innerHTML = `Stat 2: ${player.stat2}`;
+        document.getElementById("cSheetStatField3").innerHTML = `Stat 3: ${player.stat3}`;
+        document.getElementById("cSheetHealth").innerHTML = `Health: ${player.hpCurrent}/${player.hpTotal}`;
+        document.getElementById("cSheetArmor").innerHTML = `Armor: ${player.armor}`;
+        document.getElementById("cSheetWeapon").innerHTML = `Damage: ${player.dmg}`;
+        document.getElementById("testTest").innerHTML = toggle;
+    </script>    
+    <section id="room">
+        <select name="choices" id="rooms">
+            <option value="first">First</option>
+            <option value="second">Second</option>
+            <option value="third">Third</option>
+        </select>
+        <button onclick='Button()'>Room Button</button>
+        <button onclick='stat1Increment()'>Increment stat1!</button>
+        <h2 id="tester">This is a thing!</h2>
+        
+        <!-- Everthing below is proof of concept with JS 
+            <script type="text/javascript">
+            tester = document.getElementById("tester")
+            roomButton = document.getElementById("room")
+            roomButton.onclick =  function Button ()  {
+    // let toggle = 0
+    if(toggle = false){
+    document.getElementById("tester").innerHTML = "New text!";
+    toggle = true
+} else if (toggle = true){
+    document.getElementById("tester").innerHTML = "Something Else!";
+    toggle = false
+}
+            }
+        </script> -->
+        <!-- <script type="text/javascript">
+            // Pre populated array of data
+        //     var myData = new Array();
+        //     myData[0] = 'Select'
+        //     myData[1] = 'Some text';
+        //     myData[2] = 'Some other text';
+        // </script>      -->
+         <!-- <form id="example" name="example">
+                 <select id="selector" name="selector">
+                     <option value=""></option>
+                     <option value=1>One</option>
+                     <option value=2>Two</option>
+                 </select>
+                 <br />
+                 <input type="text" value="" id="populateme" name="populateme" />
+           </form>
+        
+            <script type="text/javascript"> -->
+             <!--    document.example.selector.onchange = updateText;
+        
+                 function updateText() {
+                   var obj_sel = document.example.selector;
+                   document.example.populateme.value = myData[obj_sel.value];
+             }
+             </script> -->
+            
 </body>
