@@ -47,3 +47,7 @@ header h1 {
     display: flex;
 
 }
+.page{
+    display: flex;
+    width: auto;
+}
