@@ -40,13 +40,3 @@ Top of page is a nav of sorts with options,
 ** Goal is to escape
 
 
-// you wake up on the ground, shivering. It is pitch black. You don't know where you are. As a matter of fact, you dont know who you are. Who are you? --input name--
-
-// now that we've established who you are, what are you? You look to be a warrior of some sort, but what kind of warrior? A mage? a paladin? an archer? --select class--
-
-// you've sat here for a while now, and you eyes have had time to adjust. You notice the outline of a heavy wooden door, off in the distance. Looking around you you see a ragged looking leather chest, ((essentials-items depending on choice made, compass))
-
-// you can sit here forever if you'd like, but I dont much like the atmosphere here. how deep underground even are we? It stinks, it's dark and it's cold, and I'd like to get out, and the only way forward I can see is through that door. 
-
-//
-
