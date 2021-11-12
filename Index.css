@@ -30,6 +30,7 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+}
 
 *{
     box-sizing: border-box;
@@ -48,7 +49,158 @@ header h1 {
     text-align: left;
     margin: 2% 5%;
 }
-#cSheet {
-    margin: 10%;
-    display: flex;
+.pageContainer{
+	display: flex;
+	flex-flow: row no-wrap;
+	background-color: #695f4d;
+	border: 1px solid grey;
+}
+
+#cSheet{
+	width: 50%;
+	border: 6px solid black;
+}
+
+/* Top Section of cSheet */
+
+.cSheetTop {
+	display: flex;
+	justify-content: space-between;
+}
+
+.cSheetTop p{
+	margin: 2%;
+}
+
+.map{
+	width:60%;
+	margin: 3%;
+}
+
+.charArt{
+	display: flex;
+	flex-direction: column;
+	justify-content:center;
+}
+
+.charArt img{
+	width: 30%;
+	height: 30%;
+	margin: auto;
+}
+
+charArt span{
+	width: 100%;
+}
+
+/* Middle Section of cSheet */
+/* Problems Start Here */
+
+.cSheetMid {
+	display: flex;
+	width: 100%;
+	flex-flow: row no-wrap;
+	justify-content: space-between;
+}
+
+.cSheetMid div{
+	width:100%;
+	align-content: center;
+}
+
+.cSheetPlayerStats{
+	width: 40%;
+	display: flex;
+	flex-flow: column wrap;
+}
+
+.cSheetPlayerStats div{
+	display: flex;
+}
+
+.stat p{
+	padding: 4%;
+	width: 50%;
+	margin: 1%;
+	font-size: 1.4rem;
+}
+
+.cSheetPlayerValues{
+	width: 100%; 
+	display:flex;
+	flex-flow: column wrap;
+}
+
+div.cSheetPlayerValues{
+	margin: 1%;
+}
+
+.cSheetHealth{
+	display:flex;
+	flex-flow: row no-wrap;
+	padding:5%;
+	font-size: 1.5rem;
+}
+
+.cSheetHealth img{
+	width: 15%;
+}
+
+.cSheetArmor{
+	display:flex;
+	flex-flow: row no-wrap;
+	padding: 5%;
+}
+
+.cSheetArmor img{
+	width: 15%;
+}
+
+.cSheetWeapon{
+	display:flex;
+	flex-flow: row nowrap;
+	padding: 5%;
+	font-size: 1.5rem;
+}
+
+.cSheetWeapon img{
+	width: 15%;
+	
+}
+
+.cSheetBottom{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+
+.cSheetInventory{
+	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-evenly;
+	padding: 5%
+}
+
+.items{
+	width: 25%;
+	padding: 4%;
+	margin: 2%;
+}
+
+#room{
+	width: 50%;
+    height: 70vh;
+	border: 6px solid black;
+}
+#room1 {
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    grid-template-rows: 7vh 7vh 7vh 7vh 7vh 7vh 7vh 7vh 7vh 6vh;
+}
+#room1 div {
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
 }
