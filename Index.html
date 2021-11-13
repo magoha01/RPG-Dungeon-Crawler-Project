@@ -74,7 +74,7 @@
                     </div>
                 </section>
        <!-- Room HTML begins here -->
-<!--     <section id="room">
+        <section id="room">
         <select name="choices" id="rooms">
             <option value="first">First</option>
             <option value="second">Second</option>
@@ -84,10 +84,12 @@
         <button onclick='explore()'>Explore!</button>
         <button onclick='stat1Increment()'>Increment stat1!</button>
         <h2 id="tester">This is a thing!</h2>
-        <button id= roomOption1 onclick= ''></button>
-        <button id= roomOption2 onclick= ''></button>
-        <button id= roomOption3 onclick= ''></button> -->
-      
+        <button id= roomOption1 onclick= 'option1()'></button>
+        <button id= roomOption2 onclick= 'option2()'></button>
+        <button id= roomOption3 onclick= ''></button>
+        <button id= roomOption4 onclick= ''></button>
+        <div id="roomIdTester"></div>
+   
       <section id='room'>
             <div class="map1">
                 <div id = room1>
@@ -396,6 +398,7 @@
         </section>
     </div>
       <!-- Everthing below is proof of concept with JS 
+
             <script type="text/javascript">
             tester = document.getElementById("tester")
             roomButton = document.getElementById("room")
