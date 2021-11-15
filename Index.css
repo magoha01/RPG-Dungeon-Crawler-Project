@@ -21,20 +21,19 @@ time, mark, audio, video {
 } 
 /*GENERAL STYLES*/
 
-
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
+
 *{
     box-sizing: border-box;
     padding:0;
     margin:0;
     max-width:100%;
-    border:3px solid black; 
-   
+    /* border:1px solid black;  */
 }
 
 html{
@@ -48,14 +47,17 @@ body{
     font-family: 'Press Start 2P', cursive;
     background-color: #8b0000;
 	max-width: 100%;
-    margin:20%;
+	height: 100%;
+	margin: 2%;
 }
+
 header {
-    border-bottom: 4px solid black;
+    border-bottom: 1px solid black;
 }	
 
 header h1{
-    text-align: left;
+    text-align: center;
+	margin: auto;
 }
 
 h1 {
@@ -66,18 +68,23 @@ h1 {
 
 /* BEGIN INTERFACE CSS */
 
-.pageContainer{
+#interfaceWrapper{
 	display: flex;
 	flex-flow: row no-wrap;
 	background-color: #695f4d;
 	border: 1px solid grey;
-    width: 100%;
-    margin: auto;
+    max-width: 80%;
+    margin: 2% auto;
 }
 
-#cSheet{
-	width: 50%;
+/* Begin cSheet Css */
+
+#cSheetContainer{
+	max-width: 50%;
 	border: 6px solid black;
+    margin: 1%;
+    display: flex;
+    flex-flow: column nowrap;
 }
 
 /* Top Section of cSheet */
@@ -92,14 +99,22 @@ h1 {
 }
 
 .map{
-	width:60%;
-	margin: 3%;
+	width:58%;
+	margin: 1%;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 7vh 7vh 7vh 7vh 7vh 7vh;
+	font-size: 1.2rem;
+	border:3px solid black;
 }
 
 .charArt{
 	display: flex;
 	flex-direction: column;
-	justify-content:center;
+	justify-content: center;
+    margin: 1%;
+    width: 38%;
+	border: 3px solid black;
 }
 
 .charArt img{
@@ -108,106 +123,186 @@ h1 {
 	margin: auto;
 }
 
-charArt span{
-	width: 100%;
+.charArt p{
+	max-width: 100%;
+	font-size: 1.3rem;
+	padding: 3%;
+	border: 1px solid black;
+}
+
+#playerName{
+	font-size: 1.5rem;
 }
 
 /* Middle Section of cSheet */
+
 .cSheetMid {
 	display: flex;
 	width: 100%;
 	flex-flow: row no-wrap;
 	justify-content: space-between;
-}
-
-.cSheetMid div{
-	width:100%;
-	align-content: center;
+	font-size: 1.4rem;
+	text-align: left;
 }
 
 .cSheetPlayerStats{
-	width: 40%;
+	width: 48%;
 	display: flex;
 	flex-flow: column wrap;
+	margin: 1%;
+	border: 2px solid black;
 }
 
 .cSheetPlayerStats div{
 	display: flex;
+	flex-direction: row;
+	width: 98%;
+}
+
+.cSheetStatField{
+	margin: 1%;
+	border:1px solid black;
 }
 
 .cSheetStatField p{
-	padding: 4%;
+	padding: 5%;
 	width: 50%;
 	margin: 1%;
-	font-size: 1.4rem;
 }
 
 .cSheetPlayerValues{
-	width: 100%; 
+	width: 48%; 
 	display:flex;
 	flex-flow: column wrap;
+	margin: 1%;
+	font-size: 1.3rem;
+	border: 2px solid black;
 }
 
-div.cSheetPlayerValues{
-	margin: 1%;
+.cSheetPlayerValues div{
+	display: flex;
+	flex-direction: row;
+	width: 98%;
 }
 
 .cSheetHealth{
-	display:flex;
-	flex-flow: row no-wrap;
-	padding:5%;
-	font-size: 1.5rem;
+	margin: 1%;
+	border:1px solid black;
 }
 
 .cSheetHealth img{
-	width: 15%;
+	width: 20%;
+	margin: 1%;
+}
+
+.cSheetHealth p{
+	margin: 1% 0% 1% 0%;
+	width: 50%;
+	padding: 5.5%;
+}
+
+#healthVal{
+	width: 26%;
+	margin: 1% 0% 1% 1%;
 }
 
 .cSheetArmor{
-	display:flex;
-	flex-flow: row no-wrap;
-	padding: 5%;
+	margin: 1%;
+	border:1px solid black;
 }
 
 .cSheetArmor img{
-	width: 15%;
+	width: 20%;
+	margin: 1%;
+}
+
+.cSheetArmor p{
+	margin: 1% 0% 1% 0%;
+	width: 50%;
+	padding: 5.5%;
+	text-align: left;
+}
+
+#armorVal{
+	width: 26%;
+	margin: 1% 0% 1% 1%;
 }
 
 .cSheetWeapon{
-	display:flex;
-	flex-flow: row no-wrap;
-	padding: 5%;
-	font-size: 1.5rem;
+	margin: 1%;
+	border:1px solid black;
 }
 
 .cSheetWeapon img{
-	width: 15%;
-	
+	width: 20%;
+	margin: 1%;
 }
+
+.cSheetWeapon p{
+	margin: 1% 0% 1% 0%;
+	width: 50%;
+	padding: 5.5%;
+}
+
+#weaponVal{
+	width: 26%;
+	margin: 1% 0% 1% 1%;
+}
+
+/* Begin Bottom of cSheet */
 
 .cSheetBottom{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	text-align: center;
+	margin: 1%;
+}
+
+.cSheetBottom div{
+	margin: 1%;
+}
+
+.cSheetBottom h3{
+	border: 2px solid black;
 }
 
 .cSheetInventory{
-	width: 100%;
+	max-width: 100%;
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: space-evenly;
-	padding: 5%
+	border: 3px solid black;
 }
 
 .items{
-	width: 25%;
-	padding: 4%;
-	margin: 2%;
+	width: 20%;
+	padding: 5%;
+	margin: 5%;
+	border: 1px solid black;
+	background-color: grey;
 }
 
-#room{
+
+#roomContainer{
 	width: 50%;
 	border: 6px solid black;
+	margin: 1% 1% 1% 0%;
+}
+#rooms {
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto auto;
+	font-size: 1.2rem;
+	padding: 1%;
+}
+
+#rooms div{
+	max-width: 100%;
+}
+
+#room1 div {
+    max-width: 100%;
+    /* border: 1px solid black; */
 }
 
