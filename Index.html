@@ -12,19 +12,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <title>Lambda RPG- A Journey Underground</title>
-
 </head>
-    <body>
+    <body> <!--Main Content-->
         <header>
         <h1>
             Lambda RPG- A Journey Underground
         </h1>
     </header>
         <div class= "pageContainer">
-            <section id='cSheet'>
+            <section id='cSheet'> <!--Start cSheet-->
                 <div class = "cSheetTop">
-                    <section id='map'>
-                        <div class="mapFloor1">
+                    <section id='map'> <!--Start Mini Map-->
+                        <div class="mapFloor1"> 
                                 <div id='rm1'></div>
                                 <div id='rm2'></div>
                                 <div id='rm3'></div>
@@ -126,14 +125,14 @@
                                 <div id='rm99'></div>
                                 <div id='rm100'></div>
                         </div>
-                    </section>
+                    </section> <!--End of Mini Map-->
                     <div class="charArt">
                         <img src = "cSheet_Icons/Player1.png">
                         <p id=playerName>playerName</p>
                         <p>Status: playerStatus</p>
                     </div>
                 </div>
-                <div class="cSheetMid">
+                <div class="cSheetMid"> <!--Start of cSheetMid-->
                     <div class="cSheetPlayerStats">
                         <div><p class ="stat">Stat1:</p><p id="cSheetStatField1" class = "statValue">Stat</p></div>
                         <div><p class ="stat">Stat2:</p><p id="cSheetStatField2" class = "statValue">Stat</p></div>
@@ -157,7 +156,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="cSheetBottom">
+                <div class="cSheetBottom"> <!--Start of cSheetBottom-->
                     <h3>Inventory</h3>
                         <div class="cSheetInventory">
                                 <p><img id = "item1" src=''/>Item 1</p>
@@ -167,27 +166,22 @@
                                 <p><img id = "item5" src=''/>Item 5</p>
                                 <p><img id = "item6" src=''/>Item 6</p>  
                         </div>    
-
                     </div>  
                 </section> 
-                    <section class="rightSide">
-                        <div class="right">
-                           
+                    <section class="rightSide"> <!--Start of rightSide-->
+                        <div class="right"> <!--start Room buttons-->
                             <button onclick='Button()'>Room Button</button>
-                            <!-- <button onclick='explore()'>Explore!</button> -->
                             <button onclick='stat1Increment()'>Increment stat1!</button>
                             <button id= roomOption1 onclick= 'option1()'></button>
                             <button id= roomOption2 onclick= 'option2()'></button>
                             <button id= roomOption3 onclick= 'option3()'></button>
                             <button id= roomOption4 onclick= 'option4()'></button>
                             <div id="roomIdTester"></div>   
-                        </div>  
-                    </section> 
-                </div>
-
-
-    </body>
-    <script type="text/javascript">
+                        </div> <!--End of Room Buttons-->
+                    </section> <!--End of rightSide-->
+                </div> <!--End of pageContainer-->
+    </body> <!--End of Main Content-->
+    <script type="text/javascript"> //Javascript script
         document.getElementById("cSheetStatField1").innerHTML = `${player.stat1}`;
         document.getElementById("cSheetStatField2").innerHTML = `${player.stat2}`;
         document.getElementById("cSheetStatField3").innerHTML = `${player.stat3}`;
@@ -209,7 +203,5 @@
         if(roomArr[player.room].option4Text != null){
             document.getElementById("roomOption3").innerHTML = `${roomArr[player.room].option4Text}`;
         }
-        
-
-    </script> 
+    </script> <!--End Javascript Script-->
 </html>
