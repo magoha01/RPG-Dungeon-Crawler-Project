@@ -127,46 +127,6 @@
                                 <div id='rm100'></div>
                         </div>
                     </section>
-                  <!-- Everything below is proof of concept with JS 
-            
-                        <script type="text/javascript">
-                        tester = document.getElementById("tester")
-                        roomButton = document.getElementById("room")
-                        roomButton.onclick =  function Button ()  {
-                // let toggle = 0
-                if(toggle = false){
-                document.getElementById("tester").innerHTML = "New text!";
-                toggle = true
-            } else if (toggle = true){
-                document.getElementById("tester").innerHTML = "Something Else!";
-                toggle = false
-            }
-                        }
-                    </script> -->
-                    <!-- <script type="text/javascript">
-                        // Pre populated array of data
-                    //     var myData = new Array();
-                    //     myData[0] = 'Select'
-                    //     myData[1] = 'Some text';
-                    //     myData[2] = 'Some other text';
-                    // </script>      -->
-                     <!-- <form id="example" name="example">
-                             <select id="selector" name="selector">
-                                 <option value=""></option>
-                                 <option value=1>One</option>
-                                 <option value=2>Two</option>
-                             </select>
-                             <br />
-                             <input type="text" value="" id="populateme" name="populateme" />
-                       </form>
-                    
-                        <script type="text/javascript"> -->
-                         <!--    document.example.selector.onchange = updateText;
-                    
-                             function updateText() {
-                               var obj_sel = document.example.selector;
-                               document.example.populateme.value = myData[obj_sel.value];
-                         </script> -->
                     <div class="charArt">
                         <img src = "cSheet_Icons/Player1.png">
                         <p id=playerName>playerName</p>
@@ -200,30 +160,26 @@
                 <div class="cSheetBottom">
                     <h3>Inventory</h3>
                         <div class="cSheetInventory">
-                                <p ><img id = "item1" src=''/>Item 1</p>
-                                <p id = "items">Item 2</p>
-                                <p id = "items">Item 3</p>
-                                <p id = "items">Item 4</p>
-                                <p id = "items">Item 5</p>
-                                <p id = "items">Item 6</p>  
+                                <p><img id = "item1" src=''/>Item 1</p>
+                                <p><img id = "item2" src=''/>Item 2</p>
+                                <p><img id = "item3" src=''/>Item 3</p>
+                                <p><img id = "item4" src=''/>Item 4</p>
+                                <p><img id = "item5" src=''/>Item 5</p>
+                                <p><img id = "item6" src=''/>Item 6</p>  
                         </div>    
 
                     </div>  
                 </section> 
                     <section class="rightSide">
                         <div class="right">
-                            <select name="choices" id="rooms">
-                                <option value="first">First</option>
-                                <option value="second">Second</option>
-                                <option value="third">Third</option>
-                            </select>
+                           
                             <button onclick='Button()'>Room Button</button>
-                            <button onclick='explore()'>Explore!</button>
+                            <!-- <button onclick='explore()'>Explore!</button> -->
                             <button onclick='stat1Increment()'>Increment stat1!</button>
                             <button id= roomOption1 onclick= 'option1()'></button>
                             <button id= roomOption2 onclick= 'option2()'></button>
-                            <button id= roomOption3 onclick= ''></button>
-                            <button id= roomOption4 onclick= ''></button>
+                            <button id= roomOption3 onclick= 'option3()'></button>
+                            <button id= roomOption4 onclick= 'option4()'></button>
                             <div id="roomIdTester"></div>   
                         </div>  
                     </section> 
@@ -240,5 +196,20 @@
         document.getElementById("cSheetWeapon").innerHTML = `${player.dmg}`;
         document.getElementById("playerName").innerHTML = `${player.playerName}`;
         // document.getElementById("testTest").innerHTML = toggle;
+        document.getElementById("roomIdTester").innerHTML = `${player.room}`
+        if(roomArr[player.room].option1Text != null){
+        document.getElementById("roomOption1").innerHTML = `${roomArr[player.room].option1Text}`;
+        }
+        if(roomArr[player.room].option2Text != null){
+        document.getElementById("roomOption2").innerHTML = `${roomArr[player.room].option2Text}`;
+        }
+        if(roomArr[player.room].option3Text != null){
+        document.getElementById("roomOption3").innerHTML = `${roomArr[player.room].option3Text}`;
+        }
+        if(roomArr[player.room].option4Text != null){
+            document.getElementById("roomOption3").innerHTML = `${roomArr[player.room].option4Text}`;
+        }
+        
+
     </script> 
 </html>
