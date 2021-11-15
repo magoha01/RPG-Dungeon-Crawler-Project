@@ -307,10 +307,7 @@ div.cSheetPlayerValues {
   margin: 2%;
 }
 
-/* #cSheet {
-    margin: 10%;
-    display: flex;
-} */
+
 
 /* Right Side */
 
@@ -332,4 +329,9 @@ div.cSheetPlayerValues {
   display: flex;
   justify-content: center;
   align-items: center;
+=======
+.page{
+    display: flex;
+    width: auto;
+
 }

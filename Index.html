@@ -12,15 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <title>Lambda RPG- A Journey Underground</title>
-    <script>
-        document.getElementById("cSheetStatField1").innerHTML = `Stat 1: ${player.stat1}`;
-        document.getElementById("cSheetStatField2").innerHTML = `Stat 2: ${player.stat2}`;
-        document.getElementById("cSheetStatField3").innerHTML = `Stat 3: ${player.stat3}`;
-        document.getElementById("cSheetHealth").innerHTML = `Health: ${player.hpCurrent}/${player.hpTotal}`;
-        document.getElementById("cSheetArmor").innerHTML = `Armor: ${player.armor}`;
-        document.getElementById("cSheetWeapon").innerHTML = `Damage: ${player.dmg}`;
-        document.getElementById("testTest").innerHTML = toggle;
-    </script> 
+
 </head>
     <body>
         <header>
@@ -177,44 +169,45 @@
                          </script> -->
                     <div class="charArt">
                         <img src = "cSheet_Icons/Player1.png">
-                        <p>playerName</p>
+                        <p id=playerName>playerName</p>
                         <p>Status: playerStatus</p>
                     </div>
                 </div>
                 <div class="cSheetMid">
                     <div class="cSheetPlayerStats">
-                        <div class="cSheetStatField"><p class ="stat">Stat1:</p><p class = "statValue">Stat</p></div>
-                        <div class="cSheetStatField"><p class ="stat">Stat2:</p><p class = "statValue">Stat</p></div>
-                        <div class="cSheetStatField"><p class ="stat">Stat3:</p><p class = "statValue">Stat</p></div>
+                        <div><p class ="stat">Stat1:</p><p id="cSheetStatField1" class = "statValue">Stat</p></div>
+                        <div><p class ="stat">Stat2:</p><p id="cSheetStatField2" class = "statValue">Stat</p></div>
+                        <div><p class ="stat">Stat3:</p><p id="cSheetStatField3" class = "statValue">Stat</p></div>
                     </div>
                     <div class="cSheetPlayerValues">
                         <div class="cSheetHealth"> 
                             <img src = "cSheet_Icons/heart pixel art.png"> 
                             <p>Health:</p>
-                            <p>VAL</p>
+                            <p id=cSheetHealth>VAL</p>
                         </div>
                         <div class="cSheetArmor"> 
                             <img src = "cSheet_Icons/Shield1.png"> 
                             <p>Armor:</p>
-                            <p>VAL</p>
+                            <p id=cSheetArmor>VAL</p>
                         </div>
                         <div class="cSheetWeapon">
                             <img src = "cSheet_Icons/sword_small (1).png">
                             <p>Weapon:</p>
-                            <p>VAL</p>
+                            <p id=cSheetWeapon>VAL</p>
                         </div>
                     </div>
                 </div>
                 <div class="cSheetBottom">
                     <h3>Inventory</h3>
                         <div class="cSheetInventory">
-                                <p class = "items">Item 1</p>
-                                <p class = "items">Item 2</p>
-                                <p class = "items">Item 3</p>
-                                <p class = "items">Item 4</p>
-                                <p class = "items">Item 5</p>
-                                <p class = "items">Item 6</p>  
+                                <p ><img id = "item1" src=''/>Item 1</p>
+                                <p id = "items">Item 2</p>
+                                <p id = "items">Item 3</p>
+                                <p id = "items">Item 4</p>
+                                <p id = "items">Item 5</p>
+                                <p id = "items">Item 6</p>  
                         </div>    
+
                     </div>  
                 </section> 
                     <section class="rightSide">
@@ -235,5 +228,17 @@
                         </div>  
                     </section> 
                 </div>
+
+
     </body>
+    <script type="text/javascript">
+        document.getElementById("cSheetStatField1").innerHTML = `${player.stat1}`;
+        document.getElementById("cSheetStatField2").innerHTML = `${player.stat2}`;
+        document.getElementById("cSheetStatField3").innerHTML = `${player.stat3}`;
+        document.getElementById("cSheetHealth").innerHTML = `${player.hpCurrent}/${player.hpTotal}`;
+        document.getElementById("cSheetArmor").innerHTML = `${player.armor}`;
+        document.getElementById("cSheetWeapon").innerHTML = `${player.dmg}`;
+        document.getElementById("playerName").innerHTML = `${player.playerName}`;
+        // document.getElementById("testTest").innerHTML = toggle;
+    </script> 
 </html>
