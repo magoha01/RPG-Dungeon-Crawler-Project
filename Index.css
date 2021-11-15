@@ -226,10 +226,11 @@ div.cSheetPlayerValues{
     width: 100%;
     height: 100%;
     border: 1px solid black;
-#cSheet {
+}
+/* #cSheet {
     margin: 10%;
     display: flex;
-}
+} */
 .page{
     display: flex;
     width: auto;
