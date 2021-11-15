@@ -17,6 +17,7 @@ class Room {
     optionOne(){
        if(this.roomNorth != null){
            player.room = this.roomNorth
+           
        } else if(this.roomSouth != null){
         player.room = this.roomSouth
        } else if(this.roomEast != null){
@@ -82,8 +83,7 @@ class Room {
         } else if(this.roomWest != null && this.roomNorth != null && this.roomSouth != null || this.roomWest != null && this.roomNorth != null && this.roomEast != null || this.roomWest != null && this.roomSouth != null && this.roomEast != null){
          player.room = this.roomWest
         } else if(this.treasurePresent !== null){
-            itemArr[this.treasurePresent].loot()
-            player.inventory.push(itemArr[this.treasurePresent]);
+            itemArr[this.treasurePresent].loot();
             this.treasurePresent = null;
         }
         let room = player.room
@@ -108,26 +108,15 @@ class Room {
          document.getElementById("roomIdTester").innerHTML = `${player.room}`
          this.explored = true
      }
-    lootTreasure(){
-        // if(this.treasurePresent != null){
-            player.inventory.push(treasureArr[this.treasurePresent])
-            itemArr[this.treasurePresent].loot()
-            this.treasurePresent = null;
-
-        // }
-    }
 }
 function option1(){
-        let room = player.room
-        roomArr[room].optionOne()
+        roomArr[player.room].optionOne()
 }
 function option2(){
-    let room = player.room
-        roomArr[room].optionTwo()
+        roomArr[player.room].optionTwo()
 }
 function option3(){
-    let room = player.room
-    roomArr[room].optionThree()
+    roomArr[player.room].optionThree()
 }
 startingRoom = new Room({
     roomId: 0,
@@ -187,6 +176,7 @@ class Item{
     }
     loot(){
         let invSpot = `item${player.inventory.length +1}`;
+        player.inventory.push(itemArr[roomArr[player.room]])
         document.getElementById(invSpot).src = this.imgSrc
     }
 }
@@ -194,7 +184,15 @@ let key = new Item({
     itemId: 0,
     imgSrc: 'cSheet_Icons/Key.png'
 })
-let itemArr = [key]
+let potion = new Item({
+    itemId: 1,
+    imgSrc: 'cSheet_Icons/Potion.png'
+})
+let itemArr = [key, potion]
+
+
+
+// Player init
 let player = {
     playerName: 'Bill the Barbarian',
     stat1: 5,

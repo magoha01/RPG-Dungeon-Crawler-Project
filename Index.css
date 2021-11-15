@@ -206,11 +206,11 @@ charArt span {
   width: 100%;
 }
 
-#room {
+/* #room {
   width: 50%;
   height: 70vh;
   border: 6px solid black;
-}
+} */
 
 /* Middle Section of cSheet */
 .cSheetMid {
@@ -329,9 +329,4 @@ div.cSheetPlayerValues {
   display: flex;
   justify-content: center;
   align-items: center;
-=======
-.page{
-    display: flex;
-    width: auto;
-
 }
