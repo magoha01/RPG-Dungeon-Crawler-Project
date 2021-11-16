@@ -23,8 +23,8 @@ class Room {
         player.room = this.roomSouth
        } else if(this.roomEast != null){
         player.room = this.roomEast
-       } else if(this.roomEast != null){
-        player.room = this.roomSouth
+       } else if(this.roomWest != null){
+        player.room = this.roomWest
        }
        document.getElementById(roomArr[player.room].mapId).style.backgroundColor = 'black'
        let room = player.room;
@@ -65,6 +65,10 @@ class Room {
          player.room = this.roomEast
         } else if(this.roomWest != null){
          player.room = this.roomWest
+        } else if(this.treasurePresent !== null){
+            itemArr[this.treasurePresent].loot();
+            this.treasurePresent = null;
+            document.getElementById("roomOption2").innerHTML = ''
         }
         let room = player.room
         if(roomArr[room].option1Text != null){
@@ -79,7 +83,7 @@ class Room {
      }
      if(roomArr[room].option3Text != null){
      document.getElementById("roomOption3").innerHTML = `${roomArr[room].option3Text}`;
-     } else if(roomArr[room].treasurePresent != null){
+     } else if(roomArr[room].treasurePresent != null && roomArr[room].option2Text != null){
         document.getElementById("roomOption3").innerHTML = 'Loot the Chest!';
     } else {
        document.getElementById("roomOption3").innerHTML = '';
@@ -106,6 +110,7 @@ class Room {
         } else if(this.treasurePresent !== null){
             itemArr[this.treasurePresent].loot();
             this.treasurePresent = null;
+            document.getElementById("roomOption3").innerHTML = ''
         }
         document.getElementById(roomArr[player.room].mapId).style.backgroundColor = black
         let room = player.room
@@ -253,7 +258,7 @@ let room8 = new Room({
 })
 let room9 = new Room({
     roomId: 9, 
-    option1Text: 'Advance North to the next room!', 
+    option1Text: 'Return East!', 
     option2Text: null,
     option3Text: null,
     option4Text:null, 
@@ -297,14 +302,18 @@ class Enemy{
         this.hpTotal = att.hp
         this.dmg = att.dmg
         this.armor = att.armor
+        this.enemyImg = att.enemyImg
     }
+
+    
 }
 let slime = new Enemy({
    enemyId: 0,
    name: 'Slime',
    hp: 20,
    dmg: 6,
-   armor:2
+   armor:2,
+   enemyImg: 'cSheet_Icons/purple_blob.png'
 })
 let enemyArr = [slime]
 //          Combat Functions
@@ -322,38 +331,50 @@ function combatStart(){
     document.getElementById("enemyDefense").innerHTML = `${enemy[0].armor}`
     document.getElementById("enemyAttack").innerHTML = `${enemy[0].dmg}`
     document.getElementById("enemyName").innerHTML = `${enemy[0].name}`
-    document.getElementById(enemyImg).src = enemy[0].enemyImg
+    document.getElementById('enemyImg').src = `${enemy[0].enemyImg}`
+    document.getElementById('enemyHealthImg').src = "cSheet_Icons/heart pixel art.png"
+    document.getElementById('enemyDefenseImg').src = 'cSheet_Icons/Shield1.png'
+    document.getElementById('enemyAttackImg').src = 'cSheet_Icons/sword_small (1).png'
 }
 function combatEnd(){
     let room = player.room
     if(roomArr[room].option1Text != null){
- document.getElementById("roomOption1").innerHTML = `${roomArr[room].option1Text}`;
- }
- if(roomArr[room].option2Text != null){
- document.getElementById("roomOption2").innerHTML = `${roomArr[room].option2Text}`;
- } else{
-     document.getElementById("roomOption2").innerHTML = '';
- }
- if(roomArr[room].option3Text != null){
- document.getElementById("roomOption3").innerHTML = `${roomArr[room].option3Text}`;
- } else{
-     document.getElementById("roomOption3").innerHTML = '';
- }
- if(roomArr[room].option4Text != null){
-     document.getElementById("roomOption4").innerHTML = `${roomArr[room].option4Text}`;
-     }  else{
-         document.getElementById("roomOption4").innerHTML = '';
-     }
-     document.getElementById("combatLog").innerHTML = ''
+        document.getElementById("roomOption1").innerHTML = `${roomArr[room].option1Text}`;
+        }
+        if(roomArr[room].option2Text != null){
+        document.getElementById("roomOption2").innerHTML = `${roomArr[room].option2Text}`;
+        } else if(roomArr[room].treasurePresent != null){
+            document.getElementById("roomOption2").innerHTML = 'Loot the Chest!';
+        } else {
+           document.getElementById("roomOption2").innerHTML = '';
+        }
+        if(roomArr[room].option3Text != null){
+        document.getElementById("roomOption3").innerHTML = `${roomArr[room].option3Text}`;
+        } else if(roomArr[room].treasurePresent != null && roomArr[room].option2Text != null){
+           document.getElementById("roomOption3").innerHTML = 'Loot the Chest!';
+       } else {
+          document.getElementById("roomOption3").innerHTML = '';
+       }
+        if(roomArr[room].option4Text != null){
+            document.getElementById("roomOption4").innerHTML = `${roomArr[room].option4Text}`;
+            }  else{
+                document.getElementById("roomOption4").innerHTML = '';
+            }
+     document.getElementById('enemyImg').src = ''
      document.getElementById("enemyHealth").innerHTML = ``
      document.getElementById("enemyDefense").innerHTML = ``
      document.getElementById("enemyAttack").innerHTML = ``
      document.getElementById("enemyName").innerHTML = ``
+     document.getElementById('enemyHealthImg').src = ""
      roomArr[room].enemyPresent = null;
      document.getElementById("roomOption1").onclick = option1
      document.getElementById("roomOption2").onclick = option2
      document.getElementById("roomOption3").onclick = option3
      document.getElementById("roomOption4").onclick = ''
+     document.getElementById('enemyHealthImg').src = ""
+     document.getElementById('enemyDefenseImg').src = ''
+     document.getElementById('enemyAttackImg').src = ''
+     document.getElementById("combatLog").innerHTML = ''
 }
 function attack(){
     enemy[0].hpCurrent -= player.dmg - enemy[0].armor
@@ -386,15 +407,15 @@ function enemyTurn(){
     let action = Math.floor(Math.random()* 3)
     if(action === 0){
         player.hpCurrent -= (enemy[0].dmg - player.armor);
-        document.getElementById("combatLog").innerHTML = `${enemy[0].name} Attacks!}`;
+        document.getElementById("combatLog").innerHTML = `${enemy[0].name} Attacks!`;
     }else if(action === 1){
         enemy[0].armor =+  2;
-        document.getElementById("combatLog").innerHTML = `${enemy[0].name} Defends!}`;
-    }else 
+        document.getElementById("combatLog").innerHTML = `${enemy[0].name} Defends!`;
+    }else
     if(action === 2){
         player.hpCurrent -= Math.floor(enemy[0].dmg * 1.5) - player.armor;
         enemy[0].armor -= 2;
-        document.getElementById("combatLog").innerHTML = `${enemyArr[0].name} Power Attacks!}`;
+        document.getElementById("combatLog").innerHTML = `${enemyArr[0].name} Power Attacks!`;
     }
     document.getElementById("cSheetHealth").innerHTML = `${player.hpCurrent}/${player.hpTotal}`;
 }
@@ -438,16 +459,18 @@ roomArr[player.room].optionThree()
 //         document.getElementById("roomIdTester").innerHTML = `${player.room}`
 // }
 
-function stat1Increment(){
-    player.stat1++
-    document.getElementById("cSheetStatField1").innerHTML = `${player.stat1}`;
-}
+// function stat1Increment(){
+//     player.stat1++
+//     document.getElementById("cSheetStatField1").innerHTML = `${player.stat1}`;
+// }
 
 // let toggle = false
 function Button ()  {
     // document.getElementById("roomOption2").onclick = stat1Increment
     // document.getElementById("combatLog").innerHTML = `${enemy[0].name} Attacks!}`
     combatEnd()
+    // let img = slime.enemyImg
+    // document.getElementById('enemyImg').src = `${img}`
     // itemArr[0].loot()
     // itemArr[0].loot()
     // let one = 1
