@@ -297,14 +297,18 @@ class Enemy{
         this.hpTotal = att.hp
         this.dmg = att.dmg
         this.armor = att.armor
+        this.enemyImg = att.enemyImg
     }
+
+    
 }
 let slime = new Enemy({
    enemyId: 0,
    name: 'Slime',
    hp: 20,
    dmg: 6,
-   armor:2
+   armor:2,
+   enemyImg: 'cSheet_Icons/purple_blob.png'
 })
 let enemyArr = [slime]
 //          Combat Functions
@@ -322,7 +326,10 @@ function combatStart(){
     document.getElementById("enemyDefense").innerHTML = `${enemy[0].armor}`
     document.getElementById("enemyAttack").innerHTML = `${enemy[0].dmg}`
     document.getElementById("enemyName").innerHTML = `${enemy[0].name}`
-    document.getElementById(enemyImg).src = enemy[0].enemyImg
+    document.getElementById('enemyImg').src = `${enemy[0].enemyImg}`
+    document.getElementById('enemyHealthImg').src = "cSheet_Icons/heart pixel art.png"
+    document.getElementById('enemyDefenseImg').src = 'cSheet_Icons/Shield1.png'
+    document.getElementById('enemyAttackImg').src = 'cSheet_Icons/sword_small (1).png'
 }
 function combatEnd(){
     let room = player.room
@@ -344,16 +351,21 @@ function combatEnd(){
      }  else{
          document.getElementById("roomOption4").innerHTML = '';
      }
+     document.getElementById('enemyImg').src = ''
      document.getElementById("combatLog").innerHTML = ''
      document.getElementById("enemyHealth").innerHTML = ``
      document.getElementById("enemyDefense").innerHTML = ``
      document.getElementById("enemyAttack").innerHTML = ``
      document.getElementById("enemyName").innerHTML = ``
+     document.getElementById('enemyHealthImg').src = ""
      roomArr[room].enemyPresent = null;
      document.getElementById("roomOption1").onclick = option1
      document.getElementById("roomOption2").onclick = option2
      document.getElementById("roomOption3").onclick = option3
      document.getElementById("roomOption4").onclick = ''
+     document.getElementById('enemyHealthImg').src = ""
+     document.getElementById('enemyDefenseImg').src = ''
+     document.getElementById('enemyAttackImg').src = ''
 }
 function attack(){
     enemy[0].hpCurrent -= player.dmg - enemy[0].armor
@@ -448,6 +460,8 @@ function Button ()  {
     // document.getElementById("roomOption2").onclick = stat1Increment
     // document.getElementById("combatLog").innerHTML = `${enemy[0].name} Attacks!}`
     combatEnd()
+    let img = slime.enemyImg
+    document.getElementById('enemyImg').src = `${img}`
     // itemArr[0].loot()
     // itemArr[0].loot()
     // let one = 1
