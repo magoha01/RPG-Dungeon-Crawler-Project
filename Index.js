@@ -12,12 +12,13 @@ class Room {
         this.roomSouth = roomAtt.roomSouth
         this.treasurePresent = roomAtt.treasurePresent
         this.explored = false
+        this.enemyPresent = roomAtt.enemyPresent
+        this.mapId = roomAtt.mapId
     }
     
     optionOne(){
        if(this.roomNorth != null){
            player.room = this.roomNorth
-           
        } else if(this.roomSouth != null){
         player.room = this.roomSouth
        } else if(this.roomEast != null){
@@ -25,25 +26,36 @@ class Room {
        } else if(this.roomEast != null){
         player.room = this.roomSouth
        }
-       let room = player.room
+    //    document.getElementById(roomArr[player.room].mapId).style.backgroundColor = black
+       let room = player.room;
+       
        if(roomArr[room].option1Text != null){
     document.getElementById("roomOption1").innerHTML = `${roomArr[room].option1Text}`;
     }
     if(roomArr[room].option2Text != null){
     document.getElementById("roomOption2").innerHTML = `${roomArr[room].option2Text}`;
-    } else{
-        document.getElementById("roomOption2").innerHTML = '';
+    } 
+    // else if(roomArr[room].treasurePresent != null){
+        // document.getElementById("roomOption2").innerHTML = 'Loot the Chest!';
+    // } 
+    else {
+       document.getElementById("roomOption2").innerHTML = '';
     }
     if(roomArr[room].option3Text != null){
     document.getElementById("roomOption3").innerHTML = `${roomArr[room].option3Text}`;
-    } else{
-        document.getElementById("roomOption3").innerHTML = '';
+    // } else if(roomArr[room].treasurePresent != null){
+        // document.getElementById("roomOption3").innerHTML = 'Loot the Chest!';
+    } else {
+       document.getElementById("roomOption3").innerHTML = '';
     }
     if(roomArr[room].option4Text != null){
         document.getElementById("roomOption4").innerHTML = `${roomArr[room].option4Text}`;
         }  else{
             document.getElementById("roomOption4").innerHTML = '';
         }
+    if(roomArr[room].enemyPresent != null){
+            combatStart()
+       }
         document.getElementById("roomIdTester").innerHTML = `${player.room}`
         this.explored = true
     }
@@ -55,20 +67,25 @@ class Room {
         } else if(this.roomWest != null){
          player.room = this.roomWest
         }
+        document.getElementById(roomArr[player.room].mapId).style.backgroundColor = 'black'
         let room = player.room
         if(roomArr[room].option1Text != null){
      document.getElementById("roomOption1").innerHTML = `${roomArr[room].option1Text}`;
      }
      if(roomArr[room].option2Text != null){
      document.getElementById("roomOption2").innerHTML = `${roomArr[room].option2Text}`;
-     } else{
-         document.getElementById("roomOption2").innerHTML = '';
+     } else if(roomArr[room].treasurePresent != null){
+         document.getElementById("roomOption2").innerHTML = 'Loot the Chest!';
+     } else {
+        document.getElementById("roomOption2").innerHTML = '';
      }
      if(roomArr[room].option3Text != null){
      document.getElementById("roomOption3").innerHTML = `${roomArr[room].option3Text}`;
-     } else{
-         document.getElementById("roomOption3").innerHTML = '';
-     }
+     } else if(roomArr[room].treasurePresent != null){
+        document.getElementById("roomOption3").innerHTML = 'Loot the Chest!';
+    } else {
+       document.getElementById("roomOption3").innerHTML = '';
+    }
      if(roomArr[room].option4Text != null){
          document.getElementById("roomOption4").innerHTML = `${roomArr[room].option4Text}`;
          }  else{
@@ -86,6 +103,7 @@ class Room {
             itemArr[this.treasurePresent].loot();
             this.treasurePresent = null;
         }
+        document.getElementById(roomArr[player.room].mapId).style.backgroundColor = black
         let room = player.room
         if(roomArr[room].option1Text != null){
      document.getElementById("roomOption1").innerHTML = `${roomArr[room].option1Text}`;
@@ -122,32 +140,35 @@ startingRoom = new Room({
     roomId: 0,
     option1Text:'Advance North to the next room!', 
     option2Text:'Advance West to the next room!', 
-    option3Text:'Loot the Chest!', 
+    option3Text: null,
     option4Text:null, 
     roomNorth: 1, 
     roomWest: 2, 
     roomEast: null, 
     roomSouth: null,
-    treasurePresent: 0
+    treasurePresent: null,
+    mapId: 'rm15'
 })
 startingRoom.explored = true
 secondRoom = new Room({
     roomId: 1, 
     option1Text: 'Advance South to the next room!', 
     option2Text:'Advance West to the next room!', 
-    option3Text: `Loot the Chest!`, 
+    option3Text: null,
     option4Text:null, 
     roomNorth: null, 
     roomWest: 3, 
     roomEast: null, 
     roomSouth: 0,
-    treasurePresent: 1
+    treasurePresent: 1,
+    enemyPresent: 0,
+    mapId: 'rm25'
 })
 thirdRoom = new Room({
     roomId: 2, 
     option1Text: 'Advance North to the next room!', 
     option2Text: 'Advance East to the next room!', 
-    option3Text: `Loot the Chest!`, 
+    option3Text: null,
     option4Text:null, 
     roomNorth: 3, 
     roomWest: null, 
@@ -159,7 +180,7 @@ fourthRoom = new Room({
     roomId:3, 
     option1Text: 'Advance South to the next room!', 
     option2Text: 'Advance East to the next room!', 
-    option3Text: `Loot the Chest!`, 
+    option3Text: null, 
     option4Text:null, 
     roomNorth: null, 
     roomWest: null,
@@ -176,8 +197,9 @@ class Item{
     }
     loot(){
         let invSpot = `item${player.inventory.length +1}`;
-        player.inventory.push(itemArr[roomArr[player.room]])
+        player.inventory.push(this)
         document.getElementById(invSpot).src = this.imgSrc
+        roomArr[player.room].treasurePresent = null
     }
 }
 let key = new Item({
@@ -190,38 +212,122 @@ let potion = new Item({
 })
 let itemArr = [key, potion]
 
-
-
-// Player init
+//          Enemy class init
+class Enemy{
+    constructor(att){
+        this.enemyId = att.enemyId
+        this.name = att.name
+        this.hpCurrent = att.hp
+        this.hpTotal = att.hp
+        this.dmg = att.dmg
+        this.armor = att.armor
+    }
+}
+let slime = new Enemy({
+   enemyId: 0,
+   name: 'Slime',
+   hp: 20,
+   dmg: 8,
+   armor:2
+})
+let enemyArr = [slime]
+//          Combat Functions
+function combatStart(){
+    enemy.push(enemyArr[roomArr[player.room].enemyPresent])
+    document.getElementById("roomOption1").onclick = attack
+    document.getElementById("roomOption1").innerHTML = `Attack!`
+    document.getElementById("roomOption2").onclick = defend
+    document.getElementById("roomOption2").innerHTML = `Defend!`
+    document.getElementById("roomOption3").onclick = powerAttack
+    document.getElementById("roomOption3").innerHTML = `Power Attack!`
+    document.getElementById("roomOption4").onclick = ''
+    document.getElementById("roomOption4").innerHTML = ``
+}
+function combatEnd(){
+    let room = player.room
+    if(roomArr[room].option1Text != null){
+ document.getElementById("roomOption1").innerHTML = `${roomArr[room].option1Text}`;
+ }
+ if(roomArr[room].option2Text != null){
+ document.getElementById("roomOption2").innerHTML = `${roomArr[room].option2Text}`;
+ } else{
+     document.getElementById("roomOption2").innerHTML = '';
+ }
+ if(roomArr[room].option3Text != null){
+ document.getElementById("roomOption3").innerHTML = `${roomArr[room].option3Text}`;
+ } else{
+     document.getElementById("roomOption3").innerHTML = '';
+ }
+ if(roomArr[room].option4Text != null){
+     document.getElementById("roomOption4").innerHTML = `${roomArr[room].option4Text}`;
+     }  else{
+         document.getElementById("roomOption4").innerHTML = '';
+     }
+     document.getElementById("roomOption1").onclick = option1
+     document.getElementById("roomOption2").onclick = option2
+     document.getElementById("roomOption3").onclick = option3
+     document.getElementById("roomOption4").onclick = ''
+}
+function attack(){
+    enemy[0].hpCurrent -= player.dmg - enemy[0].armor
+    if(enemy[0].hpCurrent <= 0){
+        enemy.pop
+        combatEnd()
+    }
+    enemyTurn()
+}
+function defend(){
+    player.armor += Math.ceiling(player.armor/3)
+    enemyTurn()
+}
+function powerAttack(){
+    enemy[0].hpCurrent -= (Math.floor(player.dmg * 1.5) - enemy[0].armor)
+    player.armor -= Math.ceiling(player.armor/3)
+    enemyTurn()
+}
+let enemy = []
+function enemyTurn(){
+    let action = Math.floor(Math.random()* 3)
+    // if(action === 0){
+        // player.hpCurrent -= (enemy[0].dmg - player.armor)
+    // }else if(action === 1){
+    //     enemy[0].armor =+ Math.ceiling(enemy[0].armor/3)
+    // }else if(action === 2){
+        player.hpCurrent -= Math.floor(enemy[0].dmg * 1.5) - player.armor
+    //     enemy[0].armor -= Math.ceiling(enemy[0].armor/3)
+    // }
+    document.getElementById("cSheetHealth").innerHTML = `${player.hpCurrent}/${player.hpTotal}`
+}
+//          Player init
 let player = {
     playerName: 'Bill the Barbarian',
     stat1: 5,
     stat2: 4,
     stat3: 07,
-    hpCurrent: 10,
-    hpTotal: 15,
-    armor: 20,
-    dmg: 22,
+    hpCurrent: 25,
+    hpTotal: 25,
+    armor: 3,
+    dmg: 4,
     room: 0,
     inventory: []
 }
 // Button Functionality
-function explore(){
-    let room = player.room
-    if(roomArr[room].option1Text != null){
-        document.getElementById("roomOption1").innerHTML = `${roomArr[room].option1Text}`;
-        }
-        if(roomArr[room].option2Text != null){
-        document.getElementById("roomOption2").innerHTML = `${roomArr[room].option2Text}`;
-        }
-        if(roomArr[room].option3Text != null){
-        document.getElementById("roomOption3").innerHTML = `${roomArr[room].option3Text}`;
-        }
-        if(roomArr[room].option4Text != null){
-            document.getElementById("roomOption3").innerHTML = `${roomArr[room].option4Text}`;
-        }
-        document.getElementById("roomIdTester").innerHTML = `${player.room}`
-}
+// function explore(){
+//     let room = player.room
+//     if(roomArr[room].option1Text != null){
+//         document.getElementById("roomOption1").innerHTML = `${roomArr[room].option1Text}`;
+//         }
+//         if(roomArr[room].option2Text != null){
+//         document.getElementById("roomOption2").innerHTML = `${roomArr[room].option2Text}`;
+//         }
+//         if(roomArr[room].option3Text != null){
+//         document.getElementById("roomOption3").innerHTML = `${roomArr[room].option3Text}`;
+//         }
+//         if(roomArr[room].option4Text != null){
+//             document.getElementById("roomOption3").innerHTML = `${roomArr[room].option4Text}`;
+//         }
+//         document.getElementById("roomIdTester").innerHTML = `${player.room}`
+// }
 
 function stat1Increment(){
     player.stat1++
@@ -230,7 +336,8 @@ function stat1Increment(){
 
 // let toggle = false
 function Button ()  {
-    key.loot()
+    // document.getElementById("roomOption2").onclick = stat1Increment
+    combatStart()
     // itemArr[0].loot()
     // itemArr[0].loot()
     // let one = 1
