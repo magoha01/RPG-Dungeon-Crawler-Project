@@ -188,6 +188,7 @@
                             <button id= roomOption3 onclick= 'option3()'></button>
                             <button id= roomOption4 onclick= 'option4()'></button>
                             <div id="roomIdTester"></div>   
+                            <div id="combatLog"></div>
                         </div> <!--End of Room Buttons-->
                     </section> <!--End of rightSide-->
                 </div> <!--End of pageContainer-->
@@ -202,6 +203,7 @@
         document.getElementById("playerName").innerHTML = `${player.playerName}`;
         // document.getElementById("testTest").innerHTML = toggle;
         document.getElementById("roomIdTester").innerHTML = `${player.room}`
+        document.getElementById(startingRoom.mapId).style.backgroundColor = 'black'
         if(roomArr[player.room].option1Text != null){
         document.getElementById("roomOption1").innerHTML = `${roomArr[player.room].option1Text}`;
         }
