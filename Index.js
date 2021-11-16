@@ -254,7 +254,7 @@ let room8 = new Room({
 let room9 = new Room({
     roomId: 9, 
     option1Text: 'Advance North to the next room!', 
-    option2Text: 'Advance East to the next room!', 
+    option2Text: null,
     option3Text: null,
     option4Text:null, 
     roomNorth: null, 
@@ -318,6 +318,11 @@ function combatStart(){
     document.getElementById("roomOption3").innerHTML = `Power Attack!`
     document.getElementById("roomOption4").onclick = ''
     document.getElementById("roomOption4").innerHTML = ``
+    document.getElementById("enemyHealth").innerHTML = `${enemy[0].hpCurrent}/${enemy[0].hpTotal} `
+    document.getElementById("enemyDefense").innerHTML = `${enemy[0].armor}`
+    document.getElementById("enemyAttack").innerHTML = `${enemy[0].dmg}`
+    document.getElementById("enemyName").innerHTML = `${enemy[0].name}`
+    document.getElementById(enemyImg).src = enemy[0].enemyImg
 }
 function combatEnd(){
     let room = player.room
@@ -339,6 +344,11 @@ function combatEnd(){
      }  else{
          document.getElementById("roomOption4").innerHTML = '';
      }
+     document.getElementById("combatLog").innerHTML = ''
+     document.getElementById("enemyHealth").innerHTML = ``
+     document.getElementById("enemyDefense").innerHTML = ``
+     document.getElementById("enemyAttack").innerHTML = ``
+     document.getElementById("enemyName").innerHTML = ``
      roomArr[room].enemyPresent = null;
      document.getElementById("roomOption1").onclick = option1
      document.getElementById("roomOption2").onclick = option2
@@ -347,6 +357,7 @@ function combatEnd(){
 }
 function attack(){
     enemy[0].hpCurrent -= player.dmg - enemy[0].armor
+    document.getElementById("enemyHealth").innerHTML = `${enemy[0].hpCurrent}/${enemy[0].hpTotal} `
     if(enemy[0].hpCurrent <= 0){
         enemy.pop
         combatEnd()
@@ -361,6 +372,7 @@ function defend(){
 }
 function powerAttack(){
     enemy[0].hpCurrent -= (Math.floor(player.dmg * 1.5) - enemy[0].armor)
+    document.getElementById("enemyHealth").innerHTML = `${enemy[0].hpCurrent}/${enemy[0].hpTotal} `
     player.armor -= 2
     document.getElementById("cSheetArmor").innerHTML = `${player.armor}`
     if(enemy[0].hpCurrent <= 0){
