@@ -26,7 +26,7 @@ class Room {
        } else if(this.roomEast != null){
         player.room = this.roomSouth
        }
-    //    document.getElementById(roomArr[player.room].mapId).style.backgroundColor = black
+       document.getElementById(roomArr[player.room].mapId).style.backgroundColor = 'black'
        let room = player.room;
        
        if(roomArr[room].option1Text != null){
@@ -34,17 +34,16 @@ class Room {
     }
     if(roomArr[room].option2Text != null){
     document.getElementById("roomOption2").innerHTML = `${roomArr[room].option2Text}`;
+    } else if(roomArr[room].treasurePresent != null){
+        document.getElementById("roomOption2").innerHTML = 'Loot the Chest!';
     } 
-    // else if(roomArr[room].treasurePresent != null){
-        // document.getElementById("roomOption2").innerHTML = 'Loot the Chest!';
-    // } 
     else {
        document.getElementById("roomOption2").innerHTML = '';
     }
     if(roomArr[room].option3Text != null){
     document.getElementById("roomOption3").innerHTML = `${roomArr[room].option3Text}`;
-    // } else if(roomArr[room].treasurePresent != null){
-        // document.getElementById("roomOption3").innerHTML = 'Loot the Chest!';
+    } else if(roomArr[room].treasurePresent != null){
+        document.getElementById("roomOption3").innerHTML = 'Loot the Chest!';
     } else {
        document.getElementById("roomOption3").innerHTML = '';
     }
@@ -62,12 +61,11 @@ class Room {
     optionTwo(){
         if(this.roomSouth != null && this.roomNorth != null){
          player.room = this.roomSouth
-        }else if(this.roomEast != null){
+        }else if(this.roomEast != null && this.roomNorth != null || this.roomEast != null && this.roomSouth){
          player.room = this.roomEast
         } else if(this.roomWest != null){
          player.room = this.roomWest
         }
-        document.getElementById(roomArr[player.room].mapId).style.backgroundColor = 'black'
         let room = player.room
         if(roomArr[room].option1Text != null){
      document.getElementById("roomOption1").innerHTML = `${roomArr[room].option1Text}`;
@@ -93,7 +91,13 @@ class Room {
          }
          document.getElementById("roomIdTester").innerHTML = `${player.room}`
          this.explored = true
+         document.getElementById(roomArr[player.room].mapId).style.backgroundColor = 'black'
+         if(roomArr[room].enemyPresent != null){
+            combatStart()
+       }
      }
+     
+     
      optionThree(){
         if(this.roomEast != null && this.roomSouth != null && this.roomNorth != null){
          player.room = this.roomEast
@@ -127,68 +131,140 @@ class Room {
          this.explored = true
      }
 }
-function option1(){
-        roomArr[player.room].optionOne()
-}
-function option2(){
-        roomArr[player.room].optionTwo()
-}
-function option3(){
-    roomArr[player.room].optionThree()
-}
+
 startingRoom = new Room({
     roomId: 0,
-    option1Text:'Advance North to the next room!', 
-    option2Text:'Advance West to the next room!', 
+    option1Text:'Go North to the next room!', 
+    option2Text: null, 
     option3Text: null,
     option4Text:null, 
     roomNorth: 1, 
-    roomWest: 2, 
+    roomWest: null,
     roomEast: null, 
     roomSouth: null,
     treasurePresent: null,
-    mapId: 'rm15'
+    mapId: 'rm68'
 })
 startingRoom.explored = true
-secondRoom = new Room({
+let room1 = new Room({
     roomId: 1, 
-    option1Text: 'Advance South to the next room!', 
-    option2Text:'Advance West to the next room!', 
+    option1Text: 'Go North!', 
+    option2Text: 'Go South!',
     option3Text: null,
     option4Text:null, 
-    roomNorth: null, 
-    roomWest: 3, 
+    roomNorth: 2, 
+    roomWest: null, 
     roomEast: null, 
     roomSouth: 0,
     treasurePresent: 1,
     enemyPresent: 0,
-    mapId: 'rm25'
+    mapId: 'rm58'
 })
-thirdRoom = new Room({
+let room2 = new Room({
     roomId: 2, 
-    option1Text: 'Advance North to the next room!', 
-    option2Text: 'Advance East to the next room!', 
+    option1Text: 'Go North!', 
+    option2Text: 'Go South!', 
     option3Text: null,
     option4Text:null, 
     roomNorth: 3, 
     roomWest: null, 
-    roomEast: 0, 
-    roomSouth: null,
-    treasurePresent: 1
+    roomEast: null, 
+    roomSouth: 1,
+    treasurePresent: 1,
+    mapId: 'rm48'
 })
-fourthRoom = new Room({
+let room3 = new Room({
     roomId:3, 
-    option1Text: 'Advance South to the next room!', 
-    option2Text: 'Advance East to the next room!', 
+    option1Text: 'Go South!', 
+    option2Text: 'Go West!', 
     option3Text: null, 
     option4Text:null, 
     roomNorth: null, 
     roomWest: null,
-    roomEast: 1, 
+    roomEast: 4, 
     roomSouth: 2,
-    treasurePresent: 0
+    treasurePresent: 0,
+    mapId: 'rm38'
 })
-roomArr= [startingRoom, secondRoom, thirdRoom, fourthRoom]
+let room4 = new Room({
+    roomId: 4, 
+    option1Text: 'Go East!', 
+    option2Text: 'Go West!', 
+    option3Text: null,
+    option4Text:null, 
+    roomNorth: null, 
+    roomWest: 5, 
+    roomEast: 3, 
+    roomSouth: null,
+    treasurePresent: 1,
+    mapId: 'rm37'
+})
+let room5 = new Room({
+    roomId: 5, 
+    option1Text: 'Go South!', 
+    option2Text: 'Go East!', 
+    option3Text: null,
+    option4Text:null, 
+    roomNorth: null, 
+    roomWest: null, 
+    roomEast: 4, 
+    roomSouth: 6,
+    treasurePresent: 1,
+    mapId: 'rm36'
+})
+let room6 = new Room({
+    roomId: 6, 
+    option1Text: 'Go North!', 
+    option2Text: 'Go West!', 
+    option3Text: null,
+    option4Text:null, 
+    roomNorth: 5, 
+    roomWest: 7, 
+    roomEast: null, 
+    roomSouth: null,
+    treasurePresent: 1,
+    mapId: 'rm46'
+})
+let room7 = new Room({
+    roomId: 7, 
+    option1Text: 'Go South!', 
+    option2Text: 'Go East!', 
+    option3Text: null,
+    option4Text:null, 
+    roomNorth: null, 
+    roomWest: null, 
+    roomEast: 6, 
+    roomSouth: 8,
+    treasurePresent: 1,
+    mapId: 'rm45'
+})
+let room8 = new Room({
+    roomId: 8, 
+    option1Text: 'Go South!', 
+    option2Text: 'Go West!', 
+    option3Text: null,
+    option4Text:null, 
+    roomNorth: 7, 
+    roomWest: null, 
+    roomEast: 9, 
+    roomSouth: null,
+    treasurePresent: 1,
+    mapId: 'rm55'
+})
+let room9 = new Room({
+    roomId: 9, 
+    option1Text: 'Advance North to the next room!', 
+    option2Text: 'Advance East to the next room!', 
+    option3Text: null,
+    option4Text:null, 
+    roomNorth: null, 
+    roomWest: null, 
+    roomEast: 8, 
+    roomSouth: null,
+    treasurePresent: 1,
+    mapId: 'rm54'
+})
+roomArr= [startingRoom, room1, room2, room3, room4, room5, room6, room7, room8, room9]
 //             Item class code
 class Item{
     constructor(att){
@@ -227,7 +303,7 @@ let slime = new Enemy({
    enemyId: 0,
    name: 'Slime',
    hp: 20,
-   dmg: 8,
+   dmg: 6,
    armor:2
 })
 let enemyArr = [slime]
@@ -263,6 +339,7 @@ function combatEnd(){
      }  else{
          document.getElementById("roomOption4").innerHTML = '';
      }
+     roomArr[room].enemyPresent = null;
      document.getElementById("roomOption1").onclick = option1
      document.getElementById("roomOption2").onclick = option2
      document.getElementById("roomOption3").onclick = option3
@@ -277,26 +354,37 @@ function attack(){
     enemyTurn()
 }
 function defend(){
-    player.armor += Math.ceiling(player.armor/3)
+    player.armor += 2
+    document.getElementById("cSheetArmor").innerHTML = `${player.armor}`
     enemyTurn()
+    
 }
 function powerAttack(){
     enemy[0].hpCurrent -= (Math.floor(player.dmg * 1.5) - enemy[0].armor)
-    player.armor -= Math.ceiling(player.armor/3)
+    player.armor -= 2
+    document.getElementById("cSheetArmor").innerHTML = `${player.armor}`
+    if(enemy[0].hpCurrent <= 0){
+        enemy.pop
+        combatEnd()
+    }
     enemyTurn()
 }
 let enemy = []
 function enemyTurn(){
     let action = Math.floor(Math.random()* 3)
-    // if(action === 0){
-        // player.hpCurrent -= (enemy[0].dmg - player.armor)
-    // }else if(action === 1){
-    //     enemy[0].armor =+ Math.ceiling(enemy[0].armor/3)
-    // }else if(action === 2){
-        player.hpCurrent -= Math.floor(enemy[0].dmg * 1.5) - player.armor
-    //     enemy[0].armor -= Math.ceiling(enemy[0].armor/3)
-    // }
-    document.getElementById("cSheetHealth").innerHTML = `${player.hpCurrent}/${player.hpTotal}`
+    if(action === 0){
+        player.hpCurrent -= (enemy[0].dmg - player.armor);
+        document.getElementById("combatLog").innerHTML = `${enemy[0].name} Attacks!}`;
+    }else if(action === 1){
+        enemy[0].armor =+  2;
+        document.getElementById("combatLog").innerHTML = `${enemy[0].name} Defends!}`;
+    }else 
+    if(action === 2){
+        player.hpCurrent -= Math.floor(enemy[0].dmg * 1.5) - player.armor;
+        enemy[0].armor -= 2;
+        document.getElementById("combatLog").innerHTML = `${enemyArr[0].name} Power Attacks!}`;
+    }
+    document.getElementById("cSheetHealth").innerHTML = `${player.hpCurrent}/${player.hpTotal}`;
 }
 //          Player init
 let player = {
@@ -306,12 +394,21 @@ let player = {
     stat3: 07,
     hpCurrent: 25,
     hpTotal: 25,
-    armor: 3,
+    armor: 4,
     dmg: 4,
     room: 0,
     inventory: []
 }
 // Button Functionality
+function option1(){
+    roomArr[player.room].optionOne()
+}
+function option2(){
+    roomArr[player.room].optionTwo()
+}
+function option3(){
+roomArr[player.room].optionThree()
+}
 // function explore(){
 //     let room = player.room
 //     if(roomArr[room].option1Text != null){
@@ -337,7 +434,8 @@ function stat1Increment(){
 // let toggle = false
 function Button ()  {
     // document.getElementById("roomOption2").onclick = stat1Increment
-    combatStart()
+    // document.getElementById("combatLog").innerHTML = `${enemy[0].name} Attacks!}`
+    combatEnd()
     // itemArr[0].loot()
     // itemArr[0].loot()
     // let one = 1
