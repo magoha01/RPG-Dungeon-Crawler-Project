@@ -1,4 +1,5 @@
 /*CSS RESET*/
+
 html, body, div, span, applet, object, iframe,  
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,  
 a, abbr, acronym, address, big, cite, code,  
@@ -27,15 +28,6 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
-
-*{
-    box-sizing: border-box;
-    padding:0;
-    margin:0;
-    max-width:100%;
-    /* border:1px solid black;  */
-}
-
 html{
     font-size:62.5%;
 }
@@ -50,63 +42,69 @@ body{
 	height: 100%;
 	margin: 2%;
 }
-
-header {
-    border-bottom: 1px solid black;
-}	
-
 header h1{
     text-align: center;
 	margin: auto;
+
+/*GENERAL STYLES*/
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+  border: 3px solid black;
+  background-color: brown;
+}
+
+header {
+  border-bottom: 4px solid black;
 }
 
 h1 {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 4rem;
-    margin: 2% 5%;
+  font-family: "Press Start 2P", cursive;
+  font-size: 4rem;
+  margin: 2% 5%;
 }
 
 /* BEGIN INTERFACE CSS */
 
-#interfaceWrapper{
-	display: flex;
-	flex-flow: row no-wrap;
-	background-color: #695f4d;
-	border: 1px solid grey;
-    max-width: 80%;
-    margin: 2% auto;
-}
+
 
 /* Begin cSheet Css */
 
-#cSheetContainer{
+#cSheet{
 	max-width: 50%;
 	border: 6px solid black;
     margin: 1%;
     display: flex;
     flex-flow: column nowrap;
+=======
+.pageContainer {
+  display: flex;
+  flex-flow: row no-wrap;
+  background-color: #695f4d;
+  border: 1px solid grey;
+  width: 100%;
+  margin: auto;
 }
+
+
+
+
 
 /* Top Section of cSheet */
 
 .cSheetTop {
-	display: flex;
-	justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
-.cSheetTop p{
-	margin: 2%;
+.cSheetTop p {
+  margin: 2%;
 }
 
-.map{
-	width:58%;
-	margin: 1%;
-    display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
-    grid-template-rows: 7vh 7vh 7vh 7vh 7vh 7vh;
-	font-size: 1.2rem;
-	border:3px solid black;
-}
+
 
 .charArt{
 	display: flex;
@@ -115,13 +113,27 @@ h1 {
     margin: 1%;
     width: 38%;
 	border: 3px solid black;
+=======
+#map {
+  width: 50%;
+  margin: 1%;
 }
 
-.charArt img{
-	width: 30%;
-	height: 30%;
-	margin: auto;
+.mapFloor1 {
+  /* padding: 6%; */
+  display: grid;
+  grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+  grid-template-rows: 4vh 4vh 4vh 4vh 4vh 4vh 4vh 4vh 4vh 4vh;
+  /* display: flex;
+  justify-content: space-between;
+  align-items: space-between; */
+
 }
+
+#map p {
+  border: none;
+}
+
 
 .charArt p{
 	max-width: 100%;
@@ -132,177 +144,135 @@ h1 {
 
 #playerName{
 	font-size: 1.5rem;
+
+
+
+
+.charArt img {
+  width: 30%;
+  height: 30%;
+  margin: auto;
 }
 
 /* Middle Section of cSheet */
 
 .cSheetMid {
-	display: flex;
-	width: 100%;
-	flex-flow: row no-wrap;
-	justify-content: space-between;
-	font-size: 1.4rem;
-	text-align: left;
+  display: flex;
+  width: 100%;
+  flex-wrap: no-wrap;
+  justify-content: space-between;
+  }
+
+
+.cSheetMid div {
+  width: 100%;
+  align-content: center;
 }
 
-.cSheetPlayerStats{
-	width: 48%;
-	display: flex;
-	flex-flow: column wrap;
-	margin: 1%;
-	border: 2px solid black;
+.cSheetPlayerStats {
+  width: 40%;
+  display: flex;
+  flex-flow: column wrap;
 }
 
-.cSheetPlayerStats div{
-	display: flex;
-	flex-direction: row;
-	width: 98%;
+.cSheetPlayerStats div {
+  display: flex;
 }
 
-.cSheetStatField{
-	margin: 1%;
-	border:1px solid black;
+.cSheetStatField p {
+  padding: 4%;
+  width: 50%;
+  margin: 1%;
+  font-size: 1.4rem;
 }
 
-.cSheetStatField p{
-	padding: 5%;
-	width: 50%;
-	margin: 1%;
+.cSheetPlayerValues {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
 }
 
-.cSheetPlayerValues{
-	width: 48%; 
-	display:flex;
-	flex-flow: column wrap;
-	margin: 1%;
-	font-size: 1.3rem;
-	border: 2px solid black;
+div.cSheetPlayerValues {
+  margin: 1%;
 }
 
-.cSheetPlayerValues div{
-	display: flex;
-	flex-direction: row;
-	width: 98%;
+.cSheetHealth {
+  display: flex;
+  flex-flow: row no-wrap;
+  padding: 5%;
+  font-size: 1.5rem;
 }
 
-.cSheetHealth{
-	margin: 1%;
-	border:1px solid black;
+.cSheetHealth img {
+  width: 15%;
 }
 
-.cSheetHealth img{
-	width: 20%;
-	margin: 1%;
+.cSheetArmor {
+  display: flex;
+  flex-flow: row no-wrap;
+  padding: 5%;
 }
 
-.cSheetHealth p{
-	margin: 1% 0% 1% 0%;
-	width: 50%;
-	padding: 5.5%;
+.cSheetArmor img {
+  width: 15%;
 }
 
-#healthVal{
-	width: 26%;
-	margin: 1% 0% 1% 1%;
+.cSheetWeapon {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 5%;
+  font-size: 1.5rem;
 }
 
-.cSheetArmor{
-	margin: 1%;
-	border:1px solid black;
+.cSheetWeapon img {
+  width: 15%;
 }
 
-.cSheetArmor img{
-	width: 20%;
-	margin: 1%;
+/* Bottom section of CSheet */
+
+.cSheetBottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }
 
-.cSheetArmor p{
-	margin: 1% 0% 1% 0%;
-	width: 50%;
-	padding: 5.5%;
-	text-align: left;
+.cSheetInventory {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  padding: 5%;
 }
 
-#armorVal{
-	width: 26%;
-	margin: 1% 0% 1% 1%;
-}
-
-.cSheetWeapon{
-	margin: 1%;
-	border:1px solid black;
-}
-
-.cSheetWeapon img{
-	width: 20%;
-	margin: 1%;
-}
-
-.cSheetWeapon p{
-	margin: 1% 0% 1% 0%;
-	width: 50%;
-	padding: 5.5%;
-}
-
-#weaponVal{
-	width: 26%;
-	margin: 1% 0% 1% 1%;
-}
-
-/* Begin Bottom of cSheet */
-
-.cSheetBottom{
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	text-align: center;
-	margin: 1%;
-}
-
-.cSheetBottom div{
-	margin: 1%;
-}
-
-.cSheetBottom h3{
-	border: 2px solid black;
-}
-
-.cSheetInventory{
-	max-width: 100%;
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: space-evenly;
-	border: 3px solid black;
-}
-
-.items{
-	width: 20%;
-	padding: 5%;
-	margin: 5%;
-	border: 1px solid black;
-	background-color: grey;
+.items {
+  width: 25%;
+  padding: 4%;
+  margin: 2%;
 }
 
 
-#roomContainer{
-	width: 50%;
-	border: 6px solid black;
-	margin: 1% 1% 1% 0%;
-}
-#rooms {
-    display: grid;
-    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
-    grid-template-rows: auto auto auto auto auto auto auto auto auto auto;
-	font-size: 1.2rem;
-	padding: 1%;
+
+/* Right Side */
+
+.rightSide {
+  width: 50%;
+  background-color: #695f4d;
+  border: none;
 }
 
-#rooms div{
-	max-width: 100%;
+.rightSide div {
+  width: 100%;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #695f4d;
 }
 
-#room1 div {
-    max-width: 100%;
-    /* border: 1px solid black; */
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
