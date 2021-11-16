@@ -1,113 +1,52 @@
 /*CSS RESET*/
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  /* border: 0;   */
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
+
+html, body, div, span, applet, object, iframe,  
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,  
+a, abbr, acronym, address, big, cite, code,  
+del, dfn, em, img, ins, kbd, q, s, samp,  
+small, strike, strong, sub, sup, tt, var,  
+b, u, i, center,  
+dl, dt, dd, ol, ul, li,  
+fieldset, form, label, legend,  
+table, caption, tbody, tfoot, thead, tr, th, td,  
+article, aside, canvas, details, embed,  
+figure, figcaption, footer, header, hgroup,  
+menu, nav, output, ruby, section, summary,  
+time, mark, audio, video {  
+    margin: 0;  
+    padding: 0;  
+    /* border: 0;   */
+    font-size: 100%;  
+    font: inherit;  
+    vertical-align: baseline;  
+} 
 /*GENERAL STYLES*/
-* {
-  background-color: brown;
-}
-html {
-  font-size: 62.5%;
-}
+
 /* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
 }
+
+html{
+    font-size:62.5%;
+}
+
+body{
+    font-size:1.6rem;
+    line-height: 1.5;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #8b0000;
+	max-width: 100%;
+	height: 100%;
+	margin: 2%;
+}
+header h1{
+    text-align: center;
+	margin: auto;
+
+/*GENERAL STYLES*/
 
 * {
   box-sizing: border-box;
@@ -115,27 +54,11 @@ section {
   margin: 0;
   max-width: 100%;
   border: 3px solid black;
+  background-color: brown;
 }
 
-html {
-  font-size: 62.5%;
-}
-
-body {
-  font-size: 1.6rem;
-  line-height: 1.5;
-  font-family: "Oswald", sans-serif;
-  font-family: "Press Start 2P", cursive;
-  background-color: #8b0000;
-  max-width: 100%;
-  margin: 10%;
-}
 header {
   border-bottom: 4px solid black;
-}
-
-header h1 {
-  text-align: left;
 }
 
 h1 {
@@ -146,6 +69,17 @@ h1 {
 
 /* BEGIN INTERFACE CSS */
 
+
+
+/* Begin cSheet Css */
+
+#cSheet{
+	max-width: 50%;
+	border: 6px solid black;
+    margin: 1%;
+    display: flex;
+    flex-flow: column nowrap;
+=======
 .pageContainer {
   display: flex;
   flex-flow: row no-wrap;
@@ -155,10 +89,9 @@ h1 {
   margin: auto;
 }
 
-#cSheet {
-  width: 50%;
-  border: 6px solid black;
-}
+
+
+
 
 /* Top Section of cSheet */
 
@@ -171,6 +104,16 @@ h1 {
   margin: 2%;
 }
 
+
+
+.charArt{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+    margin: 1%;
+    width: 38%;
+	border: 3px solid black;
+=======
 #map {
   width: 50%;
   margin: 1%;
@@ -184,17 +127,26 @@ h1 {
   /* display: flex;
   justify-content: space-between;
   align-items: space-between; */
+
 }
 
 #map p {
   border: none;
 }
 
-.charArt {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+
+.charArt p{
+	max-width: 100%;
+	font-size: 1.3rem;
+	padding: 3%;
+	border: 1px solid black;
 }
+
+#playerName{
+	font-size: 1.5rem;
+
+
+
 
 .charArt img {
   width: 30%;
@@ -202,23 +154,15 @@ h1 {
   margin: auto;
 }
 
-charArt span {
-  width: 100%;
-}
-
-/* #room {
-  width: 50%;
-  height: 70vh;
-  border: 6px solid black;
-} */
-
 /* Middle Section of cSheet */
+
 .cSheetMid {
   display: flex;
   width: 100%;
-  flex-flow: row no-wrap;
+  flex-wrap: no-wrap;
   justify-content: space-between;
-}
+  }
+
 
 .cSheetMid div {
   width: 100%;
@@ -329,4 +273,6 @@ div.cSheetPlayerValues {
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
+
