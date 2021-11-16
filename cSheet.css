@@ -119,6 +119,7 @@ body {
   font-family: "Press Start 2P", cursive;
   background-color: black;
   margin: 20%;
+  height: 100vh
 }
 
 .pageContainer {
