@@ -144,10 +144,10 @@
                         <div><p class ="stat">Stat3:</p><p id="cSheetStatField3" class = "stat">Stat</p></div>
                     </div>
                     <div class="cSheetPlayerValues">
+
                         <div class="cSheetHealth"> 
                             <img src = "cSheet_Icons/heart pixel art.png"> 
                             <p>Health:</p>
-
                             <p id=cSheetHealth>VAL</p>
                         </div>
                         <div class= "cSheetArmor"> 
@@ -176,11 +176,11 @@
                                 <p><img id = "item5" src=''/>Item 5</p>
                                 <p><img id = "item6" src=''/>Item 6</p>  
                         </div>    
-
-                      
                 </section> 
-                    <section class="rightSide"> <!--Start of rightSide-->
-                        <div class="right"> <!--start Room buttons-->
+                
+                <section class="rightSide"> <!--Start of rightSide-->
+                    <div class="right"> 
+                        <div class="buttons"> <!--start Room buttons-->
                             <button onclick='Button()'>Room Button</button>
                             <button onclick='stat1Increment()'>Increment stat1!</button>
                             <button id= roomOption1 onclick= 'option1()'></button>
@@ -192,9 +192,9 @@
                         </div> <!--End of Room Buttons-->
 
                         <div id="fightScreen">
-                            <div>
-                                <img src= 'cSheet_Icons/purple blob still.png' class="enemyImg">
-                                <p id="enemyName"> enemy Name</p>
+                            <div id="enemyImg">
+                                <img src= 'cSheet_Icons/purple blob still.png'>
+                                <p id="enemyName">enemy Name</p>
                             </div>
                             <div id = 'enemyStats'>
                                 <div>
@@ -211,9 +211,9 @@
                                 </div>
                             </div>
                         </div>
-
-                    </section> <!--End of rightSide-->
-                </div> <!--End of pageContainer-->
+                    </div>
+                </section> <!--End of rightSide-->
+            </div> <!--End of pageContainer-->
     </body> <!--End of Main Content-->
     <script type="text/javascript"> //Javascript script
         document.getElementById("cSheetStatField1").innerHTML = `${player.stat1}`;

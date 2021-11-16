@@ -79,8 +79,6 @@ h1 {
 .pageContainer {
   display: flex;
   flex-flow: row no-wrap;
-  background-color: #695f4d;
-  border: 1px solid grey;
   width: 100%;
   margin: auto;
 }
@@ -92,7 +90,7 @@ h1 {
 #cSheet{
 	max-width: 50%;
 	border: 6px solid black;
-    margin: 1%;
+    /* margin: 1%; */
     display: flex;
     flex-flow: column nowrap;
 }
@@ -221,6 +219,10 @@ h1 {
   background-color: #695f4d;
 }
 
+.cSheetHealth p{
+  background-color: #695f4d;
+}
+
 .cSheetArmor {
   display: flex;
   flex-flow: row no-wrap;
@@ -229,6 +231,10 @@ h1 {
 
 .cSheetArmor img {
   width: 15%;
+  background-color: #695f4d;
+}
+
+.cSheetArmor p{
   background-color: #695f4d;
 }
 
@@ -241,6 +247,10 @@ h1 {
 
 .cSheetWeapon img {
   width: 15%;
+  background-color: #695f4d;
+}
+
+.cSheetWeapon p{
   background-color: #695f4d;
 }
 
@@ -271,15 +281,10 @@ h1 {
   margin: 2%;
 }
 
-.itens
-
-
 /* Right Side */
 
 .rightSide {
   width: 50%;
-  background-color: #695f4d;
-  border: none;
   display: flex;
 }
 
@@ -295,17 +300,43 @@ h1 {
   align-items: center;
 }
 
-#fightScreen{
-  width: 100%;
+.buttons{
+  max-width: 98%;
+  margin: 1%;
   display: flex;
-  margin: 2% 0;
-  margin: 20% auto;
-  align-content: center;
 }
 
-.enemyImg{
-  width: 25%;
-  margin: auto;
+.buttons button{
+  padding: 2%;
+  margin: 1%;
+  justify-content: space-around;
+}
+
+#roomIdTester{
+  margin: 1%;
+}
+
+#fightScreen{
+  width: 98%;
+  display: flex;
+  margin: 5% 1%;
+  flex-direction: column;
+  background-color: black;
+}
+
+#enemyImg{
+  width: 50%;
+  background-color: black;
+}
+
+#enemyImg img{
+  width: 50%;
+  background-color:black;
+}
+
+#enemyName{
+  background-color: black;
+  color:white;
 }
 
 #enemyStats{
@@ -313,12 +344,30 @@ h1 {
   flex-flow: row nowrap;
 }
 
-#enemyHealth div{
-  display: flex;
-  flex-direction: column;
+#enemyStats div{
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 1%;
 }
 
 #enemyStats img{
-  width: 20%;
+  width: 30%;
+  background-color: #695f4d;
+  margin: 2%;
+}
+
+#enemyHealth{
+  background-color: #695f4d;
+  margin: auto;
+}
+
+#enemyDefense{
+  background-color: #695f4d;
+  margin: auto;
+}
+
+#enemyAttack{
+  background-color: #695f4d;
+  margin: auto;
 }
 
