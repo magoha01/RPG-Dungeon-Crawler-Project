@@ -28,6 +28,15 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+  border: 3px solid black;
+  background-color: brown;
+}
+
 html{
     font-size:62.5%;
 }
@@ -38,23 +47,17 @@ body{
     font-family: 'Oswald', sans-serif;
     font-family: 'Press Start 2P', cursive;
     background-color: #8b0000;
-	max-width: 100%;
-	height: 100%;
-	margin: 2%;
+	  max-width: 100%;
+	  height: 100%;
+	  margin: 2%;
 }
-header h1{
-    text-align: center;
-	margin: auto;
+
 
 /*GENERAL STYLES*/
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  max-width: 100%;
-  border: 3px solid black;
-  background-color: brown;
+header h1{
+    text-align: center;
+	margin: auto;
 }
 
 header {
@@ -73,13 +76,6 @@ h1 {
 
 /* Begin cSheet Css */
 
-#cSheet{
-	max-width: 50%;
-	border: 6px solid black;
-    margin: 1%;
-    display: flex;
-    flex-flow: column nowrap;
-=======
 .pageContainer {
   display: flex;
   flex-flow: row no-wrap;
@@ -89,7 +85,17 @@ h1 {
   margin: auto;
 }
 
+.pageContainer div{
+  background-color: #695f4d;
+}
 
+#cSheet{
+	max-width: 50%;
+	border: 6px solid black;
+    margin: 1%;
+    display: flex;
+    flex-flow: column nowrap;
+}
 
 
 
@@ -104,8 +110,6 @@ h1 {
   margin: 2%;
 }
 
-
-
 .charArt{
 	display: flex;
 	flex-direction: column;
@@ -113,7 +117,16 @@ h1 {
     margin: 1%;
     width: 38%;
 	border: 3px solid black;
-=======
+}
+
+.charArt img{
+  background-color: #695f4d;
+}
+
+#playerName{
+  background-color: #695f4d;
+}
+
 #map {
   width: 50%;
   margin: 1%;
@@ -144,9 +157,7 @@ h1 {
 
 #playerName{
 	font-size: 1.5rem;
-
-
-
+}
 
 .charArt img {
   width: 30%;
@@ -186,13 +197,16 @@ h1 {
   font-size: 1.4rem;
 }
 
+.stat{
+  background-color: #695f4d;
+}
+
 .cSheetPlayerValues {
   width: 100%;
   display: flex;
   flex-flow: column wrap;
 }
-
-div.cSheetPlayerValues {
+cSheetPlayerValues div {
   margin: 1%;
 }
 
@@ -205,6 +219,8 @@ div.cSheetPlayerValues {
 
 .cSheetHealth img {
   width: 15%;
+  background-color: #695f4d;
+
 }
 
 .cSheetArmor {
@@ -215,6 +231,7 @@ div.cSheetPlayerValues {
 
 .cSheetArmor img {
   width: 15%;
+  background-color: #695f4d;
 }
 
 .cSheetWeapon {
@@ -226,6 +243,8 @@ div.cSheetPlayerValues {
 
 .cSheetWeapon img {
   width: 15%;
+  background-color: #695f4d;
+
 }
 
 /* Bottom section of CSheet */
@@ -245,12 +264,17 @@ div.cSheetPlayerValues {
   padding: 5%;
 }
 
+.cSheetInventory p{
+  background-color: #695f4d;
+}
+
 .items {
   width: 25%;
   padding: 4%;
   margin: 2%;
 }
 
+.itens
 
 
 /* Right Side */
@@ -266,7 +290,7 @@ div.cSheetPlayerValues {
   flex-flow: row wrap;
   justify-content: center;
   align-items: flex-start;
-  background-color: #695f4d;
+  /* background-color: #695f4d; */
 }
 
 .right {
