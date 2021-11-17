@@ -72,6 +72,22 @@ h1 {
 
 /* BEGIN INTERFACE CSS */
 
+#mute_button {
+  width: 10%;
+  height: 5vh;
+  border-bottom: 6px solid black;
+  border-right: 6px solid black;
+  float: left;
+  font-size: 1.7rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+
+#music_container button {
+  width: 90%;
+  height: 90%;
+}
 
 
 /* Begin cSheet Css */
@@ -370,4 +386,3 @@ h1 {
   background-color: #695f4d;
   margin: auto;
 }
-

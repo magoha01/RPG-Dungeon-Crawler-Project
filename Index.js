@@ -1,3 +1,9 @@
+// creating mute button for music functionality
+function mute(){
+    const music = document.getElementById('background_music');
+    document.getElementById('mute_button').innerHTML = music.muted ? 'mute' : 'unmute';
+    music.muted = !music.muted;
+}
 
 class Room {
     constructor(roomAtt){
@@ -285,11 +291,11 @@ class Item{
 }
 let key = new Item({
     itemId: 0,
-    imgSrc: 'cSheet_Icons/Key.png'
+    imgSrc: 'assets/Key.png'
 })
 let potion = new Item({
     itemId: 1,
-    imgSrc: 'cSheet_Icons/Potion.png'
+    imgSrc: 'assets/Potion.png'
 })
 let itemArr = [key, potion]
 
@@ -465,7 +471,14 @@ roomArr[player.room].optionThree()
 // }
 
 // let toggle = false
+// function muteMe(elem) {
+//     elem.muted = true;
+//     elem.pause();
+// }
 function Button ()  {
+    
+        // document.querySelectorAll("video, audio").forEach( elem => muteMe(elem) );
+
     // document.getElementById("roomOption2").onclick = stat1Increment
     // document.getElementById("combatLog").innerHTML = `${enemy[0].name} Attacks!}`
     combatEnd()
