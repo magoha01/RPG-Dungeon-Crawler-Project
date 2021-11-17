@@ -26,132 +26,77 @@ class Room {
        if(this.roomNorth != null){
         document.getElementById(roomArr[player.room].mapId).style.border = null
            player.room = this.roomNorth
-       } else if(this.roomSouth != null){
-        document.getElementById(roomArr[player.room].mapId).style.border = null
-        player.room = this.roomSouth
-       } else if(this.roomEast != null){
-        document.getElementById(roomArr[player.room].mapId).style.border = null
-        player.room = this.roomEast
-       } else if(this.roomWest != null){
-        document.getElementById(roomArr[player.room].mapId).style.border = null
-        player.room = this.roomWest
-       }
-       document.getElementById(roomArr[player.room].mapId).style.backgroundColor = 'black'
-       document.getElementById(roomArr[player.room].mapId).style.border = '1px solid white'
-       let room = player.room;
-       
-       if(roomArr[room].option1Text != null){
-    document.getElementById("roomOption1").innerHTML = `${roomArr[room].option1Text}`;
-    }
-    if(roomArr[room].option2Text != null){
-    document.getElementById("roomOption2").innerHTML = `${roomArr[room].option2Text}`;
-    } else if(roomArr[room].treasurePresent != null){
-        document.getElementById("roomOption2").innerHTML = 'Loot the Chest!';
-    } 
-    else {
-       document.getElementById("roomOption2").innerHTML = '';
-    }
-    if(roomArr[room].option3Text != null){
-    document.getElementById("roomOption3").innerHTML = `${roomArr[room].option3Text}`;
-    } else if(roomArr[room].treasurePresent != null){
-        document.getElementById("roomOption3").innerHTML = 'Loot the Chest!';
-    } else {
-       document.getElementById("roomOption3").innerHTML = '';
-    }
-    if(roomArr[room].option4Text != null){
-        document.getElementById("roomOption4").innerHTML = `${roomArr[room].option4Text}`;
-        }  else{
-            document.getElementById("roomOption4").innerHTML = '';
+           roomText()
         }
-    if(roomArr[room].enemyPresent != null){
-            combatStart()
-       }
         document.getElementById("roomIdTester").innerHTML = `${player.room}`
         this.explored = true
+        if(roomArr[player.room].enemyPresent != null){
+            combatStart()
+       }
     }
     optionTwo(){
-        if(this.roomSouth != null && this.roomNorth != null){
+        if(this.roomSouth != null){
         document.getElementById(roomArr[player.room].mapId).style.border = null
         player.room = this.roomSouth
-        }else if(this.roomEast != null && this.roomNorth != null || this.roomEast != null && this.roomSouth){
-        document.getElementById(roomArr[player.room].mapId).style.border = null
-        player.room = this.roomEast
-        } else if(this.roomWest != null){
-        document.getElementById(roomArr[player.room].mapId).style.border = null
-        player.room = this.roomWest
-        } else if(this.treasurePresent !== null){
-            itemArr[this.treasurePresent].loot();
-            this.treasurePresent = null;
-            document.getElementById("roomOption2").innerHTML = ''
+        roomText()
         }
-        let room = player.room
-        if(roomArr[room].option1Text != null){
-     document.getElementById("roomOption1").innerHTML = `${roomArr[room].option1Text}`;
-     }
-     if(roomArr[room].option2Text != null){
-     document.getElementById("roomOption2").innerHTML = `${roomArr[room].option2Text}`;
-     } else if(roomArr[room].treasurePresent != null){
-         document.getElementById("roomOption2").innerHTML = 'Loot the Chest!';
-     } else {
-        document.getElementById("roomOption2").innerHTML = '';
-     }
-     if(roomArr[room].option3Text != null){
-     document.getElementById("roomOption3").innerHTML = `${roomArr[room].option3Text}`;
-     } else if(roomArr[room].treasurePresent != null && roomArr[room].option2Text != null){
-        document.getElementById("roomOption3").innerHTML = 'Loot the Chest!';
-    } else {
-       document.getElementById("roomOption3").innerHTML = '';
-    }
-     if(roomArr[room].option4Text != null){
-         document.getElementById("roomOption4").innerHTML = `${roomArr[room].option4Text}`;
-         }  else{
-             document.getElementById("roomOption4").innerHTML = '';
-         }
-         document.getElementById("roomIdTester").innerHTML = `${player.room}`
          this.explored = true
-         document.getElementById(roomArr[player.room].mapId).style.border = '1px solid white'
-         document.getElementById(roomArr[player.room].mapId).style.backgroundColor = 'black'
-         if(roomArr[room].enemyPresent != null){
+         document.getElementById("roomIdTester").innerHTML = `${player.room}`
+         if(roomArr[player.room].enemyPresent != null){
             combatStart()
        }
      }
      
      
      optionThree(){
-        if(this.roomEast != null && this.roomSouth != null && this.roomNorth != null){
-         player.room = this.roomEast
-        } else if(this.roomWest != null && this.roomNorth != null && this.roomSouth != null || this.roomWest != null && this.roomNorth != null && this.roomEast != null || this.roomWest != null && this.roomSouth != null && this.roomEast != null){
-         player.room = this.roomWest
-        } else if(this.treasurePresent !== null){
-            itemArr[this.treasurePresent].loot();
-            this.treasurePresent = null;
-            document.getElementById("roomOption3").innerHTML = ''
-        }
-        document.getElementById(roomArr[player.room].mapId).style.backgroundColor = black
-        let room = player.room
-        if(roomArr[room].option1Text != null){
-     document.getElementById("roomOption1").innerHTML = `${roomArr[room].option1Text}`;
+        if(this.roomEast != null){
+        document.getElementById(roomArr[player.room].mapId).style.border = null
+        player.room = this.roomEast
+        roomText()
+        } 
+        this.explored = true
+        document.getElementById("roomIdTester").innerHTML = `${player.room}`
+        if(roomArr[player.room].enemyPresent != null){
+           combatStart()
+      }
+    }
+    optionFour(){
+        if(this.roomWest != null){
+            document.getElementById(roomArr[player.room].mapId).style.border = null
+            player.room = this.roomWest
+            roomText()
+            }
+             this.explored = true
+             document.getElementById("roomIdTester").innerHTML = `${player.room}`
+             if(roomArr[player.room].enemyPresent != null){
+                combatStart()
+           }
+    } 
+}
+function roomText(){
+    document.getElementById(roomArr[player.room].mapId).style.border = '1px solid white'
+    document.getElementById(roomArr[player.room].mapId).style.backgroundColor = 'black'
+    if(roomArr[player.room].roomNorth != null){
+        document.getElementById("roomOption1").innerHTML = `Go North!`
+     } else {
+         document.getElementById("roomOption1").innerHTML = ''
      }
-     if(roomArr[room].option2Text != null){
-     document.getElementById("roomOption2").innerHTML = `${roomArr[room].option2Text}`;
-     } else{
-         document.getElementById("roomOption2").innerHTML = '';
+     if(roomArr[player.room].roomSouth != null){
+         document.getElementById("roomOption2").innerHTML = `Go South!`
+      } else {
+         document.getElementById("roomOption2").innerHTML = ''
      }
-     if(roomArr[room].option3Text != null){
-     document.getElementById("roomOption3").innerHTML = `${roomArr[room].option3Text}`;
-     } else{
-         document.getElementById("roomOption3").innerHTML = '';
+      if(roomArr[player.room].roomEast != null){
+         document.getElementById("roomOption3").innerHTML = `Go East!`
+      } else {
+         document.getElementById("roomOption3").innerHTML = ''
      }
-     if(roomArr[room].option4Text != null){
-         document.getElementById("roomOption4").innerHTML = `${roomArr[room].option4Text}`;
-         }  else{
-             document.getElementById("roomOption4").innerHTML = '';
-         }
-         document.getElementById("roomIdTester").innerHTML = `${player.room}`
-         this.explored = true
+      if(roomArr[player.room].roomWest != null){
+         document.getElementById("roomOption4").innerHTML = `Go West!`
+      } else {
+         document.getElementById("roomOption4").innerHTML = ''
      }
 }
-
 startingRoom = new Room({
     roomId: 0,
     option1Text:'Go North to the next room!', 
@@ -202,8 +147,8 @@ let room3 = new Room({
     option3Text: null, 
     option4Text:null, 
     roomNorth: null, 
-    roomWest: null,
-    roomEast: 4, 
+    roomWest: 4,
+    roomEast: null, 
     roomSouth: 2,
     treasurePresent: 0,
     enemyPresent: null,
@@ -362,28 +307,7 @@ function combatStart(){
 }
 function combatEnd(){
     let room = player.room
-    if(roomArr[room].option1Text != null){
-        document.getElementById("roomOption1").innerHTML = `${roomArr[room].option1Text}`;
-        }
-        if(roomArr[room].option2Text != null){
-        document.getElementById("roomOption2").innerHTML = `${roomArr[room].option2Text}`;
-        } else if(roomArr[room].treasurePresent != null){
-            document.getElementById("roomOption2").innerHTML = 'Loot the Chest!';
-        } else {
-           document.getElementById("roomOption2").innerHTML = '';
-        }
-        if(roomArr[room].option3Text != null){
-        document.getElementById("roomOption3").innerHTML = `${roomArr[room].option3Text}`;
-        } else if(roomArr[room].treasurePresent != null && roomArr[room].option2Text != null){
-           document.getElementById("roomOption3").innerHTML = 'Loot the Chest!';
-       } else {
-          document.getElementById("roomOption3").innerHTML = '';
-       }
-        if(roomArr[room].option4Text != null){
-            document.getElementById("roomOption4").innerHTML = `${roomArr[room].option4Text}`;
-            }  else{
-                document.getElementById("roomOption4").innerHTML = '';
-            }
+    roomText()
      document.getElementById('enemyImg').src = ''
      document.getElementById("enemyHealth").innerHTML = ``
      document.getElementById("enemyDefense").innerHTML = ``
@@ -394,7 +318,7 @@ function combatEnd(){
      document.getElementById("roomOption1").onclick = option1
      document.getElementById("roomOption2").onclick = option2
      document.getElementById("roomOption3").onclick = option3
-     document.getElementById("roomOption4").onclick = ''
+     document.getElementById("roomOption4").onclick = option4
      document.getElementById('enemyHealthImg').src = ""
      document.getElementById('enemyDefenseImg').src = ''
      document.getElementById('enemyAttackImg').src = ''
@@ -466,6 +390,9 @@ function option2(){
 function option3(){
 roomArr[player.room].optionThree()
 }
+function option4(){
+roomArr[player.room].optionFour()
+}
 function saveGame(){
     localStorage.setItem('user', JSON.stringify(player))
     let exploredRooms = []
@@ -496,6 +423,7 @@ function loadGame(){
     let combatRooms = localStorage.getItem('combatRooms').split(',')
     let lootedRooms = localStorage.getItem('lootedRooms').split(',')
     let items = localStorage.getItem('items').split(',')
+    roomText()
     exploredRooms.forEach((id) => {
             document.getElementById(roomArr[id].mapId).style.backgroundColor = 'black'
             roomArr[id].explored = true
@@ -521,35 +449,8 @@ player.inventory = []
         document.getElementById("cSheetWeapon").innerHTML = `${player.dmg}`;
         document.getElementById("playerName").innerHTML = `${player.playerName}`;
         document.getElementById("roomIdTester").innerHTML = `${player.room}`
-        document.getElementById(startingRoom.mapId).style.backgroundColor = 'black'
-    let room = player.room
-    if(roomArr[room].option1Text != null){
-            document.getElementById("roomOption1").innerHTML = `${roomArr[room].option1Text}`;
-            }
-            if(roomArr[room].option2Text != null){
-            document.getElementById("roomOption2").innerHTML = `${roomArr[room].option2Text}`;
-            } else if(roomArr[room].treasurePresent != null){
-                document.getElementById("roomOption2").innerHTML = 'Loot the Chest!';
-            } 
-            else {
-               document.getElementById("roomOption2").innerHTML = '';
-            }
-            if(roomArr[room].option3Text != null){
-            document.getElementById("roomOption3").innerHTML = `${roomArr[room].option3Text}`;
-            } else if(roomArr[room].treasurePresent != null){
-                document.getElementById("roomOption3").innerHTML = 'Loot the Chest!';
-            } else {
-               document.getElementById("roomOption3").innerHTML = '';
-            }
-            if(roomArr[room].option4Text != null){
-                document.getElementById("roomOption4").innerHTML = `${roomArr[room].option4Text}`;
-                }  else{
-                    document.getElementById("roomOption4").innerHTML = '';
-                }
-            if(roomArr[room].enemyPresent != null){
-                    combatStart()
-               }
-                document.getElementById("roomIdTester").innerHTML = `${player.room}`
+        // document.getElementById(roomArr[player.room].mapId).style.backgroundColor = 'black'
+        
             }
         
 function Button ()  {
