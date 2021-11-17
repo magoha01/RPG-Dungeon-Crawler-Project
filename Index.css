@@ -282,7 +282,7 @@ h1 {
 .cSheetInventory {
   width: 100%;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   justify-content: space-evenly;
   padding: 5%;
 }
@@ -295,6 +295,31 @@ h1 {
   width: 25%;
   padding: 4%;
   margin: 2%;
+}
+
+#item1{
+  width: 10%;
+  
+}
+
+#item2{
+  width: 10%;
+}
+
+#item3{
+  width: 10%;
+}
+
+#item4{
+  width: 10%;
+}
+
+#item5{
+  width: 10%;
+}
+
+#item6{
+  width: 10%;
 }
 
 /* Right Side */
