@@ -1,7 +1,7 @@
 // creating mute button for music functionality
 function mute(){
     const music = document.getElementById('background_music');
-    document.getElementById('mute_button').innerHTML = music.muted ? 'mute' : 'unmute';
+    document.getElementById('mute_option').innerHTML = music.muted ? 'mute' : 'unmute';
     music.muted = !music.muted;
 }
 
