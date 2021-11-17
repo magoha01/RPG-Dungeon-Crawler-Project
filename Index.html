@@ -12,13 +12,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-
-
     <title>Lambda RPG- A Journey Underground</title>
 
 </head>
+
     <body> <!--Main Content-->
         <header>
+            <div id= 'mute_button' onclick="mute()">
+                <p id='mute_option'>mute</p>
+                <audio id="background_music" src="assets/rpgbork.mp3" loop autoplay> 
+            </div>
             <h1>
                 Lambda RPG- A Journey Underground
             </h1>
@@ -131,7 +134,7 @@
                         </div>
                     </section> <!--End of Mini Map-->
                     <div class="charArt">
-                        <img src = "cSheet_Icons/Player1.png">
+                        <img src = "assets/Player1.png">
                         <p id=playerName>playerName</p>
 <!-- 
                         <p>Status: playerStatus</p> -->
@@ -146,19 +149,19 @@
                     <div class="cSheetPlayerValues">
 
                         <div class="cSheetHealth"> 
-                            <img src = "cSheet_Icons/heart pixel art.png"> 
+                            <img src = "assets/heart pixel art.png"> 
                             <p>Health:</p>
                             <p id=cSheetHealth>VAL</p>
                         </div>
                         <div class= "cSheetArmor"> 
-                            <img src= "cSheet_Icons/Shield1.png"> 
+                            <img src= "assets/Shield1.png"> 
                             <p>Armor:</p>
 
                             <p id=cSheetArmor>VAL</p>
 
                         </div>
                         <div class="cSheetWeapon">
-                            <img src= "cSheet_Icons/sword_small (1).png">
+                            <img src= "assets/sword_small (1).png">
                             <p>Weapon:</p>
 
                             <p id=cSheetWeapon>VAL</p>
