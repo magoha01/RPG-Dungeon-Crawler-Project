@@ -72,6 +72,13 @@ class Room {
                 combatStart()
            }
     } 
+    roomInteract(){
+        if(this.treasurePresent != null){
+            itemArr[this.treasurePresent].loot()
+            this.treasurePresent = null
+            document.getElementById("roomOption5").innerHTML = ``
+        }
+    }
 }
 function roomText(){
     document.getElementById(roomArr[player.room].mapId).style.border = '1px solid white'
@@ -96,6 +103,11 @@ function roomText(){
       } else {
          document.getElementById("roomOption4").innerHTML = ''
      }
+     if(roomArr[player.room].treasurePresent != null){
+        document.getElementById("roomOption5").innerHTML = 'Loot the Chest!'
+    }else {
+        document.getElementById("roomOption5").innerHTML = ''
+  }
 }
 startingRoom = new Room({
     roomId: 0,
@@ -217,8 +229,8 @@ let room8 = new Room({
     option3Text: null,
     option4Text:null, 
     roomNorth: 7, 
-    roomWest: null, 
-    roomEast: 9, 
+    roomWest: 9, 
+    roomEast: null, 
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
