@@ -245,7 +245,7 @@ let room7 = new Room({
 })
 let room8 = new Room({
     roomId: 8, 
-    option1Text: 'Go South!', 
+    option1Text: 'Go North!', 
     option2Text: 'Go West!', 
     option3Text: null,
     option4Text:null, 
