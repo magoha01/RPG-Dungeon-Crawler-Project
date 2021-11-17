@@ -472,16 +472,17 @@ function saveGame(){
     let combatRooms = []
     let lootedRooms = []
     let inventory = []
+    player.inventory.forEach((item) =>{
+        inventory.push(item.itemId)
+    })
     roomArr.forEach((room) => {
         if(room.explored === true){
-            exploredRooms.push(room.mapId)
+            exploredRooms.push(room.roomId)
             combatRooms.push(room.roomId)
             if(room.treasurePresent === null){
             lootedRooms.push(room.roomId)
         }
-    player.inventory.forEach((item) =>{
-        inventory.push(item.itemId)
-    })
+    
     } 
 });
 localStorage.setItem('exploredRooms', exploredRooms.toString(','))
@@ -496,8 +497,8 @@ function loadGame(){
     let lootedRooms = localStorage.getItem('lootedRooms').split(',')
     let items = localStorage.getItem('items').split(',')
     exploredRooms.forEach((id) => {
-            document.getElementById(id).style.backgroundColor = 'black'
-            // roomArr[id].explored = true
+            document.getElementById(roomArr[id].mapId).style.backgroundColor = 'black'
+            roomArr[id].explored = true
     })
     combatRooms.forEach((id) => {
         roomArr[id].enemyPresent = null
@@ -506,9 +507,10 @@ function loadGame(){
         roomArr[id].treasurePresent = null
 })
 player.inventory = []
-    // items.forEach((item) =>{
-    //     itemArr[item].loot()
-    // })
+    items.forEach((item) =>{
+        itemArr[item].loot()
+    })
+    document.getElementById(roomArr[player.room].mapId).style.border = '1px solid white'
     document.getElementById(roomArr[player.room].mapId).style.backgroundColor = 'black'
     document.getElementById("cSheetHealth").innerHTML = `${player.hpCurrent}/${player.hpTotal}`;
     document.getElementById("cSheetStatField1").innerHTML = `${player.stat1}`;
