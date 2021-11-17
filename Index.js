@@ -1,10 +1,10 @@
 // creating mute button for music functionality
 function mute(){
     const music = document.getElementById('background_music');
-    document.getElementById('mute_button').innerHTML = music.muted ? 'mute' : 'unmute';
+    document.getElementById('mute_option').innerHTML = music.muted ? 'mute' : 'unmute';
     music.muted = !music.muted;
 }
-
+var JSON = JSON || {};
 class Room {
     constructor(roomAtt){
         this.roomId = roomAtt.roomId
@@ -24,15 +24,20 @@ class Room {
     
     optionOne(){
        if(this.roomNorth != null){
+        document.getElementById(roomArr[player.room].mapId).style.border = null
            player.room = this.roomNorth
        } else if(this.roomSouth != null){
+        document.getElementById(roomArr[player.room].mapId).style.border = null
         player.room = this.roomSouth
        } else if(this.roomEast != null){
+        document.getElementById(roomArr[player.room].mapId).style.border = null
         player.room = this.roomEast
        } else if(this.roomWest != null){
+        document.getElementById(roomArr[player.room].mapId).style.border = null
         player.room = this.roomWest
        }
        document.getElementById(roomArr[player.room].mapId).style.backgroundColor = 'black'
+       document.getElementById(roomArr[player.room].mapId).style.border = '1px solid white'
        let room = player.room;
        
        if(roomArr[room].option1Text != null){
@@ -66,11 +71,14 @@ class Room {
     }
     optionTwo(){
         if(this.roomSouth != null && this.roomNorth != null){
-         player.room = this.roomSouth
+        document.getElementById(roomArr[player.room].mapId).style.border = null
+        player.room = this.roomSouth
         }else if(this.roomEast != null && this.roomNorth != null || this.roomEast != null && this.roomSouth){
-         player.room = this.roomEast
+        document.getElementById(roomArr[player.room].mapId).style.border = null
+        player.room = this.roomEast
         } else if(this.roomWest != null){
-         player.room = this.roomWest
+        document.getElementById(roomArr[player.room].mapId).style.border = null
+        player.room = this.roomWest
         } else if(this.treasurePresent !== null){
             itemArr[this.treasurePresent].loot();
             this.treasurePresent = null;
@@ -101,6 +109,7 @@ class Room {
          }
          document.getElementById("roomIdTester").innerHTML = `${player.room}`
          this.explored = true
+         document.getElementById(roomArr[player.room].mapId).style.border = '1px solid white'
          document.getElementById(roomArr[player.room].mapId).style.backgroundColor = 'black'
          if(roomArr[room].enemyPresent != null){
             combatStart()
@@ -154,6 +163,7 @@ startingRoom = new Room({
     roomEast: null, 
     roomSouth: null,
     treasurePresent: null,
+    enemyPresent: null,
     mapId: 'rm68'
 })
 startingRoom.explored = true
@@ -182,6 +192,7 @@ let room2 = new Room({
     roomEast: null, 
     roomSouth: 1,
     treasurePresent: 1,
+    enemyPresent: null,
     mapId: 'rm48'
 })
 let room3 = new Room({
@@ -195,6 +206,7 @@ let room3 = new Room({
     roomEast: 4, 
     roomSouth: 2,
     treasurePresent: 0,
+    enemyPresent: null,
     mapId: 'rm38'
 })
 let room4 = new Room({
@@ -208,6 +220,7 @@ let room4 = new Room({
     roomEast: 3, 
     roomSouth: null,
     treasurePresent: 1,
+    enemyPresent: null,
     mapId: 'rm37'
 })
 let room5 = new Room({
@@ -221,6 +234,7 @@ let room5 = new Room({
     roomEast: 4, 
     roomSouth: 6,
     treasurePresent: 1,
+    enemyPresent: null,
     mapId: 'rm36'
 })
 let room6 = new Room({
@@ -234,6 +248,7 @@ let room6 = new Room({
     roomEast: null, 
     roomSouth: null,
     treasurePresent: 1,
+    enemyPresent: null,
     mapId: 'rm46'
 })
 let room7 = new Room({
@@ -247,6 +262,7 @@ let room7 = new Room({
     roomEast: 6, 
     roomSouth: 8,
     treasurePresent: 1,
+    enemyPresent: null,
     mapId: 'rm45'
 })
 let room8 = new Room({
@@ -260,6 +276,7 @@ let room8 = new Room({
     roomEast: 9, 
     roomSouth: null,
     treasurePresent: 1,
+    enemyPresent: null,
     mapId: 'rm55'
 })
 let room9 = new Room({
@@ -273,6 +290,7 @@ let room9 = new Room({
     roomEast: 8, 
     roomSouth: null,
     treasurePresent: 1,
+    enemyPresent: null,
     mapId: 'rm54'
 })
 roomArr= [startingRoom, room1, room2, room3, room4, room5, room6, room7, room8, room9]
@@ -338,9 +356,9 @@ function combatStart(){
     document.getElementById("enemyAttack").innerHTML = `${enemy[0].dmg}`
     document.getElementById("enemyName").innerHTML = `${enemy[0].name}`
     document.getElementById('enemyImg').src = `${enemy[0].enemyImg}`
-    document.getElementById('enemyHealthImg').src = "cSheet_Icons/heart pixel art.png"
-    document.getElementById('enemyDefenseImg').src = 'cSheet_Icons/Shield1.png'
-    document.getElementById('enemyAttackImg').src = 'cSheet_Icons/sword_small (1).png'
+    document.getElementById('enemyHealthImg').src = "assets/heart pixel art.png"
+    document.getElementById('enemyDefenseImg').src = 'assets/Shield1.png'
+    document.getElementById('enemyAttackImg').src = 'assets/sword_small (1).png'
 }
 function combatEnd(){
     let room = player.room
@@ -448,33 +466,90 @@ function option2(){
 function option3(){
 roomArr[player.room].optionThree()
 }
-// function explore(){
-//     let room = player.room
-//     if(roomArr[room].option1Text != null){
-//         document.getElementById("roomOption1").innerHTML = `${roomArr[room].option1Text}`;
-//         }
-//         if(roomArr[room].option2Text != null){
-//         document.getElementById("roomOption2").innerHTML = `${roomArr[room].option2Text}`;
-//         }
-//         if(roomArr[room].option3Text != null){
-//         document.getElementById("roomOption3").innerHTML = `${roomArr[room].option3Text}`;
-//         }
-//         if(roomArr[room].option4Text != null){
-//             document.getElementById("roomOption3").innerHTML = `${roomArr[room].option4Text}`;
-//         }
-//         document.getElementById("roomIdTester").innerHTML = `${player.room}`
-// }
-
-// function stat1Increment(){
-//     player.stat1++
-//     document.getElementById("cSheetStatField1").innerHTML = `${player.stat1}`;
-// }
-
-// let toggle = false
-// function muteMe(elem) {
-//     elem.muted = true;
-//     elem.pause();
-// }
+function saveGame(){
+    localStorage.setItem('user', JSON.stringify(player))
+    let exploredRooms = []
+    let combatRooms = []
+    let lootedRooms = []
+    let inventory = []
+    roomArr.forEach((room) => {
+        if(room.explored === true){
+            exploredRooms.push(room.mapId)
+            combatRooms.push(room.roomId)
+            if(room.treasurePresent === null){
+            lootedRooms.push(room.roomId)
+        }
+    player.inventory.forEach((item) =>{
+        inventory.push(item.itemId)
+    })
+    } 
+});
+localStorage.setItem('exploredRooms', exploredRooms.toString(','))
+localStorage.setItem('combatRooms', combatRooms.toString(','))
+localStorage.setItem('lootedRooms', lootedRooms.toString(','))
+localStorage.setItem('items', inventory.toString(','))
+}
+function loadGame(){
+    player = JSON.parse(localStorage.getItem('user'))
+    let exploredRooms = localStorage.getItem('exploredRooms').split(',')
+    let combatRooms = localStorage.getItem('combatRooms').split(',')
+    let lootedRooms = localStorage.getItem('lootedRooms').split(',')
+    let items = localStorage.getItem('items').split(',')
+    exploredRooms.forEach((id) => {
+            document.getElementById(id).style.backgroundColor = 'black'
+            // roomArr[id].explored = true
+    })
+    combatRooms.forEach((id) => {
+        roomArr[id].enemyPresent = null
+})
+    lootedRooms.forEach((id) => {
+        roomArr[id].treasurePresent = null
+})
+player.inventory = []
+    // items.forEach((item) =>{
+    //     itemArr[item].loot()
+    // })
+    document.getElementById(roomArr[player.room].mapId).style.backgroundColor = 'black'
+    document.getElementById("cSheetHealth").innerHTML = `${player.hpCurrent}/${player.hpTotal}`;
+    document.getElementById("cSheetStatField1").innerHTML = `${player.stat1}`;
+        document.getElementById("cSheetStatField2").innerHTML = `${player.stat2}`;
+        document.getElementById("cSheetStatField3").innerHTML = `${player.stat3}`;
+        document.getElementById("cSheetHealth").innerHTML = `${player.hpCurrent}/${player.hpTotal}`;
+        document.getElementById("cSheetArmor").innerHTML = `${player.armor}`;
+        document.getElementById("cSheetWeapon").innerHTML = `${player.dmg}`;
+        document.getElementById("playerName").innerHTML = `${player.playerName}`;
+        document.getElementById("roomIdTester").innerHTML = `${player.room}`
+        document.getElementById(startingRoom.mapId).style.backgroundColor = 'black'
+    let room = player.room
+    if(roomArr[room].option1Text != null){
+            document.getElementById("roomOption1").innerHTML = `${roomArr[room].option1Text}`;
+            }
+            if(roomArr[room].option2Text != null){
+            document.getElementById("roomOption2").innerHTML = `${roomArr[room].option2Text}`;
+            } else if(roomArr[room].treasurePresent != null){
+                document.getElementById("roomOption2").innerHTML = 'Loot the Chest!';
+            } 
+            else {
+               document.getElementById("roomOption2").innerHTML = '';
+            }
+            if(roomArr[room].option3Text != null){
+            document.getElementById("roomOption3").innerHTML = `${roomArr[room].option3Text}`;
+            } else if(roomArr[room].treasurePresent != null){
+                document.getElementById("roomOption3").innerHTML = 'Loot the Chest!';
+            } else {
+               document.getElementById("roomOption3").innerHTML = '';
+            }
+            if(roomArr[room].option4Text != null){
+                document.getElementById("roomOption4").innerHTML = `${roomArr[room].option4Text}`;
+                }  else{
+                    document.getElementById("roomOption4").innerHTML = '';
+                }
+            if(roomArr[room].enemyPresent != null){
+                    combatStart()
+               }
+                document.getElementById("roomIdTester").innerHTML = `${player.room}`
+            }
+        
 function Button ()  {
     
         // document.querySelectorAll("video, audio").forEach( elem => muteMe(elem) );
