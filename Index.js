@@ -1,17 +1,9 @@
 // creating mute button for music functionality
-let muteCounter = 1;
 function mute(){
-
-    if(muteCounter % 2 != 0){
-        document.getElementById('background_music').src = "";
-        document.getElementById("mute_option").innerHTML = `unmute`;
-    } else if(muteCounter % 2 === 0){
-        document.getElementById('background_music').src = `assets/rpgbork.mp3`;
-        document.getElementById("mute_option").innerHTML = `mute`;
-    }
-    muteCounter++;
+    const music = document.getElementById('background_music');
+    document.getElementById('mute_button').innerHTML = music.muted ? 'mute' : 'unmute';
+    music.muted = !music.muted;
 }
-
 
 class Room {
     constructor(roomAtt){
