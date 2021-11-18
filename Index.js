@@ -111,10 +111,6 @@ function roomText(){
 }
 startingRoom = new Room({
     roomId: 0,
-    option1Text:'Go North to the next room!', 
-    option2Text: null, 
-    option3Text: null,
-    option4Text:null, 
     roomNorth: 1, 
     roomWest: null,
     roomEast: null, 
@@ -126,10 +122,6 @@ startingRoom = new Room({
 startingRoom.explored = true
 let room1 = new Room({
     roomId: 1, 
-    option1Text: 'Go North!', 
-    option2Text: 'Go South!',
-    option3Text: null,
-    option4Text:null, 
     roomNorth: 2, 
     roomWest: null, 
     roomEast: null, 
@@ -140,10 +132,6 @@ let room1 = new Room({
 })
 let room2 = new Room({
     roomId: 2, 
-    option1Text: 'Go North!', 
-    option2Text: 'Go South!', 
-    option3Text: null,
-    option4Text:null, 
     roomNorth: 3, 
     roomWest: null, 
     roomEast: null, 
@@ -153,11 +141,7 @@ let room2 = new Room({
     mapId: 'rm48'
 })
 let room3 = new Room({
-    roomId:3, 
-    option1Text: 'Go South!', 
-    option2Text: 'Go West!', 
-    option3Text: null, 
-    option4Text:null, 
+    roomId:3,  
     roomNorth: null, 
     roomWest: 4,
     roomEast: null, 
@@ -167,11 +151,7 @@ let room3 = new Room({
     mapId: 'rm38'
 })
 let room4 = new Room({
-    roomId: 4, 
-    option1Text: 'Go East!', 
-    option2Text: 'Go West!', 
-    option3Text: null,
-    option4Text:null, 
+    roomId: 4,  
     roomNorth: null, 
     roomWest: 5, 
     roomEast: 3, 
@@ -182,10 +162,6 @@ let room4 = new Room({
 })
 let room5 = new Room({
     roomId: 5, 
-    option1Text: 'Go South!', 
-    option2Text: 'Go East!', 
-    option3Text: null,
-    option4Text:null, 
     roomNorth: null, 
     roomWest: null, 
     roomEast: 4, 
@@ -196,10 +172,6 @@ let room5 = new Room({
 })
 let room6 = new Room({
     roomId: 6, 
-    option1Text: 'Go North!', 
-    option2Text: 'Go West!', 
-    option3Text: null,
-    option4Text:null, 
     roomNorth: 5, 
     roomWest: 7, 
     roomEast: null, 
@@ -210,10 +182,6 @@ let room6 = new Room({
 })
 let room7 = new Room({
     roomId: 7, 
-    option1Text: 'Go South!', 
-    option2Text: 'Go East!', 
-    option3Text: null,
-    option4Text:null, 
     roomNorth: null, 
     roomWest: null, 
     roomEast: 6, 
@@ -224,10 +192,6 @@ let room7 = new Room({
 })
 let room8 = new Room({
     roomId: 8, 
-    option1Text: 'Go North!', 
-    option2Text: 'Go West!', 
-    option3Text: null,
-    option4Text:null, 
     roomNorth: 7, 
     roomWest: 9, 
     roomEast: null, 
@@ -238,10 +202,6 @@ let room8 = new Room({
 })
 let room9 = new Room({
     roomId: 9, 
-    option1Text: 'Return East!', 
-    option2Text: null,
-    option3Text: null,
-    option4Text:null, 
     roomNorth: null, 
     roomWest: null, 
     roomEast: 8, 
@@ -284,6 +244,10 @@ class Enemy{
         this.dmg = att.dmg
         this.armor = att.armor
         this.enemyImg = att.enemyImg
+        this.strength = att.strength
+        this.dexterity = att.dexterity
+        this.constitution = att.constitution
+        this.tempArmor = 0
     }
 
     
@@ -291,13 +255,17 @@ class Enemy{
 let slime = new Enemy({
    enemyId: 0,
    name: 'Slime',
-   hp: 20,
+   strength: 2,
+   dexterity: 3,
+   constitution: 5,
+   hp: 14,
    dmg: 6,
-   armor:2,
-   enemyImg: 'cSheet_Icons/purple_blob.png'
+   armor: 13,
+   enemyImg: 'assets/purple_blob.png'
 })
-let enemyArr = [slime]
+const enemyArr = [slime]
 //          Combat Functions
+let turnCount = 0
 function combatStart(){
     enemy.push(enemyArr[roomArr[player.room].enemyPresent])
     document.getElementById("roomOption1").onclick = attack
@@ -318,76 +286,140 @@ function combatStart(){
     document.getElementById('enemyAttackImg').src = 'assets/sword_small (1).png'
 }
 function combatEnd(){
-    let room = player.room
     roomText()
+    turnCount = 0;
+     document.getElementById("combatLog").innerHTML = ''
+     document.getElementById("playerLog").innerHTML = ''
      document.getElementById('enemyImg').src = ''
-     document.getElementById("enemyHealth").innerHTML = ``
-     document.getElementById("enemyDefense").innerHTML = ``
-     document.getElementById("enemyAttack").innerHTML = ``
-     document.getElementById("enemyName").innerHTML = ``
-     document.getElementById('enemyHealthImg').src = ""
-     roomArr[room].enemyPresent = null;
+     document.getElementById("enemyHealth").innerHTML = ''
+     document.getElementById("enemyDefense").innerHTML = ''
+     document.getElementById("enemyAttack").innerHTML = ''
+     document.getElementById("enemyName").innerHTML = ''
+     document.getElementById('enemyHealthImg').src = ''
+     roomArr[player.room].enemyPresent = null;
      document.getElementById("roomOption1").onclick = option1
      document.getElementById("roomOption2").onclick = option2
      document.getElementById("roomOption3").onclick = option3
      document.getElementById("roomOption4").onclick = option4
-     document.getElementById('enemyHealthImg').src = ""
+     document.getElementById('enemyHealthImg').src = ''
      document.getElementById('enemyDefenseImg').src = ''
      document.getElementById('enemyAttackImg').src = ''
-     document.getElementById("combatLog").innerHTML = ''
+    player.tempArmor = 0 
+
 }
 function attack(){
-    enemy[0].hpCurrent -= player.dmg - enemy[0].armor
+    let roll = Math.floor(Math.random()* 21)+player.dexterity
+    if(roll >= enemy[0].armor){
+        let hit =  Math.floor(Math.random()* player.dmg)+player.strength
+        enemy[0].hpCurrent -= hit
+        document.getElementById("playerLog").innerHTML = `You hit, dealing ${hit} damage!`
+    }else {
+        document.getElementById("playerLog").innerHTML = `You missed!`
+    }
     document.getElementById("enemyHealth").innerHTML = `${enemy[0].hpCurrent}/${enemy[0].hpTotal} `
     if(enemy[0].hpCurrent <= 0){
         enemy.pop
         combatEnd()
+    }else{
+        turnCount++
+        enemyTurn()
     }
-    enemyTurn()
+   
 }
 function defend(){
-    player.armor += 2
-    document.getElementById("cSheetArmor").innerHTML = `${player.armor}`
+    if(player.tempArmor<4){
+    player.tempArmor += 1
+    document.getElementById("playerLog").innerHTML = `You build up power!`
+    document.getElementById("cSheetArmor").innerHTML = `${player.armor+player.tempArmor}`
+    } else if(player.tempArmor === 4){
+        player.tempArmor += 1
+        document.getElementById("playerLog").innerHTML = `You've built up as much power as you can!`
+        document.getElementById("cSheetArmor").innerHTML = `${player.armor+player.tempArmor}`
+    } else{
+        document.getElementById("playerLog").innerHTML = `You try to build up more power, but fail!`
+    }
+    turnCount++
     enemyTurn()
     
 }
 function powerAttack(){
-    enemy[0].hpCurrent -= (Math.floor(player.dmg * 1.5) - enemy[0].armor)
+    let roll = Math.floor(Math.random()* 21)+player.dexterity
+    if(roll >= enemy[0].armor){
+        let hit =  Math.floor(Math.random()* player.dmg)+player.strength+player.tempArmor
+        enemy[0].hpCurrent -= hit
+        document.getElementById("playerLog").innerHTML = `You unleash your power, dealing ${hit} damage!`
+        document.getElementById("enemyHealth").innerHTML = `${enemy[0].hpCurrent}/${enemy[0].hpTotal}`
+    }else {
+        document.getElementById("playerLog").innerHTML = `You missed, expending your stored power harmlessly!`
+    }
+    player.tempArmor = 0
+    document.getElementById("cSheetArmor").innerHTML = `${player.armor+player.tempArmor}`
     document.getElementById("enemyHealth").innerHTML = `${enemy[0].hpCurrent}/${enemy[0].hpTotal} `
-    player.armor -= 2
-    document.getElementById("cSheetArmor").innerHTML = `${player.armor}`
     if(enemy[0].hpCurrent <= 0){
         enemy.pop
         combatEnd()
+    }else{
+        turnCount++
+        enemyTurn()
     }
-    enemyTurn()
 }
 let enemy = []
 function enemyTurn(){
     let action = Math.floor(Math.random()* 3)
     if(action === 0){
-        player.hpCurrent -= (enemy[0].dmg - player.armor);
-        document.getElementById("combatLog").innerHTML = `${enemy[0].name} Attacks!`;
-    }else if(action === 1){
-        enemy[0].armor =+  2;
-        document.getElementById("combatLog").innerHTML = `${enemy[0].name} Defends!`;
-    }else
-    if(action === 2){
-        player.hpCurrent -= Math.floor(enemy[0].dmg * 1.5) - player.armor;
-        enemy[0].armor -= 2;
-        document.getElementById("combatLog").innerHTML = `${enemyArr[0].name} Power Attacks!`;
+        let roll = Math.floor(Math.random()* 21)+enemy[0].dexterity
+        if(roll >= player.armor){
+            let hit =  Math.floor(Math.random()* enemy[0].dmg)+enemy[0].strength
+            player.hpCurrent -= hit
+            document.getElementById("combatLog").innerHTML = `${enemy[0].name} hit, dealing ${hit} damage!`
+            document.getElementById("cSheetHealth").innerHTML = `${player.hpCurrent}/${player.hpTotal}`
+        }else {
+            document.getElementById("combatLog").innerHTML = `${enemy[0].name} missed!`
+        }
+    }else if(action === 1 && enemy[0].tempArmor<5){
+        if(enemy[0].tempArmor<4){
+            enemy[0].tempArmor += 1
+            document.getElementById("combatLog").innerHTML = `${enemy[0].name} builds up power!`
+            document.getElementById("enemyDefense").innerHTML = `${enemy[0].armor+enemy[0].tempArmor}`
+            } else if(enemy[0].tempArmor === 4){
+                player.tempArmor += 1
+                document.getElementById("combatLog").innerHTML = `${enemy[0].name} has built up as much power as they can!`
+                document.getElementById("enemyDefense").innerHTML = `${enemy[0].armor+enemy[0].tempArmor}`
+            }
+    }else if(action === 2 && enemy[0].tempArmor>0){
+    let roll = Math.floor(Math.random()* 21)+enemy[0].dexterity
+    if(roll >= player.armor){
+        let hit =  Math.floor(Math.random()* enemy[0].dmg)+enemy[0].strength+enemy[0].tempArmor
+        player.hpCurrent -= hit
+        document.getElementById("combatLog").innerHTML = `${enemy[0].name} unleashes its power, dealing ${hit} damage!`
+    }else {
+        document.getElementById("combatLog").innerHTML = `${enemy[0].name} missed, expending its stored power harmlessly!`
     }
-    document.getElementById("cSheetHealth").innerHTML = `${player.hpCurrent}/${player.hpTotal}`;
+    enemy[0].tempArmor = 0
+    document.getElementById("enemyDefense").innerHTML = `${enemy[0].armor+enemy[0].tempArmor}`
+    document.getElementById("cSheetHealth").innerHTML = `${player.hpCurrent}/${player.hpTotal} `
+    } else{
+        let roll = Math.floor(Math.random()* 21)+enemy[0].dexterity
+        if(roll >= player.armor){
+            let hit =  Math.floor(Math.random()* enemy[0].dmg)+enemy[0].strength
+            player.hpCurrent -= hit
+            document.getElementById("combatLog").innerHTML = `${enemy[0].name} hit, dealing ${hit} damage!`
+            document.getElementById("cSheetHealth").innerHTML = `${player.hpCurrent}/${player.hpTotal}`
+        }else {
+            document.getElementById("combatLog").innerHTML = `${enemy[0].name} missed!`
+        }
+    }
 }
 //          Player init
 let player = {
     playerName: 'Bill the Barbarian',
-    stat1: 5,
-    stat2: 4,
-    stat3: 07,
-    hpCurrent: 25,
-    hpTotal: 25,
-    armor: 4,
+    strength: 5,
+    dexterity: 4,
+    constitution: 3,
+    hpCurrent: 10,
+    hpTotal: 10,
+    armor: 15,
+    tempArmor: 0,
     dmg: 4,
     room: 0,
     inventory: []
@@ -430,6 +462,7 @@ localStorage.setItem('lootedRooms', lootedRooms.toString(','))
 localStorage.setItem('items', inventory.toString(','))
 }
 function loadGame(){
+    document.getElementById(roomArr[player.room].mapId).style.border = null
     player = JSON.parse(localStorage.getItem('user'))
     let exploredRooms = localStorage.getItem('exploredRooms').split(',')
     let combatRooms = localStorage.getItem('combatRooms').split(',')
@@ -453,9 +486,9 @@ player.inventory = []
     document.getElementById(roomArr[player.room].mapId).style.border = '1px solid white'
     document.getElementById(roomArr[player.room].mapId).style.backgroundColor = 'black'
     document.getElementById("cSheetHealth").innerHTML = `${player.hpCurrent}/${player.hpTotal}`;
-    document.getElementById("cSheetStatField1").innerHTML = `${player.stat1}`;
-        document.getElementById("cSheetStatField2").innerHTML = `${player.stat2}`;
-        document.getElementById("cSheetStatField3").innerHTML = `${player.stat3}`;
+    document.getElementById("cSheetStatField1").innerHTML = `${player.strength}`;
+    document.getElementById("cSheetStatField2").innerHTML = `${player.dexterity}`;
+    document.getElementById("cSheetStatField3").innerHTML = `${player.constitution}`;
         document.getElementById("cSheetHealth").innerHTML = `${player.hpCurrent}/${player.hpTotal}`;
         document.getElementById("cSheetArmor").innerHTML = `${player.armor}`;
         document.getElementById("cSheetWeapon").innerHTML = `${player.dmg}`;
