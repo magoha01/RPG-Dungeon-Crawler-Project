@@ -148,7 +148,6 @@ h1 {
 
 /* BEGIN INTERFACE CSS */
 
-
 #mute_button {
   width: 10%;
   height: 5vh;
@@ -159,7 +158,6 @@ h1 {
   text-align: center;
   cursor: pointer;
 }
-
 
 #music_container button {
   width: 90%;
@@ -178,15 +176,12 @@ h1 {
   background-color: #695f4d;
 }
 
-
 #cSheet {
   max-width: 50%;
   border: 6px solid black;
   margin: 1%;
   display: flex;
   flex-flow: column nowrap;
-
-
 }
 
 /* Top Section of cSheet */
@@ -236,11 +231,11 @@ h1 {
   border: none;
 }
 
-.charArt p{
-	max-width: 100%;
-	font-size: 1.3rem;
-	padding: 3%;
-	border: 1px solid black;
+.charArt p {
+  max-width: 100%;
+  font-size: 1.3rem;
+  padding: 3%;
+  border: 1px solid black;
 }
 
 #playerName {
@@ -261,7 +256,6 @@ h1 {
   flex-wrap: no-wrap;
   justify-content: space-between;
 }
-
 
 .cSheetMid div {
   width: 100%;
@@ -311,7 +305,7 @@ h1 {
   background-color: #695f4d;
 }
 
-.cSheetHealth p{
+.cSheetHealth p {
   background-color: #695f4d;
 }
 
@@ -326,7 +320,7 @@ h1 {
   background-color: #695f4d;
 }
 
-.cSheetArmor p{
+.cSheetArmor p {
   background-color: #695f4d;
 }
 
@@ -342,7 +336,7 @@ h1 {
   background-color: #695f4d;
 }
 
-.cSheetWeapon p{
+.cSheetWeapon p {
   background-color: #695f4d;
 }
 
@@ -373,29 +367,29 @@ h1 {
   margin: 2%;
 }
 
-#item1{
-  max-width: 10%;
-  
+#item1 {
+  width: 10%;
 }
 
-#item2{
-  max-width: 10%;
+#item2 {
+  width: 10%;
 }
 
-#item3{
-  max-width: 10%;
+#item3 {
+  width: 10%;
 }
 
-#item4{
-  max-width: 10%;
+#item4 {
+  width: 10%;
 }
 
-#item5{
-  max-width: 10%;
+#item5 {
+  width: 10%;
 }
 
-#item6{
-  max-width: 10%;
+#item6 {
+  width: 10%;
+
 }
 
 /* Right Side */
@@ -416,12 +410,16 @@ h1 {
   align-content: center;
 }
 
-.right div{
+.right div {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+
+.storyContainer {
+  width: 100%;
+}
 .roomContainer{
   max-width: 100%;
   margin: 1%;
@@ -433,16 +431,24 @@ h1 {
 
 }
 
-.buttons{
+.storyContainer p {
+  animation-duration: type 15s steps(60, end);
+}
+
+.buttons {
   max-width: 98%;
   margin: 1%;
   display: flex;
 }
 
-.buttons button{
+.buttons button {
   padding: 2%;
   margin: 1%;
   justify-content: space-around;
+}
+
+#roomIdTester {
+  margin: 1%;
 }
 
 #roomOption1{
@@ -492,49 +498,49 @@ h1 {
   background-color: black;
 }
 
-#enemyImg{
+#enemyImg {
   width: 50%;
   background-color: black;
 }
 
-#enemyImg img{
+#enemyImg img {
   width: 50%;
-  background-color:black;
-}
-
-#enemyName{
   background-color: black;
-  color:white;
 }
 
-#enemyStats{
+#enemyName {
+  background-color: black;
+  color: white;
+}
+
+#enemyStats {
   display: flex;
   flex-flow: row nowrap;
 }
 
-#enemyStats div{
+#enemyStats div {
   flex-direction: row;
   justify-content: space-between;
   margin: 1%;
 }
 
-#enemyStats img{
+#enemyStats img {
   width: 30%;
   background-color: #695f4d;
   margin: 2%;
 }
 
-#enemyHealth{
+#enemyHealth {
   background-color: #695f4d;
   margin: auto;
 }
 
-#enemyDefense{
+#enemyDefense {
   background-color: #695f4d;
   margin: auto;
 }
 
-#enemyAttack{
+#enemyAttack {
   background-color: #695f4d;
   margin: auto;
 }

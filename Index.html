@@ -198,13 +198,17 @@
                             <div id="roomIdTester"></div>
                             <div id="playerLog"></div>   
                             <div id="combatLog"></div>
+                            <div id="storyContainer"> <!--start of story container-->
+                                <p id="storyTest" onclick="Next()"></p>
+                                <input id="name" type="text"> 
+                                <button id="confirm" onclick='greeting()'></button><!--user input-->
+                                <button id="warrior" onclick= 'warrior()'></button><!--buttons for class choice-->
+                                <button id="ranger" onclick= 'ranger()'></button>
+                                <button id="rogue" onclick= 'rogue()'></button>
+                            </div> <!--End of story container-->
                         </div> <!--End of Room Buttons-->
+                        <!-- <div id="fightScreen">
 
-                        <div id="storyContainer"> <!--Start of Story Container-->
-                            <p> Lorem ipsum dolor sit amet consectetur</p> <!--This is for testing-->
-                        </div>  
-
-                        <div id="fightScreen">
 
                             <div>
                                 <img id="enemyImg" src= '' class="enemyImg">
@@ -227,7 +231,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </section> <!--End of rightSide-->
             </div> <!--End of pageContainer-->
     </body> <!--End of Main Content-->
@@ -242,5 +246,9 @@
         document.getElementById("roomIdTester").innerHTML = `${player.room}`
         document.getElementById(startingRoom.mapId).style.backgroundColor = 'black'
         roomText()
+        document.getElementById("name").style.display = none;
+        document.getElementById("warrior").style.display = none;
+        document.getElementById("ranger").style.display = none;
+        document.getElementById("rogue").style.display = none;
     </script> <!--End Javascript Script-->
 </html>
