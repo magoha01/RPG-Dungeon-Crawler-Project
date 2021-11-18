@@ -504,7 +504,8 @@ function Button ()  {
 
     // document.getElementById("roomOption2").onclick = stat1Increment
     // document.getElementById("combatLog").innerHTML = `${enemy[0].name} Attacks!}`
-    combatEnd()
+    // combatEnd()
+    gameStart()
     // let img = slime.enemyImg
     // document.getElementById('enemyImg').src = `${img}`
     // itemArr[0].loot()

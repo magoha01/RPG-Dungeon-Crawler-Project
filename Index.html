@@ -195,12 +195,15 @@
                             <div id="roomIdTester"></div>
                             <div id="playerLog"></div>   
                             <div id="combatLog"></div>
-                            <div id="storyContainer">
-                                <p> Lorem ipsum dolor sit amet consectetur</p> <!--This is for testing-->
-                            </div>  
+                            <div id="storyContainer"> <!--start of story container-->
+                                <p id="storytest">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis aspernatur doloribus eos? Eveniet esse labore accusantium inventore minus velit nam temporibus quas. Quasi facere ab, atque harum a perferendis officia?</p>
+                                <input id="name" type="text"> <!--user input-->
+                                <button id="warrior" onclick= 'warrior()'></button><!--buttons for class choice-->
+                                <button id="ranger" onclick= 'ranger()'></button>
+                                <button id="rogue" onclick= 'rogue()'></button>
+                            </div> <!--End of story container-->
                         </div> <!--End of Room Buttons-->
-                        <section class="text"> <!--Where the story will sit-->
-                        <div id="fightScreen">
+                        <!-- <div id="fightScreen">
 
                             <div>
                                 <img id="enemyImg" src= '' class="enemyImg">
@@ -223,7 +226,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </section> <!--End of rightSide-->
             </div> <!--End of pageContainer-->
     </body> <!--End of Main Content-->
@@ -251,5 +254,9 @@
         // if(roomArr[player.room].option4Text != null){
         //     document.getElementById("roomOption3").innerHTML = `${roomArr[player.room].option4Text}`;
         // }
+        document.getElementById("name").style.display = none;
+        document.getElementById("warrior").style.display = none;
+        document.getElementById("ranger").style.display = none;
+        document.getElementById("rogue").style.display = none;
     </script> <!--End Javascript Script-->
 </html>
