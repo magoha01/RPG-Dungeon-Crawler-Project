@@ -85,7 +85,13 @@ class Room {
             roomText()
             this.explored = true
              document.getElementById("roomIdTester").innerHTML = `${player.room}`
-        }
+        }  else if(this.previousFloor != null){
+            player.room = this.previousFloor
+            nextFloor()
+            roomText()
+            this.explored = true
+             document.getElementById("roomIdTester").innerHTML = `${player.room}`
+        }     
     }
 }
 function nextFloor(){
@@ -125,6 +131,8 @@ function roomText(){
         document.getElementById("roomOption5").innerHTML = 'Loot the Chest!'
     }else if(roomArr[player.room].nextFloor != null){
         document.getElementById("roomOption5").innerHTML = 'Advance to the next floor!'
+    }else if(roomArr[player.room].previousFloor != null){
+        document.getElementById("roomOption5").innerHTML = 'Return to the last floor!'
     }else {
         document.getElementById("roomOption5").innerHTML = ''
   }
@@ -259,7 +267,8 @@ let room11 = new Room({
     roomSouth: 10,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm55'
+    mapId: 'rm55',
+    nextFloor: 25
 })
 let room12 = new Room({
     roomId: 12, 
@@ -319,7 +328,8 @@ let room17 = new Room({
     roomSouth: 16,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm28'
+    mapId: 'rm28',
+    nextFloor: 25,
 })
 let room18 = new Room({
     roomId: 18, 
@@ -391,7 +401,208 @@ let room24 = new Room({
     enemyPresent: null,
     mapId: 'rm25'
 })
-roomArr= [startingRoom, room1, room2, room3, room4, room5, room6, room7, room8, room9, room10, room11, room12, room13, room14, room15, room16, room17, room18, room19, room20, room21, room22, room23, room24]
+let room25 = new Room({
+    roomId: 25, 
+    roomNorth: 26, 
+    roomWest: null, 
+    roomEast: null, 
+    roomSouth: null,
+    treasurePresent: 1,
+    enemyPresent: null,
+    mapId: 'rm65',
+    previousFloor: 17, 
+})
+let room26 = new Room({
+    roomId: 26, 
+    roomNorth: 27, 
+    roomWest: 30, 
+    roomEast: 35, 
+    roomSouth: null,
+    treasurePresent: 1,
+    enemyPresent: null,
+    mapId: 'rm55'
+})
+let room27 = new Room({
+    roomId: 27, 
+    roomNorth: 28, 
+    roomWest: null, 
+    roomEast: null, 
+    roomSouth: 26,
+    treasurePresent: 1,
+    enemyPresent: null,
+    mapId: 'rm45'
+})
+let room28 = new Room({
+    roomId: 28, 
+    roomNorth: 29, 
+    roomWest: 34, 
+    roomEast: 39, 
+    roomSouth: 27,
+    treasurePresent: 1,
+    enemyPresent: null,
+    mapId: 'rm35'
+})
+let room29 = new Room({
+    roomId: 29, 
+    roomNorth: null, 
+    roomWest: null, 
+    roomEast: null, 
+    roomSouth: 28,
+    treasurePresent: 1,
+    enemyPresent: null,
+    mapId: 'rm25'
+})
+let room30 = new Room({
+    roomId: 30, 
+    roomNorth: null, 
+    roomWest: 31, 
+    roomEast: 26, 
+    roomSouth: null,
+    treasurePresent: 1,
+    enemyPresent: null,
+    mapId: 'rm54'
+})
+let room31 = new Room({
+    roomId: 31, 
+    roomNorth: 32, 
+    roomWest: null, 
+    roomEast: 30, 
+    roomSouth: null,
+    treasurePresent: 1,
+    enemyPresent: null,
+    mapId: 'rm53'
+})
+let room32 = new Room({
+    roomId: 32, 
+    roomNorth: 33, 
+    roomWest: null, 
+    roomEast: null, 
+    roomSouth: 31,
+    treasurePresent: 1,
+    enemyPresent: null,
+    mapId: 'rm43'
+})
+let room33 = new Room({
+    roomId: 33, 
+    roomNorth: null, 
+    roomWest: null, 
+    roomEast: 34, 
+    roomSouth: 32,
+    treasurePresent: 1,
+    enemyPresent: null,
+    mapId: 'rm33'
+})
+let room34 = new Room({
+    roomId: 34, 
+    roomNorth: null, 
+    roomWest: 33, 
+    roomEast: 28, 
+    roomSouth: null,
+    treasurePresent: 1,
+    enemyPresent: null,
+    mapId: 'rm34'
+})
+let room35 = new Room({
+    roomId: 35, 
+    roomNorth: null, 
+    roomWest: 26, 
+    roomEast: 36, 
+    roomSouth: null,
+    treasurePresent: 1,
+    enemyPresent: null,
+    mapId: 'rm56'
+})
+let room36 = new Room({
+    roomId: 36, 
+    roomNorth: 37, 
+    roomWest: 35, 
+    roomEast: null, 
+    roomSouth: null,
+    treasurePresent: 1,
+    enemyPresent: null,
+    mapId: 'rm57'
+})
+let room37 = new Room({
+    roomId: 37, 
+    roomNorth: 38, 
+    roomWest: null, 
+    roomEast: null, 
+    roomSouth: 36,
+    treasurePresent: 1,
+    enemyPresent: null,
+    mapId: 'rm47'
+})
+let room38 = new Room({
+    roomId: 38, 
+    roomNorth: 40, 
+    roomWest: 39, 
+    roomEast: null, 
+    roomSouth: 37,
+    treasurePresent: 1,
+    enemyPresent: null,
+    mapId: 'rm37'
+})
+let room39 = new Room({
+    roomId: 39, 
+    roomNorth: null, 
+    roomWest: 28, 
+    roomEast: 38, 
+    roomSouth: null,
+    treasurePresent: 1,
+    enemyPresent: null,
+    mapId: 'rm36'
+})
+let room40 = new Room({
+    roomId: 40, 
+    roomNorth: 41, 
+    roomWest: null, 
+    roomEast: null, 
+    roomSouth: 38,
+    treasurePresent: 1,
+    enemyPresent: null,
+    mapId: 'rm27'
+})
+let room41 = new Room({
+    roomId: 41, 
+    roomNorth: 42, 
+    roomWest: null, 
+    roomEast: null, 
+    roomSouth: 40,
+    treasurePresent: 1,
+    enemyPresent: null,
+    mapId: 'rm17'
+})
+let room42 = new Room({
+    roomId: 42, 
+    roomNorth: null, 
+    roomWest: null, 
+    roomEast: 43, 
+    roomSouth: 41,
+    treasurePresent: 1,
+    enemyPresent: null,
+    mapId: 'rm7'
+})
+let room43 = new Room({
+    roomId: 43, 
+    roomNorth: null, 
+    roomWest: 42, 
+    roomEast: 44, 
+    roomSouth: null,
+    treasurePresent: 1,
+    enemyPresent: null,
+    mapId: 'rm8'
+})
+let room44 = new Room({
+    roomId: 44, 
+    roomNorth: null, 
+    roomWest: 43, 
+    roomEast: null, 
+    roomSouth: null,
+    treasurePresent: 1,
+    enemyPresent: null,
+    mapId: 'rm9'
+})
+roomArr= [startingRoom, room1, room2, room3, room4, room5, room6, room7, room8, room9, room10, room11, room12, room13, room14, room15, room16, room17, room18, room19, room20, room21, room22, room23, room24,room25, room26, room27, room28, room29, room30, room31, room32, room33, room34, room35, room36, room37, room38, room39, room40, room41, room42, room43, room44]
 // roomArr= [startingRoom]
 // for(let i = 0; i<24; i++){
 //     roomArr.push(room`${i}`)
