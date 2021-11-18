@@ -145,9 +145,9 @@
                 </div>
                 <div class="cSheetMid"> <!--Start of cSheetMid-->
                     <div class="cSheetPlayerStats">
-                        <div><p class ="stat">Stat1:</p><p id="cSheetStatField1" class = "stat">Stat</p></div>
-                        <div><p class ="stat">Stat2:</p><p id="cSheetStatField2" class = "stat">Stat</p></div>
-                        <div><p class ="stat">Stat3:</p><p id="cSheetStatField3" class = "stat">Stat</p></div>
+                        <div><p class ="stat">Strength:</p><p id="cSheetStatField1" class = "stat">Stat</p></div>
+                        <div><p class ="stat">Dexterity:</p><p id="cSheetStatField2" class = "stat">Stat</p></div>
+                        <div><p class ="stat">Constitution:</p><p id="cSheetStatField3" class = "stat">Stat</p></div>
                     </div>
                     <div class="cSheetPlayerValues">
 
@@ -193,9 +193,8 @@
                             <button id= roomOption3 onclick= 'option3()'></button>
                             <button id= roomOption4 onclick= 'option4()'></button>
                             <button id= roomOption5 onclick= 'roomArr[player.room].roomInteract()'></button>
-
-                            <!-- <button id= roomOption4 onclick= 'option4()'></button> -->
-                            <div id="roomIdTester"></div>   
+                            <div id="roomIdTester"></div>
+                            <div id="playerLog"></div>   
                             <div id="combatLog"></div>
                         </div> <!--End of Room Buttons-->
 
@@ -227,11 +226,11 @@
             </div> <!--End of pageContainer-->
     </body> <!--End of Main Content-->
     <script type="text/javascript"> //Javascript script
-        document.getElementById("cSheetStatField1").innerHTML = `${player.stat1}`;
-        document.getElementById("cSheetStatField2").innerHTML = `${player.stat2}`;
-        document.getElementById("cSheetStatField3").innerHTML = `${player.stat3}`;
+        document.getElementById("cSheetStatField1").innerHTML = `${player.strength}`;
+        document.getElementById("cSheetStatField2").innerHTML = `${player.dexterity}`;
+        document.getElementById("cSheetStatField3").innerHTML = `${player.constitution}`;
         document.getElementById("cSheetHealth").innerHTML = `${player.hpCurrent}/${player.hpTotal}`;
-        document.getElementById("cSheetArmor").innerHTML = `${player.armor}`;
+        document.getElementById("cSheetArmor").innerHTML = `${player.armor+player.tempArmor}`;
         document.getElementById("cSheetWeapon").innerHTML = `${player.dmg}`;
         document.getElementById("playerName").innerHTML = `${player.playerName}`;
         // document.getElementById("testTest").innerHTML = toggle;
