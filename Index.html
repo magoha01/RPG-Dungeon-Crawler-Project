@@ -12,12 +12,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-
-
     <title>A Journey Underground</title>
+
 </head>
+
     <body> <!--Main Content-->
         <header>
+            <audio id="background_music" src="assets/Тиффани-TheBeginning-.mp3" loop autoplay></audio> 
+            
+            <div id= 'mute_button' onclick="mute()">
+                <p id='mute_option'>mute</p>
+            </div>
+            <button id="save" onclick="saveGame()">Save your Game!</button>
+            <button id="load" onclick="loadGame()">Load your Game!</button>
             <h1>
                 A Journey Underground
             </h1>
@@ -130,33 +137,33 @@
                         </div>
                     </section> <!--End of Mini Map-->
                     <div class="charArt">
-                        <img src = "cSheet_Icons/Player1.png">
+                        <img src = "assets/Player1.png">
                         <p id=playerName>playerName</p>
                         <!--<p>Status: playerStatus</p> -->
                     </div>
                 </div>
                 <div class="cSheetMid"> <!--Start of cSheetMid-->
                     <div class="cSheetPlayerStats">
-                        <div><p class ="stat">Stat1:</p><p id="cSheetStatField1" class = "stat">Stat</p></div>
-                        <div><p class ="stat">Stat2:</p><p id="cSheetStatField2" class = "stat">Stat</p></div>
-                        <div><p class ="stat">Stat3:</p><p id="cSheetStatField3" class = "stat">Stat</p></div>
+                        <div><p class ="stat">Strength:</p><p id="cSheetStatField1" class = "stat">Stat</p></div>
+                        <div><p class ="stat">Dexterity:</p><p id="cSheetStatField2" class = "stat">Stat</p></div>
+                        <div><p class ="stat">Constitution:</p><p id="cSheetStatField3" class = "stat">Stat</p></div>
                     </div>
                     <div class="cSheetPlayerValues">
-                        <div class="cSheetHealth"> 
-                            <img src = "cSheet_Icons/heart pixel art.png"> 
-                            <p>Health:</p>
 
+                        <div class="cSheetHealth"> 
+                            <img src = "assets/heart pixel art.png"> 
+                            <p>Health:</p>
                             <p id=cSheetHealth>VAL</p>
                         </div>
                         <div class= "cSheetArmor"> 
-                            <img src= "cSheet_Icons/Shield1.png"> 
+                            <img src= "assets/Shield1.png"> 
                             <p>Armor:</p>
 
                             <p id=cSheetArmor>VAL</p>
 
                         </div>
                         <div class="cSheetWeapon">
-                            <img src= "cSheet_Icons/sword_small (1).png">
+                            <img src= "assets/sword_small (1).png">
                             <p>Weapon:</p>
 
                             <p id=cSheetWeapon>VAL</p>
@@ -164,59 +171,85 @@
                     </div>
                 </div>
                 <div class="cSheetBottom"> <!--Start of cSheetBottom-->
-                    
+
                     <h3>Inventory</h3>
                         <div class="cSheetInventory">
-                                <p><img id = "item1" src=''/>Item 1</p>
-                                <p><img id = "item2" src=''/>Item 2</p>
-                                <p><img id = "item3" src=''/>Item 3</p>
-                                <p><img id = "item4" src=''/>Item 4</p>
-                                <p><img id = "item5" src=''/>Item 5</p>
-                                <p><img id = "item6" src=''/>Item 6</p>  
+                                <img id = "item1" src=''/>
+                                <img id = "item2" src=''/>
+                                <img id = "item3" src=''/>
+                                <img id = "item4" src=''/>
+                                <img id = "item5" src=''/>
+                                <img id = "item6" src=''/> 
                         </div>    
-
-                      
                 </section> 
-                    <section class="rightSide"> <!--Start of rightSide-->
-                        <div class="right"> <!--start Room buttons-->
+                <section class="rightSide"> <!--Start of rightSide-->
+                    <div class="right"> 
+                        <div class="buttons"> <!--start Room buttons-->
                             <button onclick='Button()'>Room Button</button>
-                            <button onclick='stat1Increment()'>Increment stat1!</button>
+                            <!-- <button onclick='stat1Increment()'>Increment stat1!</button> -->
                             <button id= roomOption1 onclick= 'option1()'></button>
                             <button id= roomOption2 onclick= 'option2()'></button>
                             <button id= roomOption3 onclick= 'option3()'></button>
-                            <button id= roomOption4 onclick= 'option4()'></button>
-                            <div id="roomIdTester"></div> 
+                            <button id= roomOption4 onclick= 'option4()'></button>                     
+                            <button id= roomOption5 onclick= 'roomArr[player.room].roomInteract()'></button>
+                            <div id="roomIdTester"></div>
+                            <div id="playerLog"></div>   
+                            <div id="combatLog"></div>
                             <div id="storyContainer">
                                 <p> Lorem ipsum dolor sit amet consectetur</p> <!--This is for testing-->
                             </div>  
                         </div> <!--End of Room Buttons-->
                         <section class="text"> <!--Where the story will sit-->
-                        
-                    </section> <!--End of Story Container-->
-                    </section> <!--End of rightSide-->
-                </div> <!--End of pageContainer-->
+                        <div id="fightScreen">
+
+                            <div>
+                                <img id="enemyImg" src= '' class="enemyImg">
+                                <p id="enemyName"></p>
+
+
+                            </div>
+                            <div id = 'enemyStats'>
+                                <div>
+                                    <img id= "enemyHealthImg" src = "">
+                                    <p id="enemyHealth"></p>
+                                </div>
+                                <div>
+                                    <img id="enemyDefenseImg" src= "">
+                                    <p id="enemyDefense"></p>
+                                </div>
+                                <div>
+                                <img id="enemyAttackImg" src= "">
+                                <p id= "enemyAttack"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section> <!--End of rightSide-->
+            </div> <!--End of pageContainer-->
     </body> <!--End of Main Content-->
     <script type="text/javascript"> //Javascript script
-        document.getElementById("cSheetStatField1").innerHTML = `${player.stat1}`;
-        document.getElementById("cSheetStatField2").innerHTML = `${player.stat2}`;
-        document.getElementById("cSheetStatField3").innerHTML = `${player.stat3}`;
+        document.getElementById("cSheetStatField1").innerHTML = `${player.strength}`;
+        document.getElementById("cSheetStatField2").innerHTML = `${player.dexterity}`;
+        document.getElementById("cSheetStatField3").innerHTML = `${player.constitution}`;
         document.getElementById("cSheetHealth").innerHTML = `${player.hpCurrent}/${player.hpTotal}`;
-        document.getElementById("cSheetArmor").innerHTML = `${player.armor}`;
+        document.getElementById("cSheetArmor").innerHTML = `${player.armor+player.tempArmor}`;
         document.getElementById("cSheetWeapon").innerHTML = `${player.dmg}`;
         document.getElementById("playerName").innerHTML = `${player.playerName}`;
         // document.getElementById("testTest").innerHTML = toggle;
         document.getElementById("roomIdTester").innerHTML = `${player.room}`
-        if(roomArr[player.room].option1Text != null){
-        document.getElementById("roomOption1").innerHTML = `${roomArr[player.room].option1Text}`;
-        }
-        if(roomArr[player.room].option2Text != null){
-        document.getElementById("roomOption2").innerHTML = `${roomArr[player.room].option2Text}`;
-        }
-        if(roomArr[player.room].option3Text != null){
-        document.getElementById("roomOption3").innerHTML = `${roomArr[player.room].option3Text}`;
-        }
-        if(roomArr[player.room].option4Text != null){
-            document.getElementById("roomOption3").innerHTML = `${roomArr[player.room].option4Text}`;
-        }
+        document.getElementById(startingRoom.mapId).style.backgroundColor = 'black'
+        roomText()
+        // if(roomArr[player.room].option1Text != null){
+        // document.getElementById("roomOption1").innerHTML = `${roomArr[player.room].option1Text}`;
+        // }
+        // if(roomArr[player.room].option2Text != null){
+        // document.getElementById("roomOption2").innerHTML = `${roomArr[player.room].option2Text}`;
+        // }
+        // if(roomArr[player.room].option3Text != null){
+        // document.getElementById("roomOption3").innerHTML = `${roomArr[player.room].option3Text}`;
+        // }
+        // if(roomArr[player.room].option4Text != null){
+        //     document.getElementById("roomOption3").innerHTML = `${roomArr[player.room].option4Text}`;
+        // }
     </script> <!--End Javascript Script-->
 </html>
