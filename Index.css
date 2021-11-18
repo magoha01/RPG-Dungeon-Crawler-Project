@@ -389,6 +389,7 @@ h1 {
 
 #item6 {
   width: 10%;
+
 }
 
 /* Right Side */
@@ -398,6 +399,8 @@ h1 {
   background-color: #695f4d;
   border: none;
   display: flex;
+  margin: 1% 1% 1% 0;
+  border: 6px solid black;
 }
 
 .rightSide div {
@@ -413,13 +416,19 @@ h1 {
   align-items: center;
 }
 
+
 .storyContainer {
   width: 100%;
+}
+.roomContainer{
+  max-width: 100%;
   margin: 1%;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: flex-end;
-  padding: 5%;
+  padding: 30%;
+}
+
+.roomContainer div{
+  margin: 1%;
+
 }
 
 .storyContainer p {
@@ -442,7 +451,46 @@ h1 {
   margin: 1%;
 }
 
-#fightScreen {
+#roomOption1{
+
+}
+
+#roomOption2{
+
+}
+
+#roomOption3{
+  
+}
+
+#roomOption4{
+  
+}
+
+#roomOption5{
+  
+}
+
+#roomIdTester{
+  margin: 1%;
+}
+
+#storyContainer{
+  width: 100%;
+}
+
+#storyContainer p {
+  width: 100%;
+  margin: 1%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-end;
+  padding: 10%;
+  background-color: black;
+  color: white;
+}
+
+#fightScreen{
   width: 98%;
   display: flex;
   margin: 5% 1%;

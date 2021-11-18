@@ -184,6 +184,9 @@
                 </section> 
                 <section class="rightSide"> <!--Start of rightSide-->
                     <div class="right"> 
+                        <div class="roomContainer">
+                            room
+                        </div>
                         <div class="buttons"> <!--start Room buttons-->
                             <button onclick='Button()'>Room Button</button>
                             <!-- <button onclick='stat1Increment()'>Increment stat1!</button> -->
@@ -205,6 +208,7 @@
                             </div> <!--End of story container-->
                         </div> <!--End of Room Buttons-->
                         <!-- <div id="fightScreen">
+
 
                             <div>
                                 <img id="enemyImg" src= '' class="enemyImg">
@@ -239,22 +243,9 @@
         document.getElementById("cSheetArmor").innerHTML = `${player.armor+player.tempArmor}`;
         document.getElementById("cSheetWeapon").innerHTML = `${player.dmg}`;
         document.getElementById("playerName").innerHTML = `${player.playerName}`;
-        // document.getElementById("testTest").innerHTML = toggle;
         document.getElementById("roomIdTester").innerHTML = `${player.room}`
         document.getElementById(startingRoom.mapId).style.backgroundColor = 'black'
         roomText()
-        // if(roomArr[player.room].option1Text != null){
-        // document.getElementById("roomOption1").innerHTML = `${roomArr[player.room].option1Text}`;
-        // }
-        // if(roomArr[player.room].option2Text != null){
-        // document.getElementById("roomOption2").innerHTML = `${roomArr[player.room].option2Text}`;
-        // }
-        // if(roomArr[player.room].option3Text != null){
-        // document.getElementById("roomOption3").innerHTML = `${roomArr[player.room].option3Text}`;
-        // }
-        // if(roomArr[player.room].option4Text != null){
-        //     document.getElementById("roomOption3").innerHTML = `${roomArr[player.room].option4Text}`;
-        // }
         document.getElementById("name").style.display = none;
         document.getElementById("warrior").style.display = none;
         document.getElementById("ranger").style.display = none;
