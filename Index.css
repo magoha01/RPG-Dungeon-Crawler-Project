@@ -1,31 +1,108 @@
 /*CSS RESET*/
 
-html, body, div, span, applet, object, iframe,  
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,  
-a, abbr, acronym, address, big, cite, code,  
-del, dfn, em, img, ins, kbd, q, s, samp,  
-small, strike, strong, sub, sup, tt, var,  
-b, u, i, center,  
-dl, dt, dd, ol, ul, li,  
-fieldset, form, label, legend,  
-table, caption, tbody, tfoot, thead, tr, th, td,  
-article, aside, canvas, details, embed,  
-figure, figcaption, footer, header, hgroup,  
-menu, nav, output, ruby, section, summary,  
-time, mark, audio, video {  
-    margin: 0;  
-    padding: 0;  
-    /* border: 0;   */
-    font-size: 100%;  
-    font: inherit;  
-    vertical-align: baseline;  
-} 
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  /* border: 0;   */
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
 /*GENERAL STYLES*/
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 
 * {
@@ -37,27 +114,26 @@ footer, header, hgroup, menu, nav, section {
   background-color: brown;
 }
 
-html{
-    font-size:62.5%;
+html {
+  font-size: 62.5%;
 }
 
-body{
-    font-size:1.6rem;
-    line-height: 1.5;
-    font-family: 'Oswald', sans-serif;
-    font-family: 'Press Start 2P', cursive;
-    background-color: #8b0000;
-	  max-width: 100%;
-	  height: 100%;
-	  margin: 2%;
+body {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  font-family: "Oswald", sans-serif;
+  font-family: "Press Start 2P", cursive;
+  background-color: #8b0000;
+  max-width: 100%;
+  height: 100%;
+  margin: 2%;
 }
-
 
 /*GENERAL STYLES*/
 
-header h1{
-    text-align: center;
-	margin: auto;
+header h1 {
+  text-align: center;
+  margin: auto;
 }
 
 header {
@@ -71,6 +147,7 @@ h1 {
 }
 
 /* BEGIN INTERFACE CSS */
+
 
 #mute_button {
   width: 10%;
@@ -88,8 +165,6 @@ h1 {
   width: 90%;
   height: 90%;
 }
-
-
 /* Begin cSheet Css */
 
 .pageContainer {
@@ -99,19 +174,20 @@ h1 {
   margin: auto;
 }
 
-.pageContainer div{
+.pageContainer div {
   background-color: #695f4d;
 }
 
-#cSheet{
-	max-width: 50%;
-	border: 6px solid black;
-    /* margin: 1%; */
-    display: flex;
-    flex-flow: column nowrap;
+
+#cSheet {
+  max-width: 50%;
+  border: 6px solid black;
+  margin: 1%;
+  display: flex;
+  flex-flow: column nowrap;
+
+
 }
-
-
 
 /* Top Section of cSheet */
 
@@ -124,20 +200,20 @@ h1 {
   margin: 2%;
 }
 
-.charArt{
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-    margin: 1%;
-    width: 38%;
-	border: 3px solid black;
+.charArt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1%;
+  width: 38%;
+  border: 3px solid black;
 }
 
-.charArt img{
+.charArt img {
   background-color: #695f4d;
 }
 
-#playerName{
+#playerName {
   background-color: #695f4d;
 }
 
@@ -154,7 +230,6 @@ h1 {
   /* display: flex;
   justify-content: space-between;
   align-items: space-between; */
-
 }
 
 #map p {
@@ -168,8 +243,8 @@ h1 {
 	border: 1px solid black;
 }
 
-#playerName{
-	font-size: 1.5rem;
+#playerName {
+  font-size: 1.5rem;
 }
 
 .charArt img {
@@ -185,7 +260,8 @@ h1 {
   width: 100%;
   flex-wrap: no-wrap;
   justify-content: space-between;
-  }
+}
+
 
 .cSheetMid div {
   width: 100%;
@@ -209,7 +285,7 @@ h1 {
   font-size: 1.4rem;
 }
 
-.stat{
+.stat {
   background-color: #695f4d;
 }
 
@@ -287,7 +363,7 @@ h1 {
   padding: 5%;
 }
 
-.cSheetInventory p{
+.cSheetInventory p {
   background-color: #695f4d;
 }
 
@@ -326,11 +402,14 @@ h1 {
 
 .rightSide {
   width: 50%;
+  background-color: #695f4d;
+  border: none;
   display: flex;
 }
 
 .rightSide div {
   width: 100%;
+  display: flex;
   flex-flow: row wrap;
   align-content: center;
 }
@@ -339,6 +418,15 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.storyContainer p {
+  width: 100%;
+  margin: 1%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-end;
+  padding: 5%;
 }
 
 .buttons{

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Lambda RPG- A Journey Underground</title>
+    <title>A Journey Underground</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <title>Lambda RPG- A Journey Underground</title>
+    <title>A Journey Underground</title>
 
 </head>
 
@@ -26,7 +26,7 @@
             <button id="save" onclick="saveGame()">Save your Game!</button>
             <button id="load" onclick="loadGame()">Load your Game!</button>
             <h1>
-                Lambda RPG- A Journey Underground
+                A Journey Underground
             </h1>
         </header>
         <div class= "pageContainer">
@@ -139,8 +139,7 @@
                     <div class="charArt">
                         <img src = "assets/Player1.png">
                         <p id=playerName>playerName</p>
-<!-- 
-                        <p>Status: playerStatus</p> -->
+                        <!--<p>Status: playerStatus</p> -->
                     </div>
                 </div>
                 <div class="cSheetMid"> <!--Start of cSheetMid-->
@@ -191,13 +190,16 @@
                             <button id= roomOption1 onclick= 'option1()'></button>
                             <button id= roomOption2 onclick= 'option2()'></button>
                             <button id= roomOption3 onclick= 'option3()'></button>
-                            <button id= roomOption4 onclick= 'option4()'></button>
+                            <button id= roomOption4 onclick= 'option4()'></button>                     
                             <button id= roomOption5 onclick= 'roomArr[player.room].roomInteract()'></button>
                             <div id="roomIdTester"></div>
                             <div id="playerLog"></div>   
                             <div id="combatLog"></div>
+                            <div id="storyContainer">
+                                <p> Lorem ipsum dolor sit amet consectetur</p> <!--This is for testing-->
+                            </div>  
                         </div> <!--End of Room Buttons-->
-
+                        <section class="text"> <!--Where the story will sit-->
                         <div id="fightScreen">
 
                             <div>
