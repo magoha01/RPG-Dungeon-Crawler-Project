@@ -506,6 +506,7 @@ function Button ()  {
     // document.getElementById("combatLog").innerHTML = `${enemy[0].name} Attacks!}`
     // combatEnd()
     gameStart()
+    // document.getElementById("storyTest").innerHTML = gameIntro;
     // let img = slime.enemyImg
     // document.getElementById('enemyImg').src = `${img}`
     // itemArr[0].loot()
@@ -523,3 +524,96 @@ function Button ()  {
 // document.getElementById("testTest").innerHTML = toggle;
 }
 //  console.log('test')
+
+const gameIntro = 'As a simple farm hand in the land of Lambastia, your daily life is full of heavy chores and physical labour. You know there must be more to life. You crave adventure, admiration and most of all...riches!';
+
+const gameIntro2 = 'Once a blue moon in the lands of Lambastia, there is a competition to determine a new leader. It is a matter of learning agility determined through a battle of wills. Every eligible person is welcome to the Ternary Estate to compete.';
+
+const room1Intro = 'Today is your turn to compete! You walk into the Estate to find a standalone building with a door. Nervous, but ready to prevail, you enter the first room. You see a table with a single candle in the darkness...a note that reads “who are you?”';
+
+const room1Outro = 'After you finished writing on the note, the flame grew to show a door in the rear of the room. You continue onward.';
+
+const room2Intro = 'As you enter into the dimly lit room you notice an enemy spawns! They raise their sword high and begin running towards you!';
+
+const room2Dialogue = '“You dare enter the home of Isa Capital! If you attempt to continue this journey she will destroy you!!” You brace yourself to begin your first battle. “Let me do you a kindness and end your journey before it starts!”';
+
+const room2HeroDialogue = '“I will let nothing keep me from accolades for my valour! … move or... DIE!”';
+
+const room2Outro = 'You did it! After fighting such a courageous battle, you notice a chest towards the back of the room by the next door. Do you dare look inside?';
+
+const room3Intro = 'You enter the next room to find another monster emerging from the darkness! “I cannot let you pass, she will kill you.. It is best to submit now”';
+
+const room3HeroDialogue = 'Riding the high from your previous victory, you start to run towards the monster. “I do not believe in submission!”';
+
+const room3Outro = 'These monsters are no match for you! It is almost like you were BORN for this!';
+
+const room4Intro = 'You walk into the next room and see a frail woman packaging goods from a large sack. “Only a few will survive, but you seem keen on not giving up. I have some goods to help assist you through your journey.”';
+
+const room4Outro = '“Ah it is nice to have a moment of goodwill, thank you friend.” After a refreshing moment, you walk through the next door.';
+
+const room5Intro = 'As you walk through the room, you notice a monster spotting you while it is munching on what looks like a human arm... “Another snack! How I do love when your country sends me its finest desserts.”';
+
+const room5HeroDialogue = '“I cannot let such a vile creature exist, how dare you dine on the flesh of the living?!”'
+
+const room5Outro = 'You take a moment of silence for the eaten comrade and keep pushing onward.'
+
+const room6Intro = 'You notice that this room is darker than normal...and too quiet...you stop in the middle of the room to feel the hairs on your neck standing straight up. Something is breathing down your neck! A monster gut punches you from behind and you let you a shallow gasp.'
+
+const room6Outro = 'You barely make it out alive, but you are able to continue exploring. The dungeon is more tricky than you originally thought, but you remember that your willpower is stronger than anything that the dungeon could throw at you! You continue onward.';
+
+const room7Intro = 'While entering the next room, you hear something crying hysterically. You find a monster rocking back and forth in a fetal position...how strange... “Isa? Is that you? May I leave now? … YOU’RE NOT ISA, JUST FINALLY LET ME OUT!!”';
+
+const room7Outro = '“I do not know what you speak of, let me pass or meet my blade!” The monster runs to a dark corner and lets you pass to the next room.';
+
+const room8Intro = 'You enter this room to find the same kind soul that assisted you earlier pouring water from a gourd this time. You see blankets and a bed of hay. “Here, here have some well water and take a rest my friend.”';
+
+const room8Outro = '“I have grown weary...” You fall into a deep slumber. Dreams of the farm you call home dance through your head. You wonder if you made a mistake going into the dungeon, but then your dream shifts to a castle with you as the leader of Lambastia! You awake invigorated and thank the kind woman for her help. You are ready to dive deeper into the dungeon.';
+
+const room9Intro = 'You enter this room itching for a battle. You scan the room and see a chest shining under a torch. As you move towards the chest, you see something out of the corner of your eye...“I have seen the likes of you far too many times.. What makes you worthy?”';
+
+const room9HeroCry = '“I WILL NEVER GIVE UP!”';
+
+//Enemy re-spawns larger than before
+
+const room9AfterCombat = 'You wipe the sweat from your brow and throw your fist toward the ceiling in victory. As you walk towards the chest to finally see what is inside, you hear a rumble behind you. “I said WHAT MAKES YOU WORTTTHHYYY!”';
+
+const room9BeforeCombat2 = '“Oh, my” … You steady your hands and inhale. Are you ready for round 2?';
+
+const room9AfterCombat2 = 'What a battle! You are feeling stronger than ever as you loot the shining chest. It’s a KEY! You notice that you hear something in the distance as you walk towards the next door.';
+
+const room10Intro = 'You open the door slowly and notice the silhouettes of other adventurers in the dark corners of the room. You hear an absolutely sinister laugh growing louder and louder while the silhouettes are sobbing. What in the world have you gotten yourself into?';
+
+const room10HeroDialogue = '“What have you done?!”';
+
+//Re-spawns 2 times with larger health each time and the background sounds increases with each life bar.
+
+const room10Outro = 'Once the beast has been defeated, you notice a light growing stronger in the room. You feel your strength growing even more! You help the other adventurers escape through the door you came in, and then you scan the room. You see a rather large chest beside a staircase leading deeper into the dungeon...will you go to the next level? What will await you there?';
+
+
+function gameStart(){
+document.getElementById("storyTest").innerHTML = `${gameIntro} <br> ${gameIntro2}`;
+}
+
+Next(){
+
+}
+
+function greeting(){
+return `Hello ${player.name}. What class are you?`
+}
+
+function classChoice(){
+
+}
+
+function warrior(){
+return 'Ah yes! You are a warrior bound by your brute strength and will to succeed. Welcome.';
+}
+
+function ranger(){
+return 'Ah yes! You are a ranger tied to the forest with your trusty shortbow at your side. Welcome.'
+}
+
+function rogue(){
+return 'Ah yes! You are a rogue, an assassin of the night, with your small blade to destroy anything in your path. Welcome.'
+}
