@@ -453,7 +453,6 @@ function saveGame(){
             if(room.treasurePresent === null){
             lootedRooms.push(room.roomId)
         }
-    
     } 
 });
 localStorage.setItem('exploredRooms', exploredRooms.toString(','))
