@@ -987,9 +987,9 @@ function gameStart(){
 document.getElementById("storyTest").innerHTML = `${gameIntro} <br> ${gameIntro2}`;
 }
 
-Next(){
+// Next(){
 
-}
+// }
 
 function greeting(){
 return `Hello ${player.name}. What class are you?`
