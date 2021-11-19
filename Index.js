@@ -899,7 +899,7 @@ function Button () {
     // document.getElementById("roomOption2").onclick = stat1Increment
     // document.getElementById("combatLog").innerHTML = `${enemy[0].name} Attacks!}`
     // combatEnd()
-    gameStart();
+//     gameStart();
     // printStory(printLetterByLetter());
     // printLetterByLetter("storyTest", gameIntro);
     // nextFloor()
