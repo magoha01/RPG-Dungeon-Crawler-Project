@@ -4,7 +4,28 @@ function mute(){
     document.getElementById('mute_option').innerHTML = music.muted ? 'mute' : 'unmute';
     music.muted = !music.muted;
 }
+
+// attaching range slider to audio volume on site
+
+// let audio = document.getElementById('background_music');
+// let givenvolume = document.querySelector("#volume-control");
+// audio.volume = 
+
+// const volumeSlider = document.getElementById('volume-control');
+// const outputContainer = document.getElementById('volume-output');
+// const music = document.getElementById('background_music');
+// audio.volume = 0.2;
+
+// volumeSlider.addEventListener('input', (e) => {
+//   const value = e.target.value;
+
+//   outputContainer.textContent = value;
+//   music.volume = value / 100;
+// });
+
+
 var JSON = JSON || {};
+
 class Room {
     constructor(roomAtt){
         this.roomId = roomAtt.roomId
@@ -665,6 +686,7 @@ let turnCount = 0
 function combatStart(){
     let newEnemy = JSON.parse(JSON.stringify(enemyArr[roomArr[player.room].enemyPresent]))
     enemy.push(newEnemy)
+    document.getElementById("fightScreen").style.display = ''
     document.getElementById("roomOption1").onclick = attack
     document.getElementById("roomOption1").innerHTML = `Attack!`
     document.getElementById("roomOption2").onclick = defend
@@ -686,6 +708,7 @@ function combatEnd(){
     roomText()
     enemy.pop
     turnCount = 0;
+    document.getElementById("fightScreen").style.display = 'none'
      document.getElementById("combatLog").innerHTML = ''
      document.getElementById("playerLog").innerHTML = ''
      document.getElementById('enemyImg').src = ''
@@ -892,13 +915,16 @@ function loadGame(){
         
 }
         
-function Button ()  {
+function Button () {
     
         // document.querySelectorAll("video, audio").forEach( elem => muteMe(elem) );
 
     // document.getElementById("roomOption2").onclick = stat1Increment
     // document.getElementById("combatLog").innerHTML = `${enemy[0].name} Attacks!}`
-    combatEnd()
+    // combatEnd()
+//     gameStart();
+    // printStory(printLetterByLetter());
+    // printLetterByLetter("storyTest", gameIntro);
     // nextFloor()
     // let img = slime.enemyImg
     // document.getElementById('enemyImg').src = `${img}`
@@ -922,9 +948,13 @@ const gameIntro = 'As a simple farm hand in the land of Lambastia, your daily li
 
 const gameIntro2 = 'Once a blue moon in the lands of Lambastia, there is a competition to determine a new leader. It is a matter of learning agility determined through a battle of wills. Every eligible person is welcome to the Ternary Estate to compete.';
 
+//end of Intro
+
 const room1Intro = 'Today is your turn to compete! You walk into the Estate to find a standalone building with a door. Nervous, but ready to prevail, you enter the first room. You see a table with a single candle in the darkness...a note that reads “who are you?”';
 
 const room1Outro = 'After you finished writing on the note, the flame grew to show a door in the rear of the room. You continue onward.';
+
+//end of room 1
 
 const room2Intro = 'As you enter into the dimly lit room you notice an enemy spawns! They raise their sword high and begin running towards you!';
 
@@ -934,33 +964,47 @@ const room2HeroDialogue = '“I will let nothing keep me from accolades for my v
 
 const room2Outro = 'You did it! After fighting such a courageous battle, you notice a chest towards the back of the room by the next door. Do you dare look inside?';
 
+//end of room 2
+
 const room3Intro = 'You enter the next room to find another monster emerging from the darkness! “I cannot let you pass, she will kill you.. It is best to submit now”';
 
 const room3HeroDialogue = 'Riding the high from your previous victory, you start to run towards the monster. “I do not believe in submission!”';
 
 const room3Outro = 'These monsters are no match for you! It is almost like you were BORN for this!';
 
+//end of room 3
+
 const room4Intro = 'You walk into the next room and see a frail woman packaging goods from a large sack. “Only a few will survive, but you seem keen on not giving up. I have some goods to help assist you through your journey.”';
 
 const room4Outro = '“Ah it is nice to have a moment of goodwill, thank you friend.” After a refreshing moment, you walk through the next door.';
 
+//end of room 4
+
 const room5Intro = 'As you walk through the room, you notice a monster spotting you while it is munching on what looks like a human arm... “Another snack! How I do love when your country sends me its finest desserts.”';
 
-const room5HeroDialogue = '“I cannot let such a vile creature exist, how dare you dine on the flesh of the living?!”'
+const room5HeroDialogue = '“I cannot let such a vile creature exist, how dare you dine on the flesh of the living?!”';
 
-const room5Outro = 'You take a moment of silence for the eaten comrade and keep pushing onward.'
+const room5Outro = 'You take a moment of silence for the eaten comrade and keep pushing onward.';
 
-const room6Intro = 'You notice that this room is darker than normal...and too quiet...you stop in the middle of the room to feel the hairs on your neck standing straight up. Something is breathing down your neck! A monster gut punches you from behind and you let you a shallow gasp.'
+//end of room 5
+
+const room6Intro = 'You notice that this room is darker than normal...and too quiet...you stop in the middle of the room to feel the hairs on your neck standing straight up. Something is breathing down your neck! A monster gut punches you from behind and you let you a shallow gasp.';
 
 const room6Outro = 'You barely make it out alive, but you are able to continue exploring. The dungeon is more tricky than you originally thought, but you remember that your willpower is stronger than anything that the dungeon could throw at you! You continue onward.';
+
+//end of room 6
 
 const room7Intro = 'While entering the next room, you hear something crying hysterically. You find a monster rocking back and forth in a fetal position...how strange... “Isa? Is that you? May I leave now? … YOU’RE NOT ISA, JUST FINALLY LET ME OUT!!”';
 
 const room7Outro = '“I do not know what you speak of, let me pass or meet my blade!” The monster runs to a dark corner and lets you pass to the next room.';
 
+//end of room 7
+
 const room8Intro = 'You enter this room to find the same kind soul that assisted you earlier pouring water from a gourd this time. You see blankets and a bed of hay. “Here, here have some well water and take a rest my friend.”';
 
 const room8Outro = '“I have grown weary...” You fall into a deep slumber. Dreams of the farm you call home dance through your head. You wonder if you made a mistake going into the dungeon, but then your dream shifts to a castle with you as the leader of Lambastia! You awake invigorated and thank the kind woman for her help. You are ready to dive deeper into the dungeon.';
+
+//end of room 8
 
 const room9Intro = 'You enter this room itching for a battle. You scan the room and see a chest shining under a torch. As you move towards the chest, you see something out of the corner of your eye...“I have seen the likes of you far too many times.. What makes you worthy?”';
 
@@ -974,6 +1018,8 @@ const room9BeforeCombat2 = '“Oh, my” … You steady your hands and inhale. A
 
 const room9AfterCombat2 = 'What a battle! You are feeling stronger than ever as you loot the shining chest. It’s a KEY! You notice that you hear something in the distance as you walk towards the next door.';
 
+//end of room 9
+
 const room10Intro = 'You open the door slowly and notice the silhouettes of other adventurers in the dark corners of the room. You hear an absolutely sinister laugh growing louder and louder while the silhouettes are sobbing. What in the world have you gotten yourself into?';
 
 const room10HeroDialogue = '“What have you done?!”';
@@ -982,13 +1028,31 @@ const room10HeroDialogue = '“What have you done?!”';
 
 const room10Outro = 'Once the beast has been defeated, you notice a light growing stronger in the room. You feel your strength growing even more! You help the other adventurers escape through the door you came in, and then you scan the room. You see a rather large chest beside a staircase leading deeper into the dungeon...will you go to the next level? What will await you there?';
 
+//end of room 10 and floor 1
 
-function gameStart(){
-document.getElementById("storyTest").innerHTML = `${gameIntro} <br> ${gameIntro2}`;
+//Story Functions
+function printLetterByLetter(destination, message){ //message = variable
+    let i = 0;
+    let interval = setInterval(function(){
+        document.getElementById(destination).innerHTML += message.charAt(i);
+        i++;
+        if (i > message.length){
+            clearInterval(interval);
+        }
+    }, 100);
 }
 
-// Next(){
+function gameStart(){
+// document.getElementById("storyTest").innerHTML = `${gameIntro} <br> ${gameIntro2}`;
+printLetterByLetter("storyTest", gameIntro);
+}
 
+// Next(rmNum, message){
+// let i = 0; //when clicking next, the next text for the room shows
+// document.getElementById(destination).innerHTML
+// if (i === message.length){
+// //go to the next text
+// }
 // }
 
 function greeting(){
