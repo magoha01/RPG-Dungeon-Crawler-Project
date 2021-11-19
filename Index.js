@@ -4,7 +4,28 @@ function mute(){
     document.getElementById('mute_option').innerHTML = music.muted ? 'mute' : 'unmute';
     music.muted = !music.muted;
 }
+
+// attaching range slider to audio volume on site
+
+// let audio = document.getElementById('background_music');
+// let givenvolume = document.querySelector("#volume-control");
+// audio.volume = 
+
+const volumeSlider = document.getElementById('volume-control');
+const outputContainer = document.getElementById('volume-output');
+const music = document.getElementById('background_music');
+audio.volume = 0.2;
+
+volumeSlider.addEventListener('input', (e) => {
+  const value = e.target.value;
+
+  outputContainer.textContent = value;
+  music.volume = value / 100;
+});
+
+
 var JSON = JSON || {};
+
 class Room {
     constructor(roomAtt){
         this.roomId = roomAtt.roomId
