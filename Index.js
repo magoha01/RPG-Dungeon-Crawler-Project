@@ -665,6 +665,7 @@ let turnCount = 0
 function combatStart(){
     let newEnemy = JSON.parse(JSON.stringify(enemyArr[roomArr[player.room].enemyPresent]))
     enemy.push(newEnemy)
+    document.getElementById("fightScreen").style.display = ''
     document.getElementById("roomOption1").onclick = attack
     document.getElementById("roomOption1").innerHTML = `Attack!`
     document.getElementById("roomOption2").onclick = defend
@@ -686,6 +687,7 @@ function combatEnd(){
     roomText()
     enemy.pop
     turnCount = 0;
+    document.getElementById("fightScreen").style.display = 'none'
      document.getElementById("combatLog").innerHTML = ''
      document.getElementById("playerLog").innerHTML = ''
      document.getElementById('enemyImg').src = ''

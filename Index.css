@@ -423,7 +423,7 @@ h1 {
 .roomContainer{
   max-width: 100%;
   margin: 1%;
-  padding: 30%;
+  /* padding: 30%; */
 }
 
 .roomContainer div{
