@@ -18,10 +18,16 @@
 
     <body> <!--Main Content-->
         <header>
-            <audio id="background_music" src="assets/Тиффани-TheBeginning-.mp3" loop autoplay></audio> 
-            
-            <div id= 'mute_button' onclick="mute()">
-                <p id='mute_option'>mute</p>
+            <div id="music_container">
+                <audio id="background_music" src="assets/Тиффани-TheBeginning-.mp3" loop autoplay></audio> 
+                <div id= 'mute_button' onclick="mute()">
+                    <p id='mute_option'>mute</p>
+                </div>
+                <img src="assets/audiosprite.png" alt="soundsprite">
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="100" value="100" class="slider" id="volume-control">
+                </div>
+                <output id="volume-container">100</output>
             </div>
             <h1>
                 Lambda RPG- A Journey Underground
