@@ -892,13 +892,16 @@ function loadGame(){
         
 }
         
-function Button ()  {
+function Button () {
     
         // document.querySelectorAll("video, audio").forEach( elem => muteMe(elem) );
 
     // document.getElementById("roomOption2").onclick = stat1Increment
     // document.getElementById("combatLog").innerHTML = `${enemy[0].name} Attacks!}`
-    combatEnd()
+    // combatEnd()
+    gameStart();
+    // printStory(printLetterByLetter());
+    // printLetterByLetter("storyTest", gameIntro);
     // nextFloor()
     // let img = slime.enemyImg
     // document.getElementById('enemyImg').src = `${img}`
@@ -983,13 +986,30 @@ const room10HeroDialogue = '“What have you done?!”';
 const room10Outro = 'Once the beast has been defeated, you notice a light growing stronger in the room. You feel your strength growing even more! You help the other adventurers escape through the door you came in, and then you scan the room. You see a rather large chest beside a staircase leading deeper into the dungeon...will you go to the next level? What will await you there?';
 
 
+function printLetterByLetter(destination, message){ //message = variable
+    let i = 0;
+    let interval = setInterval(function(){
+        document.getElementById(destination).innerHTML += message.charAt(i);
+        i++;
+        if (i > message.length){
+            clearInterval(interval);
+        }
+    }, 100);
+}
+
 function gameStart(){
-document.getElementById("storyTest").innerHTML = `${gameIntro} <br> ${gameIntro2}`;
+document.getElementById("storyTest").innerHTML = `${printLetterByLetter("storyTest", gameIntro)} <br> ${printLetterByLetter("storyTest", gameIntro2)}`;
+// printLetterByLetter("storyTest", gameIntro);
+// printLetterByLetter("storyTest", gameIntro2);
 }
 
-Next(){
-
-}
+// Next(rmNum, message){
+// let i = 0; //when clicking next, the next text for the room shows
+// document.getElementById(destination).innerHTML
+// if (i === message.length){
+// //go to the next text
+// }
+// }
 
 function greeting(){
 return `Hello ${player.name}. What class are you?`
