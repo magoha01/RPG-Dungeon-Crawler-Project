@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Lambda RPG- A Journey Underground</title>
+    <title>A Journey Underground</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <title>Lambda RPG- A Journey Underground</title>
+    <title>A Journey Underground</title>
 
 </head>
 
@@ -29,8 +29,10 @@
                 </div>
                 <output id="volume-container">100</output>
             </div>
+            <button id="save" onclick="saveGame()">Save your Game!</button>
+            <button id="load" onclick="loadGame()">Load your Game!</button>
             <h1>
-                Lambda RPG- A Journey Underground
+                A Journey Underground
             </h1>
         </header>
         <div class= "pageContainer">
@@ -143,15 +145,14 @@
                     <div class="charArt">
                         <img src = "assets/Player1.png">
                         <p id=playerName>playerName</p>
-<!-- 
-                        <p>Status: playerStatus</p> -->
+                        <!--<p>Status: playerStatus</p> -->
                     </div>
                 </div>
                 <div class="cSheetMid"> <!--Start of cSheetMid-->
                     <div class="cSheetPlayerStats">
-                        <div><p class ="stat">Stat1:</p><p id="cSheetStatField1" class = "stat">Stat</p></div>
-                        <div><p class ="stat">Stat2:</p><p id="cSheetStatField2" class = "stat">Stat</p></div>
-                        <div><p class ="stat">Stat3:</p><p id="cSheetStatField3" class = "stat">Stat</p></div>
+                        <div><p class ="stat">Strength:</p><p id="cSheetStatField1" class = "stat">Stat</p></div>
+                        <div><p class ="stat">Dexterity:</p><p id="cSheetStatField2" class = "stat">Stat</p></div>
+                        <div><p class ="stat">Constitution:</p><p id="cSheetStatField3" class = "stat">Stat</p></div>
                     </div>
                     <div class="cSheetPlayerValues">
 
@@ -179,28 +180,41 @@
 
                     <h3>Inventory</h3>
                         <div class="cSheetInventory">
-                                <p><img id = "item1" src=''/>Item 1</p>
-                                <p><img id = "item2" src=''/>Item 2</p>
-                                <p><img id = "item3" src=''/>Item 3</p>
-                                <p><img id = "item4" src=''/>Item 4</p>
-                                <p><img id = "item5" src=''/>Item 5</p>
-                                <p><img id = "item6" src=''/>Item 6</p>  
+                                <img id = "item1" src=''/>
+                                <img id = "item2" src=''/>
+                                <img id = "item3" src=''/>
+                                <img id = "item4" src=''/>
+                                <img id = "item5" src=''/>
+                                <img id = "item6" src=''/> 
                         </div>    
                 </section> 
                 <section class="rightSide"> <!--Start of rightSide-->
                     <div class="right"> 
+                        <div class="roomContainer">
+                            room
+                        </div>
                         <div class="buttons"> <!--start Room buttons-->
                             <button onclick='Button()'>Room Button</button>
                             <!-- <button onclick='stat1Increment()'>Increment stat1!</button> -->
                             <button id= roomOption1 onclick= 'option1()'></button>
                             <button id= roomOption2 onclick= 'option2()'></button>
                             <button id= roomOption3 onclick= 'option3()'></button>
-                            <button id= roomOption4 onclick= 'option4()'></button>
-                            <div id="roomIdTester"></div>   
+                            <button id= roomOption4 onclick= 'option4()'></button>                     
+                            <button id= roomOption5 onclick= 'roomArr[player.room].roomInteract()'></button>
+                            <div id="roomIdTester"></div>
+                            <div id="playerLog"></div>   
                             <div id="combatLog"></div>
+                            <div id="storyContainer"> <!--start of story container-->
+                                <p id="storyTest" onclick="Next()"></p>
+                                <input id="name" type="text"> 
+                                <button id="confirm" onclick='greeting()'></button><!--user input-->
+                                <button id="warrior" onclick= 'warrior()'></button><!--buttons for class choice-->
+                                <button id="ranger" onclick= 'ranger()'></button>
+                                <button id="rogue" onclick= 'rogue()'></button>
+                            </div> <!--End of story container-->
                         </div> <!--End of Room Buttons-->
-
                         <div id="fightScreen">
+
 
                             <div>
                                 <img id="enemyImg" src= '' class="enemyImg">
@@ -228,27 +242,19 @@
             </div> <!--End of pageContainer-->
     </body> <!--End of Main Content-->
     <script type="text/javascript"> //Javascript script
-        document.getElementById("cSheetStatField1").innerHTML = `${player.stat1}`;
-        document.getElementById("cSheetStatField2").innerHTML = `${player.stat2}`;
-        document.getElementById("cSheetStatField3").innerHTML = `${player.stat3}`;
+        document.getElementById("cSheetStatField1").innerHTML = `${player.strength}`;
+        document.getElementById("cSheetStatField2").innerHTML = `${player.dexterity}`;
+        document.getElementById("cSheetStatField3").innerHTML = `${player.constitution}`;
         document.getElementById("cSheetHealth").innerHTML = `${player.hpCurrent}/${player.hpTotal}`;
-        document.getElementById("cSheetArmor").innerHTML = `${player.armor}`;
+        document.getElementById("cSheetArmor").innerHTML = `${player.armor+player.tempArmor}`;
         document.getElementById("cSheetWeapon").innerHTML = `${player.dmg}`;
         document.getElementById("playerName").innerHTML = `${player.playerName}`;
-        // document.getElementById("testTest").innerHTML = toggle;
         document.getElementById("roomIdTester").innerHTML = `${player.room}`
         document.getElementById(startingRoom.mapId).style.backgroundColor = 'black'
-        if(roomArr[player.room].option1Text != null){
-        document.getElementById("roomOption1").innerHTML = `${roomArr[player.room].option1Text}`;
-        }
-        if(roomArr[player.room].option2Text != null){
-        document.getElementById("roomOption2").innerHTML = `${roomArr[player.room].option2Text}`;
-        }
-        if(roomArr[player.room].option3Text != null){
-        document.getElementById("roomOption3").innerHTML = `${roomArr[player.room].option3Text}`;
-        }
-        if(roomArr[player.room].option4Text != null){
-            document.getElementById("roomOption3").innerHTML = `${roomArr[player.room].option4Text}`;
-        }
+        roomText()
+        document.getElementById("name").style.display = none;
+        document.getElementById("warrior").style.display = none;
+        document.getElementById("ranger").style.display = none;
+        document.getElementById("rogue").style.display = none;
     </script> <!--End Javascript Script-->
 </html>
