@@ -208,13 +208,9 @@
                             </div> <!--End of story container-->
                         </div> <!--End of Room Buttons-->
                         <div id="fightScreen">
-
-
                             <div>
                                 <img id="enemyImg" src= '' class="enemyImg">
                                 <p id="enemyName"></p>
-
-
                             </div>
                             <div id = 'enemyStats'>
                                 <div>
@@ -250,11 +246,19 @@
         document.getElementById("warrior").style.display = none;
         document.getElementById("ranger").style.display = none;
         document.getElementById("rogue").style.display = none;
-        //Story Eventlisteners below
-        document.getElementById("confirm").addEventListener("click", greeting);
+       
+        //Story eventlisteners below
+        document.getElementById("storyTest").addEventListener("click", next => {
+            printLetterByLetter("storyTest", gameIntro2);
+        });
+        
+        document.getElementById("confirm").addEventListener("click", greeting => {`Hello ${player.name}. What class are you?`
+        })
 
-        document.getElementById("warrior").addEventListener("Click", warrior);
-        document.getElementById("ranger").addEventListener("Click", ranger);
-        document.getElementById("rogue").addEventListener("Click", rogue);
+        document.getElementById("warrior").addEventListener("click", classChoice);
+       
+        document.getElementById("ranger").addEventListener("click", classChoice);
+        
+        document.getElementById("rogue").addEventListener("click", classChoice);
     </script> <!--End Javascript Script-->
 </html>

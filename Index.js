@@ -1035,9 +1035,6 @@ printLetterByLetter("storyTest", gameIntro);
 // }
 
 //after user inputs name
-function greeting(){
-    return `Hello ${player.name}. What class are you?`
-}
 
 function classChoice(e){
 const warriorClass = document.querySelector("button.warrior");
@@ -1052,7 +1049,6 @@ if(e.target === warriorClass){
     rogue();
 }
 }
-
 
 function warrior(){
 return 'Ah yes! You are a warrior bound by your brute strength and will to succeed. Welcome.';
