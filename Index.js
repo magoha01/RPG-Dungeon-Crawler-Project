@@ -899,7 +899,7 @@ function Button () {
     // document.getElementById("roomOption2").onclick = stat1Increment
     // document.getElementById("combatLog").innerHTML = `${enemy[0].name} Attacks!}`
     // combatEnd()
-//     gameStart();
+    gameStart();
     // printStory(printLetterByLetter());
     // printLetterByLetter("storyTest", gameIntro);
     // nextFloor()
@@ -920,6 +920,8 @@ function Button () {
 // document.getElementById("testTest").innerHTML = toggle;
 }
 //  console.log('test')
+
+//Story Section Starts here
 
 const gameIntro = 'As a simple farm hand in the land of Lambastia, your daily life is full of heavy chores and physical labour. You know there must be more to life. You crave adventure, admiration and most of all...riches!';
 
@@ -1032,22 +1034,34 @@ printLetterByLetter("storyTest", gameIntro);
 // }
 // }
 
+//after user inputs name
 function greeting(){
-return `Hello ${player.name}. What class are you?`
+    return `Hello ${player.name}. What class are you?`
 }
 
-function classChoice(){
+function classChoice(e){
+const warriorClass = document.querySelector("button.warrior");
+const rangerClass = document.querySelector("button.ranger");
+const rogueClass = document.querySelector("button.rogue");
 
+if(e.target === warriorClass){
+    warrior();
+} else if (e.target === rangerClass){
+    ranger();
+} else if (e.target === rogueClass){
+    rogue();
 }
+}
+
 
 function warrior(){
 return 'Ah yes! You are a warrior bound by your brute strength and will to succeed. Welcome.';
 }
 
 function ranger(){
-return 'Ah yes! You are a ranger tied to the forest with your trusty shortbow at your side. Welcome.'
+return 'Ah yes! You are a ranger tied to the forest with your trusty shortbow at your side. Welcome.';
 }
 
 function rogue(){
-return 'Ah yes! You are a rogue, an assassin of the night, with your small blade to destroy anything in your path. Welcome.'
+return 'Ah yes! You are a rogue, an assassin of the night, with your small blade to destroy anything in your path. Welcome.';
 }

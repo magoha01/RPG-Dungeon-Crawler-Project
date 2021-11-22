@@ -199,12 +199,12 @@
                             <div id="playerLog"></div>   
                             <div id="combatLog"></div>
                             <div id="storyContainer"> <!--start of story container-->
-                                <p id="storyTest" onclick="Next()"></p>
+                                <p id="storyTest" click="Next()"></p>
                                 <input id="name" type="text"> 
-                                <button id="confirm" onclick='greeting()'></button><!--user input-->
-                                <button id="warrior" onclick= 'warrior()'></button><!--buttons for class choice-->
-                                <button id="ranger" onclick= 'ranger()'></button>
-                                <button id="rogue" onclick= 'rogue()'></button>
+                                <button id="confirm" click='greeting()'></button><!--user input-->
+                                <button id="warrior" click= 'warrior()'></button><!--buttons for class choice-->
+                                <button id="ranger" click= 'ranger()'></button>
+                                <button id="rogue" click= 'rogue()'></button>
                             </div> <!--End of story container-->
                         </div> <!--End of Room Buttons-->
                         <div id="fightScreen">
@@ -250,5 +250,11 @@
         document.getElementById("warrior").style.display = none;
         document.getElementById("ranger").style.display = none;
         document.getElementById("rogue").style.display = none;
+        //Story Eventlisteners below
+        document.getElementById("confirm").addEventListener("click", greeting);
+
+        document.getElementById("warrior").addEventListener("Click", warrior);
+        document.getElementById("ranger").addEventListener("Click", ranger);
+        document.getElementById("rogue").addEventListener("Click", rogue);
     </script> <!--End Javascript Script-->
 </html>
