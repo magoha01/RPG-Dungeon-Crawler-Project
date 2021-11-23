@@ -118,10 +118,6 @@ class Room {
 }
 function nextFloor(){
     roomArr.forEach((room)=>{
-        // if(room.explored === true){
-        //     document.getElementById(room.mapId).style.backgroundColor = 'black'
-        //     document.getElementById(room.mapId).style.border = ''
-        // } else {
             document.getElementById(room.mapId).style.backgroundColor = ''
             document.getElementById(room.mapId).style.border = ''
         });
@@ -175,7 +171,7 @@ startingRoom = new Room({
     roomWest: null,
     roomEast: null, 
     roomSouth: null,
-    treasurePresent: null,
+    treasurePresent: 1,
     enemyPresent: null,
     mapId: 'rm68',
     nextFloor: null,
@@ -188,7 +184,7 @@ let room1 = new Room({
     roomWest: null, 
     roomEast: null, 
     roomSouth: 0,
-    treasurePresent: 1,
+    treasurePresent: 0,
     enemyPresent: 0,
     mapId: 'rm58',
     nextFloor: null,
@@ -697,13 +693,35 @@ class Item{
         roomArr[player.room].treasurePresent = null
     }
 }
+class Potion extends Item{
+    constructor(att){
+        super(att);
+    }
+    useItem(slot){
+        player.hpCurrent = player.hpTotal
+        player.inventory.splice(slot, 1)
+        document.getElementById("cSheetHealth").innerHTML = `${player.hpCurrent}/${player.hpTotal}`
+        for(let i = 1; i<6; i++){
+            document.getElementById(`item${i}`).src = ''
+        }
+        // document.getElementById(``).src = ''
+        player.inventory.forEach((item, index) => {
+            let invSpot = `item${index +1}`;
+            document.getElementById(invSpot).src = item.imgSrc
+        })
+    }
+}
+function itemButton(slot){
+    player.inventory[slot].useItem(slot)
+}
 let key = new Item({
     itemId: 0,
     imgSrc: 'assets/Key.png'
 })
-let potion = new Item({
+let potion = new Potion({
     itemId: 1,
     imgSrc: 'assets/Potion.png'
+
 })
 let itemArr = [key, potion]
 
@@ -757,7 +775,7 @@ function combatStart(){
     document.getElementById("roomOption1").onclick = attack
     document.getElementById("roomOption1").innerHTML = `Attack!`
     document.getElementById("roomOption2").onclick = defend
-    document.getElementById("roomOption2").innerHTML = `Defend!`
+    document.getElementById("roomOption2").innerHTML = `Build Power!`
     document.getElementById("roomOption3").onclick = powerAttack
     document.getElementById("roomOption3").innerHTML = `Power Attack!`
     document.getElementById("roomOption4").onclick = ''
