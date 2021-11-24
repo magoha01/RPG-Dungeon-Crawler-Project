@@ -118,10 +118,6 @@ class Room {
 }
 function nextFloor(){
     roomArr.forEach((room)=>{
-        // if(room.explored === true){
-        //     document.getElementById(room.mapId).style.backgroundColor = 'black'
-        //     document.getElementById(room.mapId).style.border = ''
-        // } else {
             document.getElementById(room.mapId).style.backgroundColor = ''
             document.getElementById(room.mapId).style.border = ''
         });
@@ -175,7 +171,7 @@ startingRoom = new Room({
     roomWest: null,
     roomEast: null, 
     roomSouth: null,
-    treasurePresent: null,
+    treasurePresent: 1,
     enemyPresent: null,
     mapId: 'rm68',
     nextFloor: null,
@@ -188,7 +184,7 @@ let room1 = new Room({
     roomWest: null, 
     roomEast: null, 
     roomSouth: 0,
-    treasurePresent: 1,
+    treasurePresent: 0,
     enemyPresent: 0,
     mapId: 'rm58',
     nextFloor: null,
@@ -697,13 +693,34 @@ class Item{
         roomArr[player.room].treasurePresent = null
     }
 }
+class Potion extends Item{
+    constructor(att){
+        super(att);
+    }
+    useItem(slot){
+        player.hpCurrent = player.hpTotal
+        player.inventory.splice(slot, 1)
+        document.getElementById("cSheetHealth").innerHTML = `${player.hpCurrent}/${player.hpTotal}`
+        for(let i = 1; i<6; i++){
+            document.getElementById(`item${i}`).src = ''
+        }
+        player.inventory.forEach((item, index) => {
+            let invSpot = `item${index +1}`;
+            document.getElementById(invSpot).src = item.imgSrc
+        })
+    }
+}
+function itemButton(slot){
+    player.inventory[slot].useItem(slot)
+}
 let key = new Item({
     itemId: 0,
     imgSrc: 'assets/Key.png'
 })
-let potion = new Item({
+let potion = new Potion({
     itemId: 1,
     imgSrc: 'assets/Potion.png'
+
 })
 let itemArr = [key, potion]
 
@@ -757,11 +774,14 @@ function combatStart(){
     document.getElementById("roomOption1").onclick = attack
     document.getElementById("roomOption1").innerHTML = `Attack!`
     document.getElementById("roomOption2").onclick = defend
-    document.getElementById("roomOption2").innerHTML = `Defend!`
-    document.getElementById("roomOption3").onclick = powerAttack
+    document.getElementById("roomOption2").innerHTML = `Build Power!`
+    document.getElementById("roomOption3").onclick = ''
     document.getElementById("roomOption3").innerHTML = `Power Attack!`
+    document.getElementById("roomOption3").style.color = 'grey'
     document.getElementById("roomOption4").onclick = ''
     document.getElementById("roomOption4").innerHTML = ``
+    document.getElementById("roomOption5").onclick = ''
+    document.getElementById("roomOption5").innerHTML = ``
     document.getElementById("enemyHealth").innerHTML = `${enemy[0].hpCurrent}/${enemy[0].hpTotal} `
     document.getElementById("enemyDefense").innerHTML = `${enemy[0].armor}`
     document.getElementById("enemyAttack").innerHTML = `${enemy[0].dmg}`
@@ -792,6 +812,7 @@ function combatEnd(){
      document.getElementById('enemyHealthImg').src = ''
      document.getElementById('enemyDefenseImg').src = ''
      document.getElementById('enemyAttackImg').src = ''
+     document.getElementById("roomOption5").onclick = option5
     player.tempArmor = 0 
 
 }
@@ -825,6 +846,8 @@ function defend(){
     } else{
         document.getElementById("playerLog").innerHTML = `You try to build up more power, but fail!`
     }
+    document.getElementById("roomOption3").onclick = powerAttack
+    document.getElementById("roomOption3").style.color = 'black'
     turnCount++
     enemyTurn()
     
@@ -922,6 +945,9 @@ function option3(){
 }
 function option4(){
     roomArr[player.room].optionFour()
+}
+function option5(){
+    roomArr[player.room].roomInteract()
 }
 function saveGame(){
     localStorage.setItem('user', JSON.stringify(player))
