@@ -704,7 +704,6 @@ class Potion extends Item{
         for(let i = 1; i<6; i++){
             document.getElementById(`item${i}`).src = ''
         }
-        // document.getElementById(``).src = ''
         player.inventory.forEach((item, index) => {
             let invSpot = `item${index +1}`;
             document.getElementById(invSpot).src = item.imgSrc
@@ -776,10 +775,13 @@ function combatStart(){
     document.getElementById("roomOption1").innerHTML = `Attack!`
     document.getElementById("roomOption2").onclick = defend
     document.getElementById("roomOption2").innerHTML = `Build Power!`
-    document.getElementById("roomOption3").onclick = powerAttack
+    document.getElementById("roomOption3").onclick = ''
     document.getElementById("roomOption3").innerHTML = `Power Attack!`
+    document.getElementById("roomOption3").style.color = 'grey'
     document.getElementById("roomOption4").onclick = ''
     document.getElementById("roomOption4").innerHTML = ``
+    document.getElementById("roomOption5").onclick = ''
+    document.getElementById("roomOption5").innerHTML = ``
     document.getElementById("enemyHealth").innerHTML = `${enemy[0].hpCurrent}/${enemy[0].hpTotal} `
     document.getElementById("enemyDefense").innerHTML = `${enemy[0].armor}`
     document.getElementById("enemyAttack").innerHTML = `${enemy[0].dmg}`
@@ -810,6 +812,7 @@ function combatEnd(){
      document.getElementById('enemyHealthImg').src = ''
      document.getElementById('enemyDefenseImg').src = ''
      document.getElementById('enemyAttackImg').src = ''
+     document.getElementById("roomOption5").onclick = option5
     player.tempArmor = 0 
 
 }
@@ -843,6 +846,8 @@ function defend(){
     } else{
         document.getElementById("playerLog").innerHTML = `You try to build up more power, but fail!`
     }
+    document.getElementById("roomOption3").onclick = powerAttack
+    document.getElementById("roomOption3").style.color = 'black'
     turnCount++
     enemyTurn()
     
@@ -940,6 +945,9 @@ function option3(){
 }
 function option4(){
     roomArr[player.room].optionFour()
+}
+function option5(){
+    roomArr[player.room].roomInteract()
 }
 function saveGame(){
     localStorage.setItem('user', JSON.stringify(player))
