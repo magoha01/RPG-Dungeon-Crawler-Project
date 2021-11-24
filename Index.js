@@ -24,6 +24,36 @@ function mute(){
 // });
 
 
+// function startGame(e){
+//     this.classList.remove("hide");
+// }
+
+//Enter game Intro Screen
+const start= document.querySelector(".start");
+const text= document.querySelector("#charInput");
+const audio= document.querySelector("#background_music")
+
+start.addEventListener('click',startGame);
+
+function startGame(e){
+    audio.play();
+    this.classList.add("fade-out");
+    this.addEventListener('animationend',()=>{
+        // this.classList.add("hide");
+        start.remove();
+    })
+    text.classList.remove("hide")
+    // text.classList.add("quick-in")
+    }
+
+const playerName = document.getElementById("playerName")
+
+function getPlayerName(playerName){
+
+    
+
+}
+
 var JSON = JSON || {};
 
 class Room {
@@ -944,9 +974,28 @@ function Button () {
 }
 //  console.log('test')
 
+
+
+
+
+
+storyArray= ['As a simple farm hand in the land of Lambastia, your daily life is full of heavy chores and physical labour. You know there must be more to life. You crave adventure, admiration and most of all...riches!', 
+            
+        'Once in a blue moon in the lands of Lambastia, there is a competition to determine a new leader. It is a matter of learning agility determined through a battle of wills. Every eligible person is welcome to the Ternary Estate to compete.',
+
+        'Today is your turn to compete! You walk into the Estate to find a standalone building with a door. Nervous, but ready to prevail, you enter the first room. You see a table with a single candle in the darkness...a note that reads “who are you?”',
+
+        // Name form appears, player enters name, presses next to continue story.
+        , ]
+
+
+
+
+
+
 const gameIntro = 'As a simple farm hand in the land of Lambastia, your daily life is full of heavy chores and physical labour. You know there must be more to life. You crave adventure, admiration and most of all...riches!';
 
-const gameIntro2 = 'Once a blue moon in the lands of Lambastia, there is a competition to determine a new leader. It is a matter of learning agility determined through a battle of wills. Every eligible person is welcome to the Ternary Estate to compete.';
+const gameIntro2 = 'Once in a blue moon in the lands of Lambastia, there is a competition to determine a new leader. It is a matter of learning agility determined through a battle of wills. Every eligible person is welcome to the Ternary Estate to compete.';
 
 //end of Intro
 
@@ -1031,6 +1080,7 @@ const room10Outro = 'Once the beast has been defeated, you notice a light growin
 //end of room 10 and floor 1
 
 //Story Functions
+
 function printLetterByLetter(destination, message){ //message = variable
     let i = 0;
     let interval = setInterval(function(){
@@ -1039,13 +1089,26 @@ function printLetterByLetter(destination, message){ //message = variable
         if (i > message.length){
             clearInterval(interval);
         }
-    }, 100);
+    }, 60);
 }
 
+// function gameStart(){
+// // document.getElementById("storyTest").innerHTML = `${gameIntro} <br> ${gameIntro2}`;
+// printLetterByLetter("charInput", gameIntro);
+// }
+
 function gameStart(){
-// document.getElementById("storyTest").innerHTML = `${gameIntro} <br> ${gameIntro2}`;
-printLetterByLetter("storyTest", gameIntro);
-}
+    text.innerHTML = null;
+    printLetterByLetter("charInput", storyArray[0]);
+    storyArray.shift();
+    }
+
+
+text.addEventListener("click", gameStart);
+// text.addEventListener("click", clearText)
+
+
+
 
 // Next(rmNum, message){
 // let i = 0; //when clicking next, the next text for the room shows

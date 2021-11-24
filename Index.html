@@ -6,17 +6,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
-    <script src="Index.js"></script>
     <link rel="stylesheet" type="text/css" href="Index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <title>A Journey Underground</title>
-
+   
+    
 </head>
 
     <body> <!--Main Content-->
+        <div class="splash">
+            <button class ="start fade-in">A Journey Underground</button>
+           
+            <div>
+                <p id="charInput" class="hide"></p>
+            </div> 
+
+            <form class = "hide">
+                <label for="fname">First name:</label>
+                <input type="text" name="playerName" required maxlength="30">
+            </form>
+
+        </div>
         <header>
             <div id="music_container">
                 <audio id="background_music" src="assets/Тиффани-TheBeginning-.mp3" loop autoplay></audio> 
@@ -194,7 +205,6 @@
                             room
                             <div id="fightScreen">
 
-
                                 <div>
                                     <img id="enemyImg" src= '' class="enemyImg">
                                     <p id="enemyName"></p>
@@ -242,6 +252,7 @@
                 </section> <!--End of rightSide-->
             </div> <!--End of pageContainer-->
     </body> <!--End of Main Content-->
+    <script src="Index.js"></script>
     <script type="text/javascript"> //Javascript script
         document.getElementById("cSheetStatField1").innerHTML = `${player.strength}`;
         document.getElementById("cSheetStatField2").innerHTML = `${player.dexterity}`;
@@ -259,5 +270,6 @@
         document.getElementById("rogue").style.display = 'none';
         document.getElementById("confirm").style.display = 'none';
         document.getElementById("fightScreen").style.display = 'none'
+    
     </script> <!--End Javascript Script-->
 </html>
