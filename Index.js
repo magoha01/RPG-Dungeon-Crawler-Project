@@ -29,30 +29,24 @@ function mute(){
 // }
 
 //Enter game Intro Screen
-const start= document.querySelector(".start");
-const text= document.querySelector("#charInput");
-const audio= document.querySelector("#background_music")
+// const start= document.querySelector(".start");
+// const text= document.querySelector("#charInput");
+// const audio= document.querySelector("#background_music")
 
-start.addEventListener('click',startGame);
+// start.addEventListener('click',startGame);
 
-function startGame(e){
-    audio.play();
-    this.classList.add("fade-out");
-    this.addEventListener('animationend',()=>{
-        // this.classList.add("hide");
-        start.remove();
-    })
-    text.classList.remove("hide")
-    // text.classList.add("quick-in")
-    }
+// function startGame(e){
+//     audio.play();
+//     this.classList.add("fade-out");
+//     this.addEventListener('animationend',()=>{
+//         start.remove();
+//     })
+//     text.classList.toggle("reveal")
+//     nextButton.classList.toggle("reveal")
+//     nextButton.classList.add("quick-in")
+//     setTimeout(gameStart, 3700);
+//     }
 
-const playerName = document.getElementById("playerName")
-
-function getPlayerName(playerName){
-
-    
-
-}
 
 var JSON = JSON || {};
 
@@ -710,6 +704,7 @@ let slime = new Enemy({
    armor: 13,
    enemyImg: 'assets/purple_blob.png'
 })
+
 const enemyArr = [slime]
 //          Combat Functions
 let turnCount = 0
@@ -861,7 +856,7 @@ function enemyTurn(){
 }
 //          Player init
 let player = {
-    playerName: 'Bill the Barbarian',
+    name: 'Bill the Barbarian',
     strength: 5,
     dexterity: 4,
     constitution: 3,
@@ -873,6 +868,8 @@ let player = {
     room: 0,
     inventory: []
 }
+
+
 // Button Functionality
 function option1(){
     roomArr[player.room].optionOne()
@@ -1081,32 +1078,52 @@ const room10Outro = 'Once the beast has been defeated, you notice a light growin
 
 //Story Functions
 
-function printLetterByLetter(destination, message){ //message = variable
-    let i = 0;
-    let interval = setInterval(function(){
-        document.getElementById(destination).innerHTML += message.charAt(i);
-        i++;
-        if (i > message.length){
-            clearInterval(interval);
-        }
-    }, 60);
-}
-
 // function gameStart(){
 // // document.getElementById("storyTest").innerHTML = `${gameIntro} <br> ${gameIntro2}`;
 // printLetterByLetter("charInput", gameIntro);
 // }
+// const nameForm = document.getElementById("nameForm");
 
-function gameStart(){
-    text.innerHTML = null;
-    printLetterByLetter("charInput", storyArray[0]);
-    storyArray.shift();
-    }
+// let nextButton=document.getElementById("nextButton");
+
+// function printLetterByLetter(destination, message){ //message = variable
+//     let i = 0;
+//     let interval = setInterval(function(){
+//         document.getElementById(destination).innerHTML += message.charAt(i);
+//         i++;
+//         if (i > message.length){
+//             clearInterval(interval);
+//         }
+//     }, 70);
+// }
+
+// function gameStart(){
+//     text.innerHTML = null;
+//     printLetterByLetter("charInput", storyArray[0]);
+//     storyArray.shift();
+
+//     if (text.value === 'Today is your turn to compete! You walk into the Estate to find a standalone building with a door. Nervous, but ready to prevail, you enter the first room. You see a table with a single candle in the darkness...a note that reads “who are you?”'){
+//        return nameForm.classList.remove("hide");
+//     }
+// };
 
 
-text.addEventListener("click", gameStart);
-// text.addEventListener("click", clearText)
+// nextButton.addEventListener("click", gameStart);
+// // text.addEventListener("click", clearText)
 
+
+
+// function clickNext(){
+//     let clickCount= 0;
+
+//     nextButton.onclick= () => {
+//         clickCount+=1;
+//         return clickCount;
+//     }
+//     if ( clickCount = 1){
+//         gameStart();
+    
+// }
 
 
 
@@ -1127,6 +1144,7 @@ function classChoice(){
 }
 
 function warrior(){
+
 return 'Ah yes! You are a warrior bound by your brute strength and will to succeed. Welcome.';
 }
 

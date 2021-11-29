@@ -15,19 +15,21 @@
 </head>
 
     <body> <!--Main Content-->
-        <div class="splash">
+        <!-- <div class="splash">
             <button class ="start fade-in">A Journey Underground</button>
            
             <div>
                 <p id="charInput" class="hide"></p>
+                <button id="nextButton" class="hide">Next</button>
             </div> 
-
-            <form class = "hide">
-                <label for="fname">First name:</label>
-                <input type="text" name="playerName" required maxlength="30">
+            
+            <form class = "nameForm hide" onsubmit="getName()">
+                <label for="pName">Name:</label>
+                <input type="text" id="pName" name="pName" required maxlength="30">
+                <input type="submit">
             </form>
 
-        </div>
+        </div> -->
         <header>
             <div id="music_container">
                 <audio id="background_music" src="assets/Тиффани-TheBeginning-.mp3" loop autoplay></audio> 
@@ -155,7 +157,7 @@
                     </section> <!--End of Mini Map-->
                     <div class="charArt">
                         <img src = "assets/Player1.png">
-                        <p id=playerName>playerName</p>
+                        <p id=playerName></p>
                         <!--<p>Status: playerStatus</p> -->
                     </div>
                 </div>
@@ -208,9 +210,8 @@
                                 <div>
                                     <img id="enemyImg" src= '' class="enemyImg">
                                     <p id="enemyName"></p>
-    
-    
                                 </div>
+
                                 <div id = 'enemyStats'>
                                     <div>
                                         <img id= "enemyHealthImg" src = "">
@@ -229,12 +230,13 @@
                         </div>
                         <div class="buttons"> <!--start Room buttons-->
                             <button onclick='Button()'>Room Button</button>
+                            <button id= roomOption5 onclick= 'roomArr[player.room].roomInteract()'></button>
                             <!-- <button onclick='stat1Increment()'>Increment stat1!</button> -->
                             <button id= roomOption1 onclick= 'option1()'></button>
-                            <button id= roomOption2 onclick= 'option2()'></button>
                             <button id= roomOption3 onclick= 'option3()'></button>
-                            <button id= roomOption4 onclick= 'option4()'></button>                     
-                            <button id= roomOption5 onclick= 'roomArr[player.room].roomInteract()'></button>
+                            <button id= roomOption4 onclick= 'option4()'></button> 
+                            <button id= roomOption2 onclick= 'option2()'></button>                    
+                            
                             <div id="roomIdTester"></div>
                             <div id="playerLog"></div>   
                             <div id="combatLog"></div>
@@ -260,7 +262,7 @@
         document.getElementById("cSheetHealth").innerHTML = `${player.hpCurrent}/${player.hpTotal}`;
         document.getElementById("cSheetArmor").innerHTML = `${player.armor+player.tempArmor}`;
         document.getElementById("cSheetWeapon").innerHTML = `${player.dmg}`;
-        document.getElementById("playerName").innerHTML = `${player.playerName}`;
+        document.getElementById("playerName").innerHTML = `${player.name}`;
         document.getElementById("roomIdTester").innerHTML = `${player.room}`
         document.getElementById(startingRoom.mapId).style.backgroundColor = 'black'
         roomText()
