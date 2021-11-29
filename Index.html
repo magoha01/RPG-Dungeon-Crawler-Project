@@ -194,14 +194,14 @@
 
                     <h3>Inventory</h3>
                         <div class="cSheetInventory">
-                                <img id = "item1" src=''/>
-                                <img id = "item2" src=''/>
-                                <img id = "item3" src=''/>
-                                <img id = "item4" src=''/>
-                                <img id = "item5" src=''/>
-                                <img id = "item6" src=''/> 
-                        </div>
-                </div>   
+                                <img onclick='player.inventory[0].useItem(0)' id = "item1" src=''/>
+                                <img onclick='player.inventory[1].useItem(1)' id = "item2" src=''/>
+                                <img onclick='player.inventory[2].useItem(2)' id = "item3" src=''/>
+                                <img onclick='player.inventory[3].useItem(3)' id = "item4" src=''/>
+                                <img onclick='player.inventory[4].useItem(4)' id = "item5" src=''/>
+                                <img onclick='player.inventory[5].useItem(5)' id = "item6" src=''/>
+                        </div> <!-- End cSheetInventory-->
+                        </div>  <!--End cSheetBottom-->  
                 </section> 
                 <section class="rightSide"> <!--Start of rightSide-->
                     <div class="right"> 
@@ -232,13 +232,12 @@
                         </div>
                         <div class="buttons"> <!--start Room buttons-->
                             <button onclick='Button()'>Room Button</button>
-                            <button id= roomOption5 onclick= 'roomArr[player.room].roomInteract()'></button>
-                            <!-- <button onclick='stat1Increment()'>Increment stat1!</button> -->
+                            <button id= roomOption5 onclick= 'option5()'></button>
                             <button id= roomOption1 onclick= 'option1()'></button>
                             <button id= roomOption3 onclick= 'option3()'></button>
                             <button id= roomOption4 onclick= 'option4()'></button> 
                             <button id= roomOption2 onclick= 'option2()'></button>                    
-                            
+
                             <div id="roomIdTester"></div>
                             <div id="playerLog"></div>   
                             <div id="combatLog"></div>

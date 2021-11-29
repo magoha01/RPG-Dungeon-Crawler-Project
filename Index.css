@@ -321,7 +321,8 @@ form, label, input{
   display: flex;
   flex-flow: row no-wrap;
   width: 100%;
-  margin: auto;
+  max-height: 100vh;
+  /* margin: auto; */
 }
 
 .pageContainer div {
@@ -334,6 +335,7 @@ form, label, input{
   margin: 1%;
   display: flex;
   flex-flow: column nowrap;
+  max-height: 75vh;
 }
 
 /* Top Section of cSheet */
@@ -499,6 +501,7 @@ form, label, input{
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  max-height: 15vh
 }
 
 .cSheetInventory {
@@ -506,25 +509,30 @@ form, label, input{
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-evenly;
-  padding: 5%;
+  padding: auto;
+}
+.cSheetInventory{
+  max-width: 100%;
+  max-height: 15vh;
 }
 
-.cSheetInventory p {
+.cSheetInventory img{
   background-color: #695f4d;
+  border:none;
+  width: 10%;
 }
 
-.items {
-  width: 25%;
+/* .items {
   padding: 4%;
   margin: 2%;
-}
+} */
 
-#item1 {
+/* #item1 {
   width: 10%;
 }
 
 #item2 {
-  width: 10%;
+  width: 8%;
 }
 
 #item3 {
@@ -542,30 +550,35 @@ form, label, input{
 #item6 {
   width: 10%;
 
-}
+} */
 
 /* Right Side */
 
 .rightSide {
   width: 50%;
-  background-color: #695f4d;
+  max-height: 100%;
   border: none;
   display: flex;
   margin: 1% 1% 1% 0;
-  border: 6px solid black;
+  /* border: 6px solid black; */
 }
 
 .rightSide div {
+  background-color: #695f4d;
   width: 100%;
   display: flex;
   flex-flow: row wrap;
   align-content: center;
 }
-
+.right{
+  margin: auto;
+  height: 100%;
+}
 .right div {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 
@@ -575,7 +588,6 @@ form, label, input{
 .roomContainer{
   max-width: 100%;
   margin: 1%;
-  /* padding: 30%; */
 }
 
 .roomContainer div{
@@ -651,7 +663,7 @@ form, label, input{
 }
 
 #enemyImg {
-  width: 50%;
+  width: 25%;
   background-color: black;
 }
 

@@ -67,6 +67,7 @@ class Room {
         this.mapId = roomAtt.mapId
         this.nextFloor = roomAtt.nextFloor
         this.previousFloor = roomAtt.previousFloor
+        this.floor = roomAtt.floor
     }
     
     optionOne(){
@@ -141,8 +142,14 @@ class Room {
 }
 function nextFloor(){
     roomArr.forEach((room)=>{
-        document.getElementById(room.mapId).style.backgroundColor = ''
-        document.getElementById(room.mapId).style.border = ''
+            document.getElementById(room.mapId).style.backgroundColor = ''
+            document.getElementById(room.mapId).style.border = ''
+        });
+        roomArr.forEach((room)=>{
+        if(room.explored === true && room.floor === roomArr[player.room].floor){
+                document.getElementById(room.mapId).style.backgroundColor = 'black'
+                document.getElementById(room.mapId).style.border = ''
+            }
     });
     document.getElementById(roomArr[player.room].mapId).style.border = '1px solid white'
     document.getElementById(roomArr[player.room].mapId).style.backgroundColor = 'black'
@@ -188,10 +195,11 @@ startingRoom = new Room({
     roomWest: null,
     roomEast: null, 
     roomSouth: null,
-    treasurePresent: null,
+    treasurePresent: 1,
     enemyPresent: null,
     mapId: 'rm68',
     nextFloor: null,
+    floor: 1,
 })
 startingRoom.explored = true
 let room1 = new Room({
@@ -200,10 +208,11 @@ let room1 = new Room({
     roomWest: null, 
     roomEast: null, 
     roomSouth: 0,
-    treasurePresent: 1,
+    treasurePresent: 0,
     enemyPresent: 0,
     mapId: 'rm58',
     nextFloor: null,
+    floor: 1,
 })
 let room2 = new Room({
     roomId: 2, 
@@ -215,6 +224,7 @@ let room2 = new Room({
     enemyPresent: null,
     mapId: 'rm48',
     nextFloor: null,
+    floor: 1,
 })
 let room3 = new Room({
     roomId:3,  
@@ -226,6 +236,7 @@ let room3 = new Room({
     enemyPresent: null,
     mapId: 'rm38',
     nextFloor: 10,
+    floor: 1,
 })
 let room4 = new Room({
     roomId: 4,  
@@ -234,9 +245,10 @@ let room4 = new Room({
     roomEast: 3, 
     roomSouth: null,
     treasurePresent: 1,
-    enemyPresent: null,
+    enemyPresent: 1,
     mapId: 'rm37',
     nextFloor: null,
+    floor: 1,
 })
 let room5 = new Room({
     roomId: 5, 
@@ -248,6 +260,7 @@ let room5 = new Room({
     enemyPresent: null,
     mapId: 'rm36',
     nextFloor: null,
+    floor: 1,
 })
 let room6 = new Room({
     roomId: 6, 
@@ -259,6 +272,7 @@ let room6 = new Room({
     enemyPresent: null,
     mapId: 'rm46',
     nextFloor: null,
+    floor: 1,
 })
 let room7 = new Room({
     roomId: 7, 
@@ -270,6 +284,7 @@ let room7 = new Room({
     enemyPresent: null,
     mapId: 'rm45',
     nextFloor: null,
+    floor: 1,
 })
 let room8 = new Room({
     roomId: 8, 
@@ -281,6 +296,7 @@ let room8 = new Room({
     enemyPresent: null,
     mapId: 'rm55',
     nextFloor: null,
+    floor: 1,
 })
 let room9 = new Room({
     roomId: 9, 
@@ -292,6 +308,7 @@ let room9 = new Room({
     enemyPresent: null,
     mapId: 'rm54',
     nextFloor: 10,
+    floor: 1,
 })
 let room10 = new Room({
     roomId: 10, 
@@ -303,6 +320,7 @@ let room10 = new Room({
     enemyPresent: null,
     mapId: 'rm65',
     previousFloor: 9,
+    floor: 2,
 })
 let room11 = new Room({
     roomId: 11, 
@@ -313,7 +331,8 @@ let room11 = new Room({
     treasurePresent: 1,
     enemyPresent: null,
     mapId: 'rm55',
-    nextFloor: 25
+    nextFloor: 25,
+    floor: 2,
 })
 let room12 = new Room({
     roomId: 12, 
@@ -323,7 +342,8 @@ let room12 = new Room({
     roomSouth: 11,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm45'
+    mapId: 'rm45',
+    floor: 2,
 })
 let room13 = new Room({
     roomId: 13, 
@@ -333,7 +353,8 @@ let room13 = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm46'
+    mapId: 'rm46',
+    floor: 2,
 })
 let room14 = new Room({
     roomId: 14, 
@@ -343,7 +364,8 @@ let room14 = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm47'
+    mapId: 'rm47',
+    floor: 2,
 })
 let room15 = new Room({
     roomId: 15, 
@@ -353,7 +375,8 @@ let room15 = new Room({
     roomSouth: 18,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm48'
+    mapId: 'rm48',
+    floor: 2,
 })
 let room16 = new Room({
     roomId: 16, 
@@ -363,7 +386,8 @@ let room16 = new Room({
     roomSouth: 15,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm38'
+    mapId: 'rm38',
+    floor: 2,
 })
 let room17 = new Room({
     roomId: 17, 
@@ -375,6 +399,7 @@ let room17 = new Room({
     enemyPresent: null,
     mapId: 'rm28',
     nextFloor: 25,
+    floor: 2,
 })
 let room18 = new Room({
     roomId: 18, 
@@ -384,7 +409,8 @@ let room18 = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm58'
+    mapId: 'rm58',
+    floor: 2,
 })
 let room19 = new Room({
     roomId: 19, 
@@ -394,7 +420,8 @@ let room19 = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm44'
+    mapId: 'rm44',
+    floor: 2,
 })
 let room20 = new Room({
     roomId: 20, 
@@ -404,7 +431,8 @@ let room20 = new Room({
     roomSouth: 19,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm34'
+    mapId: 'rm34',
+    floor: 2,
 })
 let room21 = new Room({
     roomId: 21, 
@@ -414,7 +442,8 @@ let room21 = new Room({
     roomSouth: 20,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm24'
+    mapId: 'rm24',
+    floor: 2,
 })
 let room22 = new Room({
     roomId: 22, 
@@ -424,7 +453,8 @@ let room22 = new Room({
     roomSouth: 21,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm14'
+    mapId: 'rm14',
+    floor: 2,
 })
 let room23 = new Room({
     roomId: 23, 
@@ -434,7 +464,8 @@ let room23 = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm23'
+    mapId: 'rm23',
+    floor: 2,
 })
 let room24 = new Room({
     roomId: 24, 
@@ -444,7 +475,8 @@ let room24 = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm25'
+    mapId: 'rm25',
+    floor: 2,
 })
 let room25 = new Room({
     roomId: 25, 
@@ -456,6 +488,7 @@ let room25 = new Room({
     enemyPresent: null,
     mapId: 'rm65',
     previousFloor: 17, 
+    floor: 3,
 })
 let room26 = new Room({
     roomId: 26, 
@@ -465,7 +498,8 @@ let room26 = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm55'
+    mapId: 'rm55',
+    floor: 3,
 })
 let room27 = new Room({
     roomId: 27, 
@@ -475,7 +509,8 @@ let room27 = new Room({
     roomSouth: 26,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm45'
+    mapId: 'rm45',
+    floor: 3,
 })
 let room28 = new Room({
     roomId: 28, 
@@ -485,7 +520,8 @@ let room28 = new Room({
     roomSouth: 27,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm35'
+    mapId: 'rm35',
+    floor: 3,
 })
 let room29 = new Room({
     roomId: 29, 
@@ -495,7 +531,8 @@ let room29 = new Room({
     roomSouth: 28,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm25'
+    mapId: 'rm25',
+    floor: 3,
 })
 let room30 = new Room({
     roomId: 30, 
@@ -505,7 +542,8 @@ let room30 = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm54'
+    mapId: 'rm54',
+    floor: 3,
 })
 let room31 = new Room({
     roomId: 31, 
@@ -515,7 +553,8 @@ let room31 = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm53'
+    mapId: 'rm53',
+    floor: 3,
 })
 let room32 = new Room({
     roomId: 32, 
@@ -525,7 +564,8 @@ let room32 = new Room({
     roomSouth: 31,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm43'
+    mapId: 'rm43',
+    floor: 3,
 })
 let room33 = new Room({
     roomId: 33, 
@@ -535,7 +575,8 @@ let room33 = new Room({
     roomSouth: 32,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm33'
+    mapId: 'rm33',
+    floor: 3,
 })
 let room34 = new Room({
     roomId: 34, 
@@ -545,7 +586,8 @@ let room34 = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm34'
+    mapId: 'rm34',
+    floor: 3,
 })
 let room35 = new Room({
     roomId: 35, 
@@ -555,7 +597,8 @@ let room35 = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm56'
+    mapId: 'rm56',
+    floor: 3,
 })
 let room36 = new Room({
     roomId: 36, 
@@ -565,7 +608,8 @@ let room36 = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm57'
+    mapId: 'rm57',
+    floor: 3,
 })
 let room37 = new Room({
     roomId: 37, 
@@ -575,7 +619,8 @@ let room37 = new Room({
     roomSouth: 36,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm47'
+    mapId: 'rm47',
+    floor: 3,
 })
 let room38 = new Room({
     roomId: 38, 
@@ -585,7 +630,8 @@ let room38 = new Room({
     roomSouth: 37,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm37'
+    mapId: 'rm37',
+    floor: 3,
 })
 let room39 = new Room({
     roomId: 39, 
@@ -595,7 +641,8 @@ let room39 = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm36'
+    mapId: 'rm36',
+    floor: 3,
 })
 let room40 = new Room({
     roomId: 40, 
@@ -605,7 +652,8 @@ let room40 = new Room({
     roomSouth: 38,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm27'
+    mapId: 'rm27',
+    floor: 3,
 })
 let room41 = new Room({
     roomId: 41, 
@@ -615,7 +663,8 @@ let room41 = new Room({
     roomSouth: 40,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm17'
+    mapId: 'rm17',
+    floor: 3,
 })
 let room42 = new Room({
     roomId: 42, 
@@ -625,7 +674,8 @@ let room42 = new Room({
     roomSouth: 41,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm7'
+    mapId: 'rm7',
+    floor: 3,
 })
 let room43 = new Room({
     roomId: 43, 
@@ -635,7 +685,8 @@ let room43 = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm8'
+    mapId: 'rm8',
+    floor: 3,
 })
 let room44 = new Room({
     roomId: 44, 
@@ -645,7 +696,8 @@ let room44 = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm9'
+    mapId: 'rm9',
+    floor: 3,
 })
 roomArr= [startingRoom, room1, room2, room3, room4, room5, room6, room7, room8, room9, room10, room11, room12, room13, room14, room15, room16, room17, room18, room19, room20, room21, room22, room23, room24,room25, room26, room27, room28, room29, room30, room31, room32, room33, room34, room35, room36, room37, room38, room39, room40, room41, room42, room43, room44]
 // roomArr= [startingRoom]
@@ -665,13 +717,34 @@ class Item{
         roomArr[player.room].treasurePresent = null
     }
 }
+class Potion extends Item{
+    constructor(att){
+        super(att);
+    }
+    useItem(slot){
+        player.hpCurrent = player.hpTotal
+        player.inventory.splice(slot, 1)
+        document.getElementById("cSheetHealth").innerHTML = `${player.hpCurrent}/${player.hpTotal}`
+        for(let i = 1; i<6; i++){
+            document.getElementById(`item${i}`).src = ''
+        }
+        player.inventory.forEach((item, index) => {
+            let invSpot = `item${index +1}`;
+            document.getElementById(invSpot).src = item.imgSrc
+        })
+    }
+}
+function itemButton(slot){
+    player.inventory[slot].useItem(slot)
+}
 let key = new Item({
     itemId: 0,
     imgSrc: 'assets/Key.png'
 })
-let potion = new Item({
+let potion = new Potion({
     itemId: 1,
     imgSrc: 'assets/Potion.png'
+
 })
 let itemArr = [key, potion]
 
@@ -700,14 +773,27 @@ let slime = new Enemy({
    dexterity: 3,
    constitution: 5,
    hp: 14,
-   dmg: 6,
-   armor: 13,
+   dmg: 2,
+   armor: 12,
    enemyImg: 'assets/purple_blob.png'
 })
 
-const enemyArr = [slime]
+let goblin = new Enemy({
+    enemyId: 1,
+    name: 'Goblin',
+    strength: 2,
+    dexterity: 4,
+    constitution: 1,
+    hp: 8,
+    dmg: 4,
+    armor: 14,
+    enemyImg: 'assets/goblin.png'
+ })
+const enemyArr = [slime, goblin]
+
 //          Combat Functions
 let turnCount = 0
+let combat = false
 function combatStart(){
     let newEnemy = JSON.parse(JSON.stringify(enemyArr[roomArr[player.room].enemyPresent]))
     enemy.push(newEnemy)
@@ -715,11 +801,14 @@ function combatStart(){
     document.getElementById("roomOption1").onclick = attack
     document.getElementById("roomOption1").innerHTML = `Attack!`
     document.getElementById("roomOption2").onclick = defend
-    document.getElementById("roomOption2").innerHTML = `Defend!`
-    document.getElementById("roomOption3").onclick = powerAttack
+    document.getElementById("roomOption2").innerHTML = `Build Power!`
+    document.getElementById("roomOption3").onclick = ''
     document.getElementById("roomOption3").innerHTML = `Power Attack!`
+    document.getElementById("roomOption3").style.color = 'grey'
     document.getElementById("roomOption4").onclick = ''
     document.getElementById("roomOption4").innerHTML = ``
+    document.getElementById("roomOption5").onclick = ''
+    document.getElementById("roomOption5").innerHTML = ``
     document.getElementById("enemyHealth").innerHTML = `${enemy[0].hpCurrent}/${enemy[0].hpTotal} `
     document.getElementById("enemyDefense").innerHTML = `${enemy[0].armor}`
     document.getElementById("enemyAttack").innerHTML = `${enemy[0].dmg}`
@@ -728,10 +817,11 @@ function combatStart(){
     document.getElementById('enemyHealthImg').src = "assets/heart pixel art.png"
     document.getElementById('enemyDefenseImg').src = 'assets/Shield1.png'
     document.getElementById('enemyAttackImg').src = 'assets/sword_small (1).png'
+    combat = true
 }
 function combatEnd(){
     roomText()
-    enemy.pop
+    enemy = []
     turnCount = 0;
     document.getElementById("fightScreen").style.display = 'none'
      document.getElementById("combatLog").innerHTML = ''
@@ -747,10 +837,14 @@ function combatEnd(){
      document.getElementById("roomOption2").onclick = option2
      document.getElementById("roomOption3").onclick = option3
      document.getElementById("roomOption4").onclick = option4
+     document.getElementById("roomOption5").onclick = option5
+     document.getElementById("roomOption3").style.color = 'black'
      document.getElementById('enemyHealthImg').src = ''
      document.getElementById('enemyDefenseImg').src = ''
      document.getElementById('enemyAttackImg').src = ''
-    player.tempArmor = 0 
+    player.tempArmor = 0 ;
+    document.getElementById("cSheetArmor").innerHTML = `${player.armor+player.tempArmor}`
+    combat = false;
 
 }
 function attack(){
@@ -783,6 +877,8 @@ function defend(){
     } else{
         document.getElementById("playerLog").innerHTML = `You try to build up more power, but fail!`
     }
+    document.getElementById("roomOption3").onclick = powerAttack
+    document.getElementById("roomOption3").style.color = 'black'
     turnCount++
     enemyTurn()
     
@@ -883,6 +979,9 @@ function option3(){
 function option4(){
     roomArr[player.room].optionFour()
 }
+function option5(){
+    roomArr[player.room].roomInteract()
+}
 function saveGame(){
     localStorage.setItem('user', JSON.stringify(player))
     let exploredRooms = []
@@ -924,6 +1023,7 @@ function loadGame(){
     document.getElementById("cSheetWeapon").innerHTML = `${player.dmg}`;
     document.getElementById("playerName").innerHTML = `${player.playerName}`;
     document.getElementById("roomIdTester").innerHTML = `${player.room}`
+    roomArr[player.room].enemyPresent = null
     exploredRooms.forEach((id) => {
             document.getElementById(roomArr[id].mapId).style.backgroundColor = 'black'
             roomArr[id].explored = true
@@ -943,12 +1043,12 @@ function loadGame(){
 }
         
 function Button () {
-    
+    nextFloor()
         // document.querySelectorAll("video, audio").forEach( elem => muteMe(elem) );
 
     // document.getElementById("roomOption2").onclick = stat1Increment
     // document.getElementById("combatLog").innerHTML = `${enemy[0].name} Attacks!}`
-    // combatEnd()
+    combatEnd()
 //     gameStart();
     // printStory(printLetterByLetter());
     // printLetterByLetter("storyTest", gameIntro);
