@@ -749,8 +749,8 @@ let slime = new Enemy({
    dexterity: 3,
    constitution: 5,
    hp: 14,
-   dmg: 6,
-   armor: 13,
+   dmg: 2,
+   armor: 12,
    enemyImg: 'assets/purple_blob.png'
 })
 let goblin = new Enemy({
@@ -767,6 +767,7 @@ let goblin = new Enemy({
 const enemyArr = [slime, goblin]
 //          Combat Functions
 let turnCount = 0
+let combat = false
 function combatStart(){
     let newEnemy = JSON.parse(JSON.stringify(enemyArr[roomArr[player.room].enemyPresent]))
     enemy.push(newEnemy)
@@ -790,6 +791,7 @@ function combatStart(){
     document.getElementById('enemyHealthImg').src = "assets/heart pixel art.png"
     document.getElementById('enemyDefenseImg').src = 'assets/Shield1.png'
     document.getElementById('enemyAttackImg').src = 'assets/sword_small (1).png'
+    combat = true
 }
 function combatEnd(){
     roomText()
@@ -809,11 +811,13 @@ function combatEnd(){
      document.getElementById("roomOption2").onclick = option2
      document.getElementById("roomOption3").onclick = option3
      document.getElementById("roomOption4").onclick = option4
+     document.getElementById("roomOption5").onclick = option5
+     document.getElementById("roomOption3").style.color = 'black'
      document.getElementById('enemyHealthImg').src = ''
      document.getElementById('enemyDefenseImg').src = ''
      document.getElementById('enemyAttackImg').src = ''
-     document.getElementById("roomOption5").onclick = option5
-    player.tempArmor = 0 
+    player.tempArmor = 0 ;
+    combat = false;
 
 }
 function attack(){
@@ -990,6 +994,7 @@ function loadGame(){
     document.getElementById("cSheetWeapon").innerHTML = `${player.dmg}`;
     document.getElementById("playerName").innerHTML = `${player.playerName}`;
     document.getElementById("roomIdTester").innerHTML = `${player.room}`
+    roomArr[player.room].enemyPresent = null
     exploredRooms.forEach((id) => {
             document.getElementById(roomArr[id].mapId).style.backgroundColor = 'black'
             roomArr[id].explored = true

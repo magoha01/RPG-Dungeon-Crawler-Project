@@ -188,7 +188,7 @@ h1 {
   border-right: 6px solid black;
   background-image: url(assets/sliderbackground.png);
   background-repeat: repeat-x;
-  background-positon: center;
+  background-position: center;
   background-size: contain;
   outline: none; 
 }
@@ -225,7 +225,8 @@ h1 {
   display: flex;
   flex-flow: row no-wrap;
   width: 100%;
-  margin: auto;
+  max-height: 100vh;
+  /* margin: auto; */
 }
 
 .pageContainer div {
@@ -412,13 +413,16 @@ h1 {
   justify-content: space-evenly;
   padding: 5%;
 }
+.cSheetInventory{
+  max-width: 100%;
+}
 
 .cSheetInventory p {
   background-color: #695f4d;
 }
 
 .items {
-  width: 25%;
+  width: 20%;
   padding: 4%;
   margin: 2%;
 }
@@ -452,24 +456,29 @@ h1 {
 
 .rightSide {
   width: 50%;
-  background-color: #695f4d;
+  max-height: 100%;
   border: none;
   display: flex;
   margin: 1% 1% 1% 0;
-  border: 6px solid black;
+  /* border: 6px solid black; */
 }
 
 .rightSide div {
+  background-color: #695f4d;
   width: 100%;
   display: flex;
   flex-flow: row wrap;
   align-content: center;
 }
-
+.right{
+  margin: auto;
+  height: 100%;
+}
 .right div {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 
@@ -479,7 +488,6 @@ h1 {
 .roomContainer{
   max-width: 100%;
   margin: 1%;
-  /* padding: 30%; */
 }
 
 .roomContainer div{
@@ -555,7 +563,7 @@ h1 {
 }
 
 #enemyImg {
-  width: 50%;
+  width: 25%;
   background-color: black;
 }
 
