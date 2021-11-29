@@ -127,7 +127,6 @@ body {
   max-width: 100%;
   height: 100%;
   margin: 2%;
-  max-height: fit-content
 }
 
 /*GENERAL STYLES*/
@@ -415,7 +414,7 @@ h1 {
   padding: 5%;
 }
 .cSheetInventory{
-  max-width: 20%;
+  max-width: 100%;
 }
 
 .cSheetInventory p {
@@ -423,7 +422,7 @@ h1 {
 }
 
 .items {
-  width: 25%;
+  width: 20%;
   padding: 4%;
   margin: 2%;
 }
@@ -489,7 +488,6 @@ h1 {
 .roomContainer{
   max-width: 100%;
   margin: 1%;
-  /* padding: 30%; */
 }
 
 .roomContainer div{
@@ -565,7 +563,7 @@ h1 {
 }
 
 #enemyImg {
-  width: 30%;
+  width: 25%;
   background-color: black;
 }
 
