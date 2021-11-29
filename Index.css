@@ -231,13 +231,12 @@ h1 {
   background-color: black;
   color: white;
   font-family: "Press Start 2P", cursive;
-  margin: 4%;
+  /* margin: 4%; */
 }
 
 #nextButton:hover{
   background-color: black;
   color: darkred;
-  margin-top: 5%;
 }
 
 form, label, input{

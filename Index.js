@@ -24,28 +24,28 @@ function mute(){
 // });
 
 
-// function startGame(e){
-//     this.classList.remove("hide");
-// }
+function startGame(e){
+    this.classList.remove("hide");
+}
 
 //Enter game Intro Screen
-// const start= document.querySelector(".start");
-// const text= document.querySelector("#charInput");
-// const audio= document.querySelector("#background_music")
+const start= document.querySelector(".start");
+const text= document.querySelector("#charInput");
+const audio= document.querySelector("#background_music")
 
-// start.addEventListener('click',startGame);
+start.addEventListener('click',startGame);
 
-// function startGame(e){
-//     audio.play();
-//     this.classList.add("fade-out");
-//     this.addEventListener('animationend',()=>{
-//         start.remove();
-//     })
-//     text.classList.toggle("reveal")
-//     nextButton.classList.toggle("reveal")
-//     nextButton.classList.add("quick-in")
-//     setTimeout(gameStart, 3700);
-//     }
+function startGame(e){
+    audio.play();
+    this.classList.add("fade-out");
+    this.addEventListener('animationend',()=>{
+        start.remove();
+    })
+    text.classList.toggle("reveal")
+    nextButton.classList.toggle("reveal")
+    nextButton.classList.add("quick-in")
+    setTimeout(gameStart, 3700);
+    }
 
 
 var JSON = JSON || {};
@@ -1082,48 +1082,29 @@ const room10Outro = 'Once the beast has been defeated, you notice a light growin
 // // document.getElementById("storyTest").innerHTML = `${gameIntro} <br> ${gameIntro2}`;
 // printLetterByLetter("charInput", gameIntro);
 // }
-// const nameForm = document.getElementById("nameForm");
 
-// let nextButton=document.getElementById("nextButton");
+let nextButton=document.getElementById("nextButton");
 
-// function printLetterByLetter(destination, message){ //message = variable
-//     let i = 0;
-//     let interval = setInterval(function(){
-//         document.getElementById(destination).innerHTML += message.charAt(i);
-//         i++;
-//         if (i > message.length){
-//             clearInterval(interval);
-//         }
-//     }, 70);
-// }
+function printLetterByLetter(destination, message){ //message = variable
+    let i = 0;
+    let interval = setInterval(function(){
+        document.getElementById(destination).innerHTML += message.charAt(i);
+        i++;
+        if (i > message.length){
+            clearInterval(interval);
+        }
+    }, 70);
+}
 
-// function gameStart(){
-//     text.innerHTML = null;
-//     printLetterByLetter("charInput", storyArray[0]);
-//     storyArray.shift();
-
-//     if (text.value === 'Today is your turn to compete! You walk into the Estate to find a standalone building with a door. Nervous, but ready to prevail, you enter the first room. You see a table with a single candle in the darkness...a note that reads “who are you?”'){
-//        return nameForm.classList.remove("hide");
-//     }
-// };
+function gameStart(){
+    text.innerHTML = null;
+    printLetterByLetter("charInput", storyArray[0]);
+    storyArray.shift();
+};
 
 
-// nextButton.addEventListener("click", gameStart);
-// // text.addEventListener("click", clearText)
+nextButton.addEventListener("click", gameStart);
 
-
-
-// function clickNext(){
-//     let clickCount= 0;
-
-//     nextButton.onclick= () => {
-//         clickCount+=1;
-//         return clickCount;
-//     }
-//     if ( clickCount = 1){
-//         gameStart();
-    
-// }
 
 
 
