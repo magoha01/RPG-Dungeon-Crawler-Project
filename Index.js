@@ -24,6 +24,30 @@ function mute(){
 // });
 
 
+function startGame(e){
+    this.classList.remove("hide");
+}
+
+//Enter game Intro Screen
+const start= document.querySelector(".start");
+const text= document.querySelector("#charInput");
+const audio= document.querySelector("#background_music")
+
+start.addEventListener('click',startGame);
+
+function startGame(e){
+    audio.play();
+    this.classList.add("fade-out");
+    this.addEventListener('animationend',()=>{
+        start.remove();
+    })
+    text.classList.toggle("reveal")
+    nextButton.classList.toggle("reveal")
+    nextButton.classList.add("quick-in")
+    setTimeout(gameStart, 3700);
+    }
+
+
 var JSON = JSON || {};
 
 class Room {
@@ -753,6 +777,7 @@ let slime = new Enemy({
    armor: 12,
    enemyImg: 'assets/purple_blob.png'
 })
+
 let goblin = new Enemy({
     enemyId: 1,
     name: 'Goblin',
@@ -765,6 +790,7 @@ let goblin = new Enemy({
     enemyImg: 'assets/goblin.png'
  })
 const enemyArr = [slime, goblin]
+
 //          Combat Functions
 let turnCount = 0
 let combat = false
@@ -926,7 +952,7 @@ function enemyTurn(){
 }
 //          Player init
 let player = {
-    playerName: 'Bill the Barbarian',
+    name: 'Bill the Barbarian',
     strength: 5,
     dexterity: 4,
     constitution: 3,
@@ -938,6 +964,8 @@ let player = {
     room: 0,
     inventory: []
 }
+
+
 // Button Functionality
 function option1(){
     roomArr[player.room].optionOne()
@@ -1043,9 +1071,28 @@ function Button () {
 }
 //  console.log('test')
 
+
+
+
+
+
+storyArray= ['As a simple farm hand in the land of Lambastia, your daily life is full of heavy chores and physical labour. You know there must be more to life. You crave adventure, admiration and most of all...riches!', 
+            
+        'Once in a blue moon in the lands of Lambastia, there is a competition to determine a new leader. It is a matter of learning agility determined through a battle of wills. Every eligible person is welcome to the Ternary Estate to compete.',
+
+        'Today is your turn to compete! You walk into the Estate to find a standalone building with a door. Nervous, but ready to prevail, you enter the first room. You see a table with a single candle in the darkness...a note that reads “who are you?”',
+
+        // Name form appears, player enters name, presses next to continue story.
+        , ]
+
+
+
+
+
+
 const gameIntro = 'As a simple farm hand in the land of Lambastia, your daily life is full of heavy chores and physical labour. You know there must be more to life. You crave adventure, admiration and most of all...riches!';
 
-const gameIntro2 = 'Once a blue moon in the lands of Lambastia, there is a competition to determine a new leader. It is a matter of learning agility determined through a battle of wills. Every eligible person is welcome to the Ternary Estate to compete.';
+const gameIntro2 = 'Once in a blue moon in the lands of Lambastia, there is a competition to determine a new leader. It is a matter of learning agility determined through a battle of wills. Every eligible person is welcome to the Ternary Estate to compete.';
 
 //end of Intro
 
@@ -1130,6 +1177,14 @@ const room10Outro = 'Once the beast has been defeated, you notice a light growin
 //end of room 10 and floor 1
 
 //Story Functions
+
+// function gameStart(){
+// // document.getElementById("storyTest").innerHTML = `${gameIntro} <br> ${gameIntro2}`;
+// printLetterByLetter("charInput", gameIntro);
+// }
+
+let nextButton=document.getElementById("nextButton");
+
 function printLetterByLetter(destination, message){ //message = variable
     let i = 0;
     let interval = setInterval(function(){
@@ -1138,13 +1193,20 @@ function printLetterByLetter(destination, message){ //message = variable
         if (i > message.length){
             clearInterval(interval);
         }
-    }, 100);
+    }, 70);
 }
 
 function gameStart(){
-// document.getElementById("storyTest").innerHTML = `${gameIntro} <br> ${gameIntro2}`;
-printLetterByLetter("storyTest", gameIntro);
-}
+    text.innerHTML = null;
+    printLetterByLetter("charInput", storyArray[0]);
+    storyArray.shift();
+};
+
+
+nextButton.addEventListener("click", gameStart);
+
+
+
 
 // Next(rmNum, message){
 // let i = 0; //when clicking next, the next text for the room shows
@@ -1163,6 +1225,7 @@ function classChoice(){
 }
 
 function warrior(){
+
 return 'Ah yes! You are a warrior bound by your brute strength and will to succeed. Welcome.';
 }
 

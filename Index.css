@@ -144,9 +144,107 @@ h1 {
   font-family: "Press Start 2P", cursive;
   font-size: 4rem;
   margin: 2% 5%;
+  background-image:url(assets/dirtblock-background.png);
 }
 
+
 /* BEGIN INTERFACE CSS */
+
+.splash{
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  z-index: 200;
+  text-align: center;
+}
+
+.splash div{
+  background-color: black;
+}
+
+.start{
+  margin: 20%;
+  padding: 1% 5%;
+  font-size: 24px;
+  background-color: black;
+  border: 1px solid white;
+  color: white;
+  font-family: "Press Start 2P", cursive;
+}
+
+.start:hover {
+  background-color: black;
+  color: darkred;
+  border: 1px solid darkred;
+  transition-duration: .4s;
+}
+
+#charInput{
+  font-size: 2rem;
+  color: white;
+  font-family: "Press Start 2P", cursive;
+  background-color: black;
+  border: 1px solid white;
+  margin: 20% 5% 0 5%;
+}
+
+@keyframes fadeIn{
+  to{
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut{
+  to{
+    opacity: 0;
+  }
+}
+
+.fade-in{
+  opacity: 0;
+  animation: fadeIn 3s ease-in forwards; 
+}
+
+.quick-in{
+  opacity:0;
+  animation: fadeIn 1s ease-in forwards;
+}
+
+.fade-out{
+  opacity: 1;
+  animation: fadeOut 3s ease-in-out;
+}
+
+.hide{
+ visibility: hidden;
+ z-index: -100;
+}
+
+.reveal{
+  visibility: visible;
+}
+
+#nextButton{
+  background-color: black;
+  color: white;
+  font-family: "Press Start 2P", cursive;
+  /* margin: 4%; */
+}
+
+#nextButton:hover{
+  background-color: black;
+  color: darkred;
+}
+
+form, label, input{
+  border: 1px solid white;
+  background-color: black;
+  color: white;
+  font-family: "Press Start 2P", cursive;
+}
 
 #music_container {
   display: flex;
@@ -192,8 +290,6 @@ h1 {
   background-size: contain;
   outline: none; 
 }
-
-
 
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none; 
@@ -519,7 +615,7 @@ h1 {
   margin: 1%;
 }
 
-#roomOption1{
+/* #roomOption1{
 
 }
 
@@ -541,7 +637,7 @@ h1 {
 
 #roomIdTester{
   margin: 1%;
-}
+} */
 
 #storyContainer{
   width: 100%;
