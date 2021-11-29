@@ -239,6 +239,7 @@ h1 {
   margin: 1%;
   display: flex;
   flex-flow: column nowrap;
+  max-height: 75vh;
 }
 
 /* Top Section of cSheet */
@@ -404,6 +405,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  max-height: 15vh
 }
 
 .cSheetInventory {
@@ -411,28 +413,30 @@ h1 {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-evenly;
-  padding: 5%;
+  padding: auto;
 }
 .cSheetInventory{
   max-width: 100%;
+  max-height: 15vh;
 }
 
-.cSheetInventory p {
+.cSheetInventory img{
   background-color: #695f4d;
+  border:none;
+  width: 10%;
 }
 
-.items {
-  width: 20%;
+/* .items {
   padding: 4%;
   margin: 2%;
-}
+} */
 
-#item1 {
+/* #item1 {
   width: 10%;
 }
 
 #item2 {
-  width: 10%;
+  width: 8%;
 }
 
 #item3 {
@@ -450,7 +454,7 @@ h1 {
 #item6 {
   width: 10%;
 
-}
+} */
 
 /* Right Side */
 
