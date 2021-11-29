@@ -817,6 +817,7 @@ function combatEnd(){
      document.getElementById('enemyDefenseImg').src = ''
      document.getElementById('enemyAttackImg').src = ''
     player.tempArmor = 0 ;
+    document.getElementById("cSheetArmor").innerHTML = `${player.armor+player.tempArmor}`
     combat = false;
 
 }
