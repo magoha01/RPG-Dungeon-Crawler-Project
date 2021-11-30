@@ -952,7 +952,7 @@ function enemyTurn(){
 }
 //          Player init
 let player = {
-    name: 'Bill the Barbarian',
+    name: nameInput,
     strength: 5,
     dexterity: 4,
     constitution: 3,
@@ -1204,18 +1204,12 @@ function gameStart(){
 
 nextButton.addEventListener("click", gameStart);
 
+const nameInput = document.querySelector('pName');
 
-
-
-// Next(rmNum, message){
-// let i = 0; //when clicking next, the next text for the room shows
-// document.getElementById(destination).innerHTML
-// if (i === message.length){
-// //go to the next text
-// }
-// }
-
-//after user inputs name
+function getName(){
+    document.write(`Hello ${player.name}! What class are you?`);
+    classChoice();
+}
 
 function classChoice(e){
 const warriorClass = document.querySelector("button.warrior");
