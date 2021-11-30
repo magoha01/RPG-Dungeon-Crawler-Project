@@ -1072,7 +1072,7 @@ function Button () {
 //  console.log('test')
 
 
-
+//Story Section Starts here
 
 
 
@@ -1084,7 +1084,6 @@ storyArray= ['As a simple farm hand in the land of Lambastia, your daily life is
 
         // Name form appears, player enters name, presses next to continue story.
         , ]
-
 
 
 
@@ -1216,12 +1215,20 @@ nextButton.addEventListener("click", gameStart);
 // }
 // }
 
-function greeting(){
-return `Hello ${player.name}. What class are you?`
+//after user inputs name
+
+function classChoice(e){
+const warriorClass = document.querySelector("button.warrior");
+const rangerClass = document.querySelector("button.ranger");
+const rogueClass = document.querySelector("button.rogue");
+
+if(e.target === warriorClass){
+    warrior();
+} else if (e.target === rangerClass){
+    ranger();
+} else if (e.target === rogueClass){
+    rogue();
 }
-
-function classChoice(){
-
 }
 
 function warrior(){
@@ -1230,9 +1237,9 @@ return 'Ah yes! You are a warrior bound by your brute strength and will to succe
 }
 
 function ranger(){
-return 'Ah yes! You are a ranger tied to the forest with your trusty shortbow at your side. Welcome.'
+return 'Ah yes! You are a ranger tied to the forest with your trusty shortbow at your side. Welcome.';
 }
 
 function rogue(){
-return 'Ah yes! You are a rogue, an assassin of the night, with your small blade to destroy anything in your path. Welcome.'
+return 'Ah yes! You are a rogue, an assassin of the night, with your small blade to destroy anything in your path. Welcome.';
 }
