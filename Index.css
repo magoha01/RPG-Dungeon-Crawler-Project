@@ -170,7 +170,7 @@ h1 {
   padding: 1% 5%;
   font-size: 24px;
   background-color: black;
-  border: 1px solid white;
+  /* border: 1px solid white; */
   color: white;
   font-family: "Press Start 2P", cursive;
 }
@@ -187,7 +187,7 @@ h1 {
   color: white;
   font-family: "Press Start 2P", cursive;
   background-color: black;
-  border: 1px solid white;
+  /* border: 1px solid white; */
   margin: 20% 5% 0 5%;
 }
 
@@ -231,7 +231,6 @@ h1 {
   background-color: black;
   color: white;
   font-family: "Press Start 2P", cursive;
-  /* margin: 4%; */
 }
 
 #nextButton:hover{

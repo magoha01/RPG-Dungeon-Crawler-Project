@@ -24,7 +24,7 @@ function mute(){
 // });
 
 
-function startGame(e){
+function startGame(){
     this.classList.remove("hide");
 }
 
@@ -35,18 +35,17 @@ const audio= document.querySelector("#background_music")
 
 start.addEventListener('click',startGame);
 
-function startGame(e){
+function startGame(){
     audio.play();
     this.classList.add("fade-out");
     this.addEventListener('animationend',()=>{
-        start.remove();
+        this.remove();
     })
     text.classList.toggle("reveal")
     nextButton.classList.toggle("reveal")
     nextButton.classList.add("quick-in")
-    setTimeout(gameStart, 3700);
-    }
-
+    setTimeout(storyStart, 3700);
+    };
 
 var JSON = JSON || {};
 
@@ -95,7 +94,7 @@ class Room {
        }
      }
      
-     
+
      optionThree(){
         if(this.roomEast != null){
         document.getElementById(roomArr[player.room].mapId).style.border = null
@@ -763,8 +762,6 @@ class Enemy{
         this.constitution = att.constitution
         this.tempArmor = 0
     }
-
-    
 }
 let slime = new Enemy({
    enemyId: 0,
@@ -1183,28 +1180,60 @@ const room10Outro = 'Once the beast has been defeated, you notice a light growin
 // printLetterByLetter("charInput", gameIntro);
 // }
 
+function storyStart() {
+    text.textContent = null;
+    typewriter("charInput", storyArray[0]);
+};
+
 let nextButton=document.getElementById("nextButton");
 
-function printLetterByLetter(destination, message){ //message = variable
+let clickCount = 0;
+
+nextButton.addEventListener('click', ()=> {
+    clickCount ++
+    console.log(clickCount)
+})
+
+  
+function typewriter(destination, message){ 
     let i = 0;
+    let speed = 60;
     let interval = setInterval(function(){
         document.getElementById(destination).innerHTML += message.charAt(i);
         i++;
         if (i > message.length){
             clearInterval(interval);
         }
-    }, 70);
+        //CLICKCOUNT = 1 WORKS LETS GOOOOOO
+        if (clickCount === 1){
+            clearInterval(interval)
+            text.textContent = null;
+            text.textContent = message;
+        } 
+    }, speed);  
+};
+ 
+function clickNext (){
+    if(clickCount === 2 || text.textContent.length === storyArray[0].length){
+        text.textContent = null;
+        storyArray.shift();
+        clickCount = 0
+        typewriter("charInput", storyArray[0])
+    }
 }
 
-function gameStart(){
-    text.innerHTML = null;
-    printLetterByLetter("charInput", storyArray[0]);
-    storyArray.shift();
-};
+// function typeWriter(destination, message){
+//     if (i < message.length) {
+//       document.getElementById(destination).innerHTML += message.charAt(i);
+//       i++;
+//       setTimeout(typeWriter, speed);
+//     }
+//   };
 
 
-nextButton.addEventListener("click", gameStart);
 
+
+nextButton.addEventListener("click", clickNext);
 
 
 
@@ -1215,6 +1244,7 @@ nextButton.addEventListener("click", gameStart);
 // //go to the next text
 // }
 // }
+
 
 function greeting(){
 return `Hello ${player.name}. What class are you?`
