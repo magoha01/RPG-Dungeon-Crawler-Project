@@ -9,18 +9,17 @@ function mute(){
 
 let audioVolume = document.getElementById('background_music');
 let givenvolume = document.querySelector("#volume-control");
-audioVolume.setAttribute('volume', .5);
+audioVolume.volume = 0.5;
 
-const volumeSlider = document.getElementById('volume-control');
-const outputContainer = document.getElementById('volume-output');
+const volumeSlider = document.querySelector('#volume-control');
 const music = document.getElementById('background_music');
-audioVolume.volume = 0.2;
 
 volumeSlider.addEventListener('input', (e) => {
-  const value = e.target.value;
-
-  outputContainer.textContent = value;
-  music.setAttribute('volume', value / 100);
+    let value = volumeSlider.value;
+    console.log(volumeSlider.value);
+    music.volume = volumeSlider.value / 100;
+    outputContainer.innerHTML = `${volumeSlider.value }`;
+    document.querySelector('#volume-container').innerHTML = `${volumeSlider.value}`;
 });
 
 
