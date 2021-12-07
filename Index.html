@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script defer src="Index.js"></script>
     <title>A Journey Underground</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge" />
@@ -42,13 +43,18 @@
                 </div>
                 <output id="volume-container">100</output>
             </div>
-            <button id="save" onclick="saveGame()">Save your Game!</button>
-            <button id="load" onclick="loadGame()">Load your Game!</button>
+            
+            
+            <button id="menuButton" onclick="openMenu()">Menu</button>
             <h1>
                 A Journey Underground
             </h1>
         </header>
-
+        <div id="menu">
+            <button id="save" onclick="saveGame()">Save your Game!</button>
+            <button id="load" onclick="loadGame()">Load your Game!</button>
+            <button id="closeMenu" onclick='openMenu()'>Close Menu</button>
+        </div>
         <div class= "pageContainer">
             <section id='cSheet'> <!--Start cSheet-->
                 <div class = "cSheetTop">
@@ -206,7 +212,6 @@
                 <section class="rightSide"> <!--Start of rightSide-->
                     <div class="right"> 
                         <div class="roomContainer">
-                            room
                             <div id="fightScreen">
 
                                 <div>
@@ -272,6 +277,7 @@
         document.getElementById("rogue").style.display = 'none';
         document.getElementById("confirm").style.display = 'none';
         document.getElementById("fightScreen").style.display = 'none'
+        document.getElementById('menu').style.display = 'none'
     
     </script> <!--End Javascript Script-->
 </html>
