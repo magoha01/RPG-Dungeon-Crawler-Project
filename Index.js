@@ -7,21 +7,21 @@ function mute(){
 
 // attaching range slider to audio volume on site
 
-// let audio = document.getElementById('background_music');
-// let givenvolume = document.querySelector("#volume-control");
-// audio.volume = 
+let audioVolume = document.getElementById('background_music');
+let givenvolume = document.querySelector("#volume-control");
+audioVolume.setAttribute('volume', .5);
 
-// const volumeSlider = document.getElementById('volume-control');
-// const outputContainer = document.getElementById('volume-output');
-// const music = document.getElementById('background_music');
-// audio.volume = 0.2;
+const volumeSlider = document.getElementById('volume-control');
+const outputContainer = document.getElementById('volume-output');
+const music = document.getElementById('background_music');
+audioVolume.volume = 0.2;
 
-// volumeSlider.addEventListener('input', (e) => {
-//   const value = e.target.value;
+volumeSlider.addEventListener('input', (e) => {
+  const value = e.target.value;
 
-//   outputContainer.textContent = value;
-//   music.volume = value / 100;
-// });
+  outputContainer.textContent = value;
+  music.setAttribute('volume', value / 100);
+});
 
 
 function startGame(){
