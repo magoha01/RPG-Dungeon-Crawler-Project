@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- <script defer src="Index.js"></script> -->
     <title>A Journey Underground</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
@@ -13,8 +14,8 @@
 <script src="/Index.a7d1411c.js"></script></head>
 
     <body> <!--Main Content-->
-        <div class="splash">
-            <button class="start fade-in">A Journey Underground</button>
+        <!-- <div class="splash">
+            <button class ="start fade-in">A Journey Underground</button>
            
             <div>
                 <p id="charInput" class="hide"></p>
@@ -23,10 +24,10 @@
             
             <form onsubmit="getName()">
                 <label for="pName">Name:</label>
-                <input type="text" id="pName" name="pName" required="" maxlength="30">
+                <input type="text" id="pName" name="pName" required maxlength="30">
                 <input type="submit">
             </form>
-        </div> 
+        </div>  -->
         <header>
             <div id="music_container">
                 <audio id="background_music" src="/Тиффани-TheBeginning-.21ec2096.mp3" loop="" autoplay=""></audio> 
@@ -39,13 +40,18 @@
                 </div>
                 <p id="volume-container"></p>
             </div>
-            <button id="save" onclick="saveGame()">Save your Game!</button>
-            <button id="load" onclick="loadGame()">Load your Game!</button>
+            
+            
+            <button id="menuButton" onclick="openMenu()">Menu</button>
             <h1>
                 A Journey Underground
             </h1>
         </header>
-
+        <div id="menu">
+            <button id="save" onclick="saveGame()">Save your Game!</button>
+            <button id="load" onclick="loadGame()">Load your Game!</button>
+            <button id="closeMenu" onclick="openMenu()">Close Menu</button>
+        </div>
         <div class="pageContainer">
             <section id="cSheet"> <!--Start cSheet-->
                 <div class="cSheetTop">
@@ -203,7 +209,6 @@
                 <section class="rightSide"> <!--Start of rightSide-->
                     <div class="right"> 
                         <div class="roomContainer">
-                            room
                             <div id="fightScreen">
 
                                 <div>
@@ -263,12 +268,13 @@ document.getElementById("playerName").innerHTML = "".concat(player.name);
 document.getElementById("roomIdTester").innerHTML = "".concat(player.room);
 document.getElementById(startingRoom.mapId).style.backgroundColor = 'black';
 roomText();
-document.getElementById("name").style.display = none;
-document.getElementById("warrior").style.display = none;
-document.getElementById("ranger").style.display = none;
-document.getElementById("rogue").style.display = none;
+document.getElementById("playerName").style.display = 'none';
+document.getElementById("warrior").style.display = 'none';
+document.getElementById("ranger").style.display = 'none';
+document.getElementById("rogue").style.display = 'none';
 document.getElementById("confirm").style.display = 'none';
-document.getElementById("fightScreen").style.display = 'none'; //Story eventlisteners below
+document.getElementById("fightScreen").style.display = 'none';
+document.getElementById('menu').style.display = 'none'; //Story eventlisteners below
 
 document.getElementById("storyTest").addEventListener("click", function (next) {
   printLetterByLetter("storyTest", gameIntro2);
@@ -278,5 +284,5 @@ document.getElementById("confirm").addEventListener("click", function (greeting)
 });
 document.getElementById("warrior").addEventListener("click", classChoice);
 document.getElementById("ranger").addEventListener("click", classChoice);
-document.getElementById("rogue").addEventListener("click", classChoice);</script> <!--End Javascript Script-->
+document.getElementById("rogue").addEventListener("click", classChoice); //</script> <!--End Javascript Script-->
 </html>
