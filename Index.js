@@ -14,7 +14,7 @@ audioVolume.setAttribute('volume', .5);
 
 const volumeSlider = document.getElementById('volume-control');
 const outputContainer = document.getElementById('volume-output');
-const music = document.getElementById('background_music');
+
 audioVolume.volume = 0.2;
 
 volumeSlider.addEventListener('input', (e) => {
@@ -35,20 +35,20 @@ function startGame(){
 // const audio= document.querySelector("#background_music")
 
 
-start.addEventListener('click', startGame);
+// start.addEventListener('click', startGame);
 
-function startGame(){
-    start.removeEventListener('click', startGame);
-    audio.play();
-    this.classList.add("fade-out");
-    this.addEventListener('animationend',()=>{
-        this.remove();
-    })
-    text.classList.toggle("reveal")
-    nextButton.classList.toggle("reveal")
-    nextButton.classList.add("fade-in")
-    setTimeout(storyStart, 3700);
-    };
+// function startGame(){
+//     start.removeEventListener('click', startGame);
+//     audio.play();
+//     this.classList.add("fade-out");
+//     this.addEventListener('animationend',()=>{
+//         this.remove();
+//     })
+//     text.classList.toggle("reveal")
+//     nextButton.classList.toggle("reveal")
+//     nextButton.classList.add("fade-in")
+//     setTimeout(storyStart, 3700);
+//     };
 
 var JSON = JSON || {};
 
@@ -952,7 +952,7 @@ function enemyTurn(){
 }
 //          Player init
 let player = {
-    name: nameInput,
+    name: 'Bill the Barbarian',
     strength: 5,
     dexterity: 4,
     constitution: 3,
