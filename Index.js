@@ -24,7 +24,7 @@ function mute(){
 // });
 
 
-function startGame(e){
+function startGame(){
     this.classList.remove("hide");
 }
 
@@ -33,20 +33,20 @@ const start= document.querySelector(".start");
 const text= document.querySelector("#charInput");
 const audio= document.querySelector("#background_music")
 
-start.addEventListener('click',startGame);
+start.addEventListener('click', startGame);
 
-function startGame(e){
+function startGame(){
+    start.removeEventListener('click', startGame);
     audio.play();
     this.classList.add("fade-out");
     this.addEventListener('animationend',()=>{
-        start.remove();
+        this.remove();
     })
     text.classList.toggle("reveal")
     nextButton.classList.toggle("reveal")
-    nextButton.classList.add("quick-in")
-    setTimeout(gameStart, 3700);
-    }
-
+    nextButton.classList.add("fade-in")
+    setTimeout(storyStart, 3700);
+    };
 
 var JSON = JSON || {};
 
@@ -95,7 +95,7 @@ class Room {
        }
      }
      
-     
+
      optionThree(){
         if(this.roomEast != null){
         document.getElementById(roomArr[player.room].mapId).style.border = null
@@ -763,8 +763,6 @@ class Enemy{
         this.constitution = att.constitution
         this.tempArmor = 0
     }
-
-    
 }
 let slime = new Enemy({
    enemyId: 0,
@@ -1080,12 +1078,16 @@ storyArray= ['As a simple farm hand in the land of Lambastia, your daily life is
             
         'Once in a blue moon in the lands of Lambastia, there is a competition to determine a new leader. It is a matter of learning agility determined through a battle of wills. Every eligible person is welcome to the Ternary Estate to compete.',
 
-        'Today is your turn to compete! You walk into the Estate to find a standalone building with a door. Nervous, but ready to prevail, you enter the first room. You see a table with a single candle in the darkness...a note that reads “who are you?”',
+        'Today is your turn to compete! You walk into the Estate to find a standalone building with a door. Nervous, but ready to prevail, you enter the first room. You see a table with a single candle in the darkness...a note that reads “who are you?”'
 
         // Name form appears, player enters name, presses next to continue story.
-        , ]
+]
 
-
+function endArrayAlert(){
+    if (storyArray.length < 1){
+        alert ('array is empty')
+    }
+}
 
 
 
@@ -1182,33 +1184,77 @@ const room10Outro = 'Once the beast has been defeated, you notice a light growin
 // printLetterByLetter("charInput", gameIntro);
 // }
 
+function storyStart() {
+    text.textContent = null;
+    typewriter("charInput", storyArray[0]);
+};
+
 let nextButton=document.getElementById("nextButton");
 
-function printLetterByLetter(destination, message){ //message = variable
+let clickCount = 0;
+
+nextButton.addEventListener('click', ()=> {
+    clickCount ++
+    console.log(clickCount)
+})
+  
+function typewriter(destination, message){ 
     let i = 0;
+    let speed = 60;
+     
     let interval = setInterval(function(){
         document.getElementById(destination).innerHTML += message.charAt(i);
         i++;
-        if (i > message.length){
+       if (i > message.length){
             clearInterval(interval);
         }
-    }, 70);
-}
-
-function gameStart(){
-    text.innerHTML = null;
-    printLetterByLetter("charInput", storyArray[0]);
-    storyArray.shift();
+        //1T WORKS LETS GOOOOOO
+        if (clickCount === 1){
+            clearInterval(interval)
+            text.textContent = null;
+            text.textContent = message;
+        } 
+    }, speed);  
 };
 
+// 
+function clickNext (){
+    if(clickCount === 2 || text.textContent.length === storyArray[0].length){
+            clickCount = 0;
+            text.textContent = null; 
+            storyArray.shift()
+            if(storyArray.length === 0){
+                console.log('END')
+            } else {
+            typewriter("charInput", storyArray[0])   
+        }
+    }
+}
+nextButton.addEventListener("click", clickNext);
 
-nextButton.addEventListener("click", gameStart);
 
-const nameInput = document.querySelector('pName');
+//if form is visible === true, hide next button
+//if name has value === true, reveal next button
 
-function getName(){
-    document.write(`Hello ${player.name}! What class are you?`);
-    classChoice();
+// Next(rmNum, message){
+// let i = 0; //when clicking next, the next text for the room shows
+// document.getElementById(destination).innerHTML
+// if (i === message.length){
+// //go to the next text
+// }
+// }
+// nextButton.addEventListener("click", gameStart);
+
+function greeting(){
+return `Hello ${player.name}. What class are you?`
+
+
+
+// const nameInput = document.querySelector('pName');
+
+// function getName(){
+ //   document.write(`Hello ${player.name}! What class are you?`);
+//    classChoice();
 }
 
 function classChoice(e){
