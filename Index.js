@@ -8,24 +8,24 @@ function mute(){
 music.volume = 0.01
 // attaching range slider to audio volume on site
 
-// let audio = document.getElementById('background_music');
-// let givenvolume = document.querySelector("#volume-control");
-// audio.volume = 
+let audioVolume = document.getElementById('background_music');
+let givenvolume = document.querySelector("#volume-control");
+audioVolume.setAttribute('volume', .5);
 
-// const volumeSlider = document.getElementById('volume-control');
-// const outputContainer = document.getElementById('volume-output');
-// const music = document.getElementById('background_music');
-// audio.volume = 0.2;
+const volumeSlider = document.getElementById('volume-control');
+const outputContainer = document.getElementById('volume-output');
+const music = document.getElementById('background_music');
+audioVolume.volume = 0.2;
 
-// volumeSlider.addEventListener('input', (e) => {
-//   const value = e.target.value;
+volumeSlider.addEventListener('input', (e) => {
+  const value = e.target.value;
 
-//   outputContainer.textContent = value;
-//   music.volume = value / 100;
-// });
+  outputContainer.textContent = value;
+  music.setAttribute('volume', value / 100);
+});
 
 
-function startGame(e){
+function startGame(){
     this.classList.remove("hide");
 }
 
@@ -34,20 +34,21 @@ function startGame(e){
 // const text= document.querySelector("#charInput");
 // const audio= document.querySelector("#background_music")
 
-// start.addEventListener('click',startGame);
 
-// function startGame(e){
-//     audio.play();
-//     this.classList.add("fade-out");
-//     this.addEventListener('animationend',()=>{
-//         start.remove();
-//     })
-//     text.classList.toggle("reveal")
-//     nextButton.classList.toggle("reveal")
-//     nextButton.classList.add("quick-in")
-//     setTimeout(gameStart, 3700);
-//     }
+start.addEventListener('click', startGame);
 
+function startGame(){
+    start.removeEventListener('click', startGame);
+    audio.play();
+    this.classList.add("fade-out");
+    this.addEventListener('animationend',()=>{
+        this.remove();
+    })
+    text.classList.toggle("reveal")
+    nextButton.classList.toggle("reveal")
+    nextButton.classList.add("fade-in")
+    setTimeout(storyStart, 3700);
+    };
 
 var JSON = JSON || {};
 
@@ -96,7 +97,7 @@ class Room {
        }
      }
      
-     
+
      optionThree(){
         if(this.roomEast != null){
         document.getElementById(roomArr[player.room].mapId).style.border = null
@@ -764,8 +765,6 @@ class Enemy{
         this.constitution = att.constitution
         this.tempArmor = 0
     }
-
-    
 }
 let slime = new Enemy({
    enemyId: 0,
@@ -953,7 +952,7 @@ function enemyTurn(){
 }
 //          Player init
 let player = {
-    name: 'Bill the Barbarian',
+    name: nameInput,
     strength: 5,
     dexterity: 4,
     constitution: 3,
@@ -1092,7 +1091,7 @@ function Button () {
 //  console.log('test')
 
 
-
+//Story Section Starts here
 
 
 
@@ -1100,13 +1099,16 @@ storyArray= ['As a simple farm hand in the land of Lambastia, your daily life is
             
         'Once in a blue moon in the lands of Lambastia, there is a competition to determine a new leader. It is a matter of learning agility determined through a battle of wills. Every eligible person is welcome to the Ternary Estate to compete.',
 
-        'Today is your turn to compete! You walk into the Estate to find a standalone building with a door. Nervous, but ready to prevail, you enter the first room. You see a table with a single candle in the darkness...a note that reads “who are you?”',
+        'Today is your turn to compete! You walk into the Estate to find a standalone building with a door. Nervous, but ready to prevail, you enter the first room. You see a table with a single candle in the darkness...a note that reads “who are you?”'
 
         // Name form appears, player enters name, presses next to continue story.
-        , ]
+]
 
-
-
+function endArrayAlert(){
+    if (storyArray.length < 1){
+        alert ('array is empty')
+    }
+}
 
 
 
@@ -1203,30 +1205,57 @@ const room10Outro = 'Once the beast has been defeated, you notice a light growin
 // printLetterByLetter("charInput", gameIntro);
 // }
 
+function storyStart() {
+    text.textContent = null;
+    typewriter("charInput", storyArray[0]);
+};
+
 let nextButton=document.getElementById("nextButton");
 
-function printLetterByLetter(destination, message){ //message = variable
+let clickCount = 0;
+
+nextButton.addEventListener('click', ()=> {
+    clickCount ++
+    console.log(clickCount)
+})
+  
+function typewriter(destination, message){ 
     let i = 0;
+    let speed = 60;
+     
     let interval = setInterval(function(){
         document.getElementById(destination).innerHTML += message.charAt(i);
         i++;
-        if (i > message.length){
+       if (i > message.length){
             clearInterval(interval);
         }
-    }, 70);
-}
-
-function gameStart(){
-    text.innerHTML = null;
-    printLetterByLetter("charInput", storyArray[0]);
-    storyArray.shift();
+        //1T WORKS LETS GOOOOOO
+        if (clickCount === 1){
+            clearInterval(interval)
+            text.textContent = null;
+            text.textContent = message;
+        } 
+    }, speed);  
 };
 
+// 
+function clickNext (){
+    if(clickCount === 2 || text.textContent.length === storyArray[0].length){
+            clickCount = 0;
+            text.textContent = null; 
+            storyArray.shift()
+            if(storyArray.length === 0){
+                console.log('END')
+            } else {
+            typewriter("charInput", storyArray[0])   
+        }
+    }
+}
+nextButton.addEventListener("click", clickNext);
 
-nextButton.addEventListener("click", gameStart);
 
-
-
+//if form is visible === true, hide next button
+//if name has value === true, reveal next button
 
 // Next(rmNum, message){
 // let i = 0; //when clicking next, the next text for the room shows
@@ -1235,13 +1264,32 @@ nextButton.addEventListener("click", gameStart);
 // //go to the next text
 // }
 // }
+// nextButton.addEventListener("click", gameStart);
 
 function greeting(){
 return `Hello ${player.name}. What class are you?`
+
+
+
+// const nameInput = document.querySelector('pName');
+
+// function getName(){
+ //   document.write(`Hello ${player.name}! What class are you?`);
+//    classChoice();
 }
 
-function classChoice(){
+function classChoice(e){
+const warriorClass = document.querySelector("button.warrior");
+const rangerClass = document.querySelector("button.ranger");
+const rogueClass = document.querySelector("button.rogue");
 
+if(e.target === warriorClass){
+    warrior();
+} else if (e.target === rangerClass){
+    ranger();
+} else if (e.target === rogueClass){
+    rogue();
+}
 }
 
 function warrior(){
@@ -1250,9 +1298,9 @@ return 'Ah yes! You are a warrior bound by your brute strength and will to succe
 }
 
 function ranger(){
-return 'Ah yes! You are a ranger tied to the forest with your trusty shortbow at your side. Welcome.'
+return 'Ah yes! You are a ranger tied to the forest with your trusty shortbow at your side. Welcome.';
 }
 
 function rogue(){
-return 'Ah yes! You are a rogue, an assassin of the night, with your small blade to destroy anything in your path. Welcome.'
+return 'Ah yes! You are a rogue, an assassin of the night, with your small blade to destroy anything in your path. Welcome.';
 }
