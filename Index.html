@@ -21,13 +21,12 @@
                 <button id="nextButton" class="hide">Next</button>
             </div> 
             
-            <form class = "nameForm hide" onsubmit="getName()">
+            <form onsubmit="getName()">
                 <label for="pName">Name:</label>
                 <input type="text" id="pName" name="pName" required maxlength="30">
                 <input type="submit">
             </form>
-
-        </div>
+        </div> 
         <header>
             <div id="music_container">
                 <audio id="background_music" src="assets/Тиффани-TheBeginning-.mp3" loop autoplay></audio> 
@@ -240,12 +239,12 @@
                             <div id="playerLog"></div>   
                             <div id="combatLog"></div>
                             <div id="storyContainer"> <!--start of story container-->
-                                <p id="storyTest" onclick="Next()"></p>
+                                <p id="storyTest" click="Next()"></p>
                                 <input id="name" type="text"> 
-                                <button id="confirm" onclick='greeting()'></button><!--user input-->
-                                <button id="warrior" onclick= 'warrior()'></button><!--buttons for class choice-->
-                                <button id="ranger" onclick= 'ranger()'></button>
-                                <button id="rogue" onclick= 'rogue()'></button>
+                                <button id="confirm" click='greeting()'></button><!--user input-->
+                                <button id="warrior" click= 'warrior()'></button><!--buttons for class choice-->
+                                <button id="ranger" click= 'ranger()'></button>
+                                <button id="rogue" click= 'rogue()'></button>
                             </div> <!--End of story container-->
                         </div> <!--End of Room Buttons-->  
                     </div>
@@ -264,12 +263,24 @@
         document.getElementById("roomIdTester").innerHTML = `${player.room}`
         document.getElementById(startingRoom.mapId).style.backgroundColor = 'black'
         roomText()
-        document.getElementById("name").style.display ='none';
-        document.getElementById("warrior").style.display = 'none';
-        document.getElementById("ranger").style.display = 'none';
-        document.getElementById("rogue").style.display = 'none';
+        document.getElementById("name").style.display = none;
+        document.getElementById("warrior").style.display = none;
+        document.getElementById("ranger").style.display = none;
+        document.getElementById("rogue").style.display = none;
         document.getElementById("confirm").style.display = 'none';
         document.getElementById("fightScreen").style.display = 'none'
-    
-    </script> <!--End Javascript Script-->
+        //Story eventlisteners below
+        document.getElementById("storyTest").addEventListener("click", next => {
+            printLetterByLetter("storyTest", gameIntro2);
+        });
+        
+        document.getElementById("confirm").addEventListener("click", greeting => {`Hello ${player.name}. What class are you?`
+        })
+
+        document.getElementById("warrior").addEventListener("click", classChoice);
+       
+        document.getElementById("ranger").addEventListener("click", classChoice);
+        
+        document.getElementById("rogue").addEventListener("click", classChoice);
+  </script> <!--End Javascript Script-->
 </html>

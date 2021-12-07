@@ -950,7 +950,7 @@ function enemyTurn(){
 }
 //          Player init
 let player = {
-    name: 'Bill the Barbarian',
+    name: nameInput,
     strength: 5,
     dexterity: 4,
     constitution: 3,
@@ -1070,7 +1070,7 @@ function Button () {
 //  console.log('test')
 
 
-
+//Story Section Starts here
 
 
 
@@ -1088,7 +1088,6 @@ function endArrayAlert(){
         alert ('array is empty')
     }
 }
-
 
 
 
@@ -1233,6 +1232,7 @@ function clickNext (){
 }
 nextButton.addEventListener("click", clickNext);
 
+
 //if form is visible === true, hide next button
 //if name has value === true, reveal next button
 
@@ -1243,14 +1243,32 @@ nextButton.addEventListener("click", clickNext);
 // //go to the next text
 // }
 // }
-
+// nextButton.addEventListener("click", gameStart);
 
 function greeting(){
 return `Hello ${player.name}. What class are you?`
+
+
+
+// const nameInput = document.querySelector('pName');
+
+// function getName(){
+ //   document.write(`Hello ${player.name}! What class are you?`);
+//    classChoice();
 }
 
-function classChoice(){
+function classChoice(e){
+const warriorClass = document.querySelector("button.warrior");
+const rangerClass = document.querySelector("button.ranger");
+const rogueClass = document.querySelector("button.rogue");
 
+if(e.target === warriorClass){
+    warrior();
+} else if (e.target === rangerClass){
+    ranger();
+} else if (e.target === rogueClass){
+    rogue();
+}
 }
 
 function warrior(){
@@ -1259,9 +1277,9 @@ return 'Ah yes! You are a warrior bound by your brute strength and will to succe
 }
 
 function ranger(){
-return 'Ah yes! You are a ranger tied to the forest with your trusty shortbow at your side. Welcome.'
+return 'Ah yes! You are a ranger tied to the forest with your trusty shortbow at your side. Welcome.';
 }
 
 function rogue(){
-return 'Ah yes! You are a rogue, an assassin of the night, with your small blade to destroy anything in your path. Welcome.'
+return 'Ah yes! You are a rogue, an assassin of the night, with your small blade to destroy anything in your path. Welcome.';
 }
