@@ -4,9 +4,11 @@
   "scripts": {
     "start": "parcel Index.html",
     "build": "parcel build Index.html",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "cypress open"
   },
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "cypress": "^8.0.0",
     "eslint": "^7.32.0",
