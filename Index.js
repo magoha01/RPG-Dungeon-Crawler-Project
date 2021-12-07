@@ -1,15 +1,17 @@
 // creating mute button for music functionality
+const music = document.getElementById('background_music');
 function mute(){
-    const music = document.getElementById('background_music');
+    // const music = document.getElementById('background_music');
     document.getElementById('mute_option').innerHTML = music.muted ? 'mute' : 'unmute';
     music.muted = !music.muted;
 }
-
+music.volume = 0.01
 // attaching range slider to audio volume on site
 
 let audioVolume = document.getElementById('background_music');
 let givenvolume = document.querySelector("#volume-control");
 audioVolume.volume = 0.5;
+
 
 const volumeSlider = document.querySelector('#volume-control');
 const music = document.getElementById('background_music');
@@ -28,24 +30,25 @@ function startGame(){
 }
 
 //Enter game Intro Screen
-const start= document.querySelector(".start");
-const text= document.querySelector("#charInput");
-const audio= document.querySelector("#background_music")
+// const start= document.querySelector(".start");
+// const text= document.querySelector("#charInput");
+// const audio= document.querySelector("#background_music")
 
-start.addEventListener('click', startGame);
 
-function startGame(){
-    start.removeEventListener('click', startGame);
-    audio.play();
-    this.classList.add("fade-out");
-    this.addEventListener('animationend',()=>{
-        this.remove();
-    })
-    text.classList.toggle("reveal")
-    nextButton.classList.toggle("reveal")
-    nextButton.classList.add("fade-in")
-    setTimeout(storyStart, 3700);
-    };
+// start.addEventListener('click', startGame);
+
+// function startGame(){
+//     start.removeEventListener('click', startGame);
+//     audio.play();
+//     this.classList.add("fade-out");
+//     this.addEventListener('animationend',()=>{
+//         this.remove();
+//     })
+//     text.classList.toggle("reveal")
+//     nextButton.classList.toggle("reveal")
+//     nextButton.classList.add("fade-in")
+//     setTimeout(storyStart, 3700);
+//     };
 
 var JSON = JSON || {};
 
@@ -494,7 +497,7 @@ let room26 = new Room({
     roomNorth: 27, 
     roomWest: 30, 
     roomEast: 35, 
-    roomSouth: null,
+    roomSouth: 25,
     treasurePresent: 1,
     enemyPresent: null,
     mapId: 'rm55',
@@ -949,7 +952,7 @@ function enemyTurn(){
 }
 //          Player init
 let player = {
-    name: nameInput,
+    name: 'Bill the Barbarian',
     strength: 5,
     dexterity: 4,
     constitution: 3,
@@ -979,6 +982,25 @@ function option4(){
 function option5(){
     roomArr[player.room].roomInteract()
 }
+window.addEventListener('keydown', (e) =>{
+    if(e.code === 'KeyW'){
+        document.querySelector('#roomOption1').click()
+    } else if(e.code === 'KeyS'){
+        document.querySelector('#roomOption2').click()
+    } else if(e.code === 'KeyA'){
+        document.querySelector('#roomOption4').click()
+    } else if(e.code === 'KeyD'){
+        document.querySelector('#roomOption3').click()
+    }
+})
+function openMenu(){
+    if(document.getElementById('menu').style.display === 'none'){
+    document.getElementById('menu').style.display = ''
+    }else {
+        document.getElementById('menu').style.display = 'none'
+    }
+}
+
 function saveGame(){
     localStorage.setItem('user', JSON.stringify(player))
     let exploredRooms = []
@@ -1018,7 +1040,7 @@ function loadGame(){
     document.getElementById("cSheetStatField3").innerHTML = `${player.constitution}`;
     document.getElementById("cSheetArmor").innerHTML = `${player.armor}`;
     document.getElementById("cSheetWeapon").innerHTML = `${player.dmg}`;
-    document.getElementById("playerName").innerHTML = `${player.playerName}`;
+    document.getElementById("playerName").innerHTML = `${player.Name}`;
     document.getElementById("roomIdTester").innerHTML = `${player.room}`
     roomArr[player.room].enemyPresent = null
     exploredRooms.forEach((id) => {
