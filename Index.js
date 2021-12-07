@@ -5,15 +5,17 @@ function mute () {
   document.getElementById('mute_option').innerHTML = music.muted ? 'mute' : 'unmute'
   music.muted = !music.muted
 }
-// music.volume = 0.01
+
+
 // attaching range slider to audio volume on site
 
 const audioVolume = document.getElementById('background_music')
 const givenvolume = document.querySelector('#volume-control')
 audioVolume.volume = 0.5
 
+
 const volumeSlider = document.querySelector('#volume-control')
-// const music = document.getElementById('background_music');
+
 
 volumeSlider.addEventListener('input', (e) => {
   const value = volumeSlider.value
