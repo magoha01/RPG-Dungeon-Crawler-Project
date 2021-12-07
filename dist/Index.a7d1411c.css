@@ -119,6 +119,7 @@ html {
 }
 
 body {
+  z-index: 1;
   font-size: 1.6rem;
   line-height: 1.5;
   font-family: "Oswald", sans-serif;
@@ -149,7 +150,15 @@ h1 {
 
 
 /* BEGIN INTERFACE CSS */
-
+#menu{
+  z-index: 200;
+  width: 40%;
+  height: 40%;
+  position: absolute;
+  margin: 5% 30%;
+  justify-content: center;
+  display: inline-block;
+}
 .splash{
   position: fixed;
   top:0;
@@ -335,7 +344,7 @@ form, label, input{
   margin: 1%;
   display: flex;
   flex-flow: column nowrap;
-  max-height: 75vh;
+  /* max-height: 75vh; */
 }
 
 /* Top Section of cSheet */
@@ -510,6 +519,7 @@ form, label, input{
   flex-flow: row nowrap;
   justify-content: space-evenly;
   padding: auto;
+  height:10vh;
 }
 .cSheetInventory{
   max-width: 100%;
@@ -553,7 +563,9 @@ form, label, input{
 } */
 
 /* Right Side */
-
+#testBox {
+  animation: type 8s steps(60, start);
+}
 .rightSide {
   width: 50%;
   max-height: 100%;

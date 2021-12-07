@@ -192,7 +192,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
     module.hot.dispose(reloadCSS)
     module.hot.accept(reloadCSS)
-  }, { './assets/dirtblock-background.png': [['dirtblock-background.fc9585cf.png', 'assets/dirtblock-background.png'], 'assets/dirtblock-background.png'], './assets/sliderbackground.png': [['sliderbackground.0968c062.png', 'assets/sliderbackground.png'], 'assets/sliderbackground.png'], _css_loader: 'node_modules/parcel-bundler/src/builtins/css-loader.js' }],
+  }, { './assets\\dirtblock-background.png': [['dirtblock-background.fc9585cf.png', 'assets/dirtblock-background.png'], 'assets/dirtblock-background.png'], './assets\\sliderbackground.png': [['sliderbackground.0968c062.png', 'assets/sliderbackground.png'], 'assets/sliderbackground.png'], _css_loader: 'node_modules/parcel-bundler/src/builtins/css-loader.js' }],
   'node_modules/parcel-bundler/src/builtins/hmr-runtime.js': [function (require, module, exports) {
     const global = arguments[3]
     const OVERLAY_ID = '__parcel__error__overlay__'
@@ -221,7 +221,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
     if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
       const hostname = '' || location.hostname
       const protocol = location.protocol === 'https:' ? 'wss' : 'ws'
-      const ws = new WebSocket(protocol + '://' + hostname + ':' + '37277' + '/')
+      const ws = new WebSocket(protocol + '://' + hostname + ':' + '61220' + '/')
 
       ws.onmessage = function (event) {
         checkedAssets = {}
