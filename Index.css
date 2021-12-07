@@ -291,10 +291,11 @@ form, label, input{
   height: 100%;
   margin: 0;
   border: 0;
+  background-color: brown;
   border-right: 6px solid black;
-  background-image: url(assets/sliderbackground.png);
+  background-image: url(assets/sliderbackground.png); 
   background-repeat: repeat-x;
-  background-position: center;
+  background-position: center; 
   background-size: contain;
   outline: none; 
 }
