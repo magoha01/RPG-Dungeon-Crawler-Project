@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script defer src="Index.js"></script>
+    <!-- <script defer src="Index.js"></script> -->
     <title>A Journey Underground</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge" />
@@ -14,7 +14,7 @@
 </head>
 
     <body> <!--Main Content-->
-        <div class="splash">
+        <!-- <div class="splash">
             <button class ="start fade-in">A Journey Underground</button>
            
             <div>
@@ -27,7 +27,7 @@
                 <input type="text" id="pName" name="pName" required maxlength="30">
                 <input type="submit">
             </form>
-        </div> 
+        </div>  -->
         <header>
             <div id="music_container">
                 <audio id="background_music" src="assets/Тиффани-TheBeginning-.mp3" loop autoplay></audio> 
@@ -268,10 +268,10 @@
         document.getElementById("roomIdTester").innerHTML = `${player.room}`
         document.getElementById(startingRoom.mapId).style.backgroundColor = 'black'
         roomText()
-        document.getElementById("name").style.display = none;
-        document.getElementById("warrior").style.display = none;
-        document.getElementById("ranger").style.display = none;
-        document.getElementById("rogue").style.display = none;
+        document.getElementById("playerName").style.display = 'none';
+        document.getElementById("warrior").style.display = 'none';
+        document.getElementById("ranger").style.display = 'none';
+        document.getElementById("rogue").style.display = 'none';
         document.getElementById("confirm").style.display = 'none';
         document.getElementById("fightScreen").style.display = 'none'
         document.getElementById('menu').style.display = 'none'
@@ -289,5 +289,5 @@
         document.getElementById("ranger").addEventListener("click", classChoice);
         
         document.getElementById("rogue").addEventListener("click", classChoice);
-  </script> <!--End Javascript Script-->
+//   </script> <!--End Javascript Script-->
 </html>
