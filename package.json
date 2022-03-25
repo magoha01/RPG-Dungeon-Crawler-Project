@@ -1,0 +1,33 @@
+{
+  "name": "rpg-dungeon-crawler",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "parcel Index.html",
+    "build": "parcel build Index.html",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "cypress open"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^8.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-cypress": "^2.11.3",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "eslint-plugin-react": "^7.27.1",
+    "less": "^4.1.1",
+    "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WRWPhillips/RPG-Dungeon-Crawler-Project.git"
+  }
+}

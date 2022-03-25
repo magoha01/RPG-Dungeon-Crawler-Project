@@ -1,0 +1,288 @@
+<!-- header setup here -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <script defer src="Index.js"></script> -->
+    <title>A Journey Underground</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/Index.a7d1411c.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<script src="/Index.a7d1411c.js"></script></head>
+
+    <body> <!--Main Content-->
+        <!-- <div class="splash">
+            <button class ="start fade-in">A Journey Underground</button>
+           
+            <div>
+                <p id="charInput" class="hide"></p>
+                <button id="nextButton" class="hide">Next</button>
+            </div> 
+            
+            <form onsubmit="getName()">
+                <label for="pName">Name:</label>
+                <input type="text" id="pName" name="pName" required maxlength="30">
+                <input type="submit">
+            </form>
+        </div>  -->
+        <header>
+            <div id="music_container">
+                <audio id="background_music" src="/Тиффани-TheBeginning-.21ec2096.mp3" loop="" autoplay=""></audio> 
+                <div id="mute_button" onclick="mute()">
+                    <p id="mute_option">mute</p>
+                </div>
+                <img src="/audiosprite.38749926.png" alt="soundsprite">
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="100" value="" class="slider" id="volume-control">
+                </div>
+                <p id="volume-container"></p>
+            </div>
+            
+            
+            <button id="menuButton" onclick="openMenu()">Menu</button>
+            <h1>
+                A Journey Underground
+            </h1>
+        </header>
+        <div id="menu">
+            <button id="save" onclick="saveGame()">Save your Game!</button>
+            <button id="load" onclick="loadGame()">Load your Game!</button>
+            <button id="closeMenu" onclick="openMenu()">Close Menu</button>
+        </div>
+        <div class="pageContainer">
+            <section id="cSheet"> <!--Start cSheet-->
+                <div class="cSheetTop">
+                    <section id="map"> <!--Start Mini Map-->
+                        <div class="mapFloor1"> 
+                                <div id="rm1"></div>
+                                <div id="rm2"></div>
+                                <div id="rm3"></div>
+                                <div id="rm4"></div>
+                                <div id="rm5"></div>
+                                <div id="rm6"></div>
+                                <div id="rm7"></div>
+                                <div id="rm8"></div>
+                                <div id="rm9"></div>
+                                <div id="rm10"></div>
+                                <div id="rm11"></div>
+                                <div id="rm12"></div>
+                                <div id="rm13"></div>
+                                <div id="rm14"></div>
+                                <div id="rm15"></div>
+                                <div id="rm16"></div>
+                                <div id="rm17"></div>
+                                <div id="rm18"></div>
+                                <div id="rm19"></div>
+                                <div id="rm20"></div>
+                                <div id="rm21"></div>
+                                <div id="rm22"></div>
+                                <div id="rm23"></div>
+                                <div id="rm24"></div>
+                                <div id="rm25"></div>
+                                <div id="rm26"></div>
+                                <div id="rm27"></div>
+                                <div id="rm28"></div>
+                                <div id="rm29"></div>
+                                <div id="rm30"></div>
+                                <div id="rm31"></div>
+                                <div id="rm32"></div>
+                                <div id="rm33"></div>
+                                <div id="rm34"></div>
+                                <div id="rm35"></div>
+                                <div id="rm36"></div>
+                                <div id="rm37"></div>
+                                <div id="rm38"></div>
+                                <div id="rm39"></div>
+                                <div id="rm40"></div>
+                                <div id="rm41"></div>
+                                <div id="rm42"></div>
+                                <div id="rm43"></div>
+                                <div id="rm44"></div>
+                                <div id="rm45"></div>
+                                <div id="rm46"></div>
+                                <div id="rm47"></div>
+                                <div id="rm48"></div>
+                                <div id="rm49"></div>
+                                <div id="rm50"></div>
+                                <div id="rm51"></div>
+                                <div id="rm52"></div>
+                                <div id="rm53"></div>
+                                <div id="rm54"></div>
+                                <div id="rm55"></div>
+                                <div id="rm56"></div>
+                                <div id="rm57"></div>
+                                <div id="rm58"></div>
+                                <div id="rm59"></div>
+                                <div id="rm60"></div>
+                                <div id="rm61"></div>
+                                <div id="rm62"></div>
+                                <div id="rm63"></div>
+                                <div id="rm64"></div>
+                                <div id="rm65"></div>
+                                <div id="rm66"></div>
+                                <div id="rm67"></div>
+                                <div id="rm68"></div>
+                                <div id="rm69"></div>
+                                <div id="rm70"></div>
+                                <div id="rm71"></div>
+                                <div id="rm72"></div>
+                                <div id="rm73"></div>
+                                <div id="rm74"></div>
+                                <div id="rm75"></div>
+                                <div id="rm76"></div>
+                                <div id="rm77"></div>
+                                <div id="rm78"></div>
+                                <div id="rm79"></div>
+                                <div id="rm80"></div>
+                                <div id="rm81"></div>
+                                <div id="rm82"></div>
+                                <div id="rm83"></div>
+                                <div id="rm84"></div>
+                                <div id="rm85"></div>
+                                <div id="rm86"></div>
+                                <div id="rm87"></div>
+                                <div id="rm88"></div>
+                                <div id="rm89"></div>
+                                <div id="rm90"></div>
+                                <div id="rm91"></div>
+                                <div id="rm92"></div>
+                                <div id="rm93"></div>
+                                <div id="rm94"></div>
+                                <div id="rm95"></div>
+                                <div id="rm96"></div>
+                                <div id="rm97"></div>
+                                <div id="rm98"></div>
+                                <div id="rm99"></div>
+                                <div id="rm100"></div>
+                        </div>
+                    </section> <!--End of Mini Map-->
+                    <div class="charArt">
+                        <img src="/Player1.0d6d58ea.png">
+                        <p id="playerName"></p>
+                        <!--<p>Status: playerStatus</p> -->
+                    </div>
+                </div>
+                <div class="cSheetMid"> <!--Start of cSheetMid-->
+                    <div class="cSheetPlayerStats">
+                        <div><p class="stat">Strength:</p><p id="cSheetStatField1" class="stat">Stat</p></div>
+                        <div><p class="stat">Dexterity:</p><p id="cSheetStatField2" class="stat">Stat</p></div>
+                        <div><p class="stat">Constitution:</p><p id="cSheetStatField3" class="stat">Stat</p></div>
+                    </div>
+                    <div class="cSheetPlayerValues">
+
+                        <div class="cSheetHealth"> 
+                            <img src="/heart pixel art.360df7a7.png"> 
+                            <p>Health:</p>
+                            <p id="cSheetHealth">VAL</p>
+                        </div>
+                        <div class="cSheetArmor"> 
+                            <img src="/Shield1.88dd04a2.png"> 
+                            <p>Armor:</p>
+
+                            <p id="cSheetArmor">VAL</p>
+
+                        </div>
+                        <div class="cSheetWeapon">
+                            <img src="/sword_small (1).2dee0668.png">
+                            <p>Weapon:</p>
+
+                            <p id="cSheetWeapon">VAL</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cSheetBottom"> <!--Start of cSheetBottom-->
+
+                    <h3>Inventory</h3>
+                        <div class="cSheetInventory">
+                                <img onclick="player.inventory[0].useItem(0)" id="item1" src="">
+                                <img onclick="player.inventory[1].useItem(1)" id="item2" src="">
+                                <img onclick="player.inventory[2].useItem(2)" id="item3" src="">
+                                <img onclick="player.inventory[3].useItem(3)" id="item4" src="">
+                                <img onclick="player.inventory[4].useItem(4)" id="item5" src="">
+                                <img onclick="player.inventory[5].useItem(5)" id="item6" src="">
+                        </div> <!-- End cSheetInventory-->
+                        </div>  <!--End cSheetBottom-->  
+                </section> 
+                <section class="rightSide"> <!--Start of rightSide-->
+                    <div class="right"> 
+                        <div class="roomContainer">
+                            <div id="fightScreen">
+
+                                <div>
+                                    <img id="enemyImg" src="" class="enemyImg">
+                                    <p id="enemyName"></p>
+                                </div>
+
+                                <div id="enemyStats">
+                                    <div>
+                                        <img id="enemyHealthImg" src="">
+                                        <p id="enemyHealth"></p>
+                                    </div>
+                                    <div>
+                                        <img id="enemyDefenseImg" src="">
+                                        <p id="enemyDefense"></p>
+                                    </div>
+                                    <div>
+                                    <img id="enemyAttackImg" src="">
+                                    <p id="enemyAttack"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="buttons"> <!--start Room buttons-->
+                            <button onclick="Button()">Room Button</button>
+                            <button id="roomOption5" onclick="option5()"></button>
+                            <button id="roomOption1" onclick="option1()"></button>
+                            <button id="roomOption3" onclick="option3()"></button>
+                            <button id="roomOption4" onclick="option4()"></button> 
+                            <button id="roomOption2" onclick="option2()"></button>                    
+
+                            <div id="roomIdTester"></div>
+                            <div id="playerLog"></div>   
+                            <div id="combatLog"></div>
+                            <div id="storyContainer"> <!--start of story container-->
+                                <p id="storyTest" click="Next()"></p>
+                                <input id="name" type="text"> 
+                                <button id="confirm" click="greeting()"></button><!--user input-->
+                                <button id="warrior" click="warrior()"></button><!--buttons for class choice-->
+                                <button id="ranger" click="ranger()"></button>
+                                <button id="rogue" click="rogue()"></button>
+                            </div> <!--End of story container-->
+                        </div> <!--End of Room Buttons-->  
+                    </div>
+                </section> <!--End of rightSide-->
+            </div> <!--End of pageContainer-->
+    </body> <!--End of Main Content-->
+    <script src="/Index.143ac65d.js"></script>
+    <script>//Javascript script
+document.getElementById("cSheetStatField1").innerHTML = "".concat(player.strength);
+document.getElementById("cSheetStatField2").innerHTML = "".concat(player.dexterity);
+document.getElementById("cSheetStatField3").innerHTML = "".concat(player.constitution);
+document.getElementById("cSheetHealth").innerHTML = "".concat(player.hpCurrent, "/").concat(player.hpTotal);
+document.getElementById("cSheetArmor").innerHTML = "".concat(player.armor + player.tempArmor);
+document.getElementById("cSheetWeapon").innerHTML = "".concat(player.dmg);
+document.getElementById("playerName").innerHTML = "".concat(player.name);
+document.getElementById("roomIdTester").innerHTML = "".concat(player.room);
+document.getElementById(startingRoom.mapId).style.backgroundColor = 'black';
+roomText();
+document.getElementById("playerName").style.display = 'none';
+document.getElementById("warrior").style.display = 'none';
+document.getElementById("ranger").style.display = 'none';
+document.getElementById("rogue").style.display = 'none';
+document.getElementById("confirm").style.display = 'none';
+document.getElementById("fightScreen").style.display = 'none';
+document.getElementById('menu').style.display = 'none'; //Story eventlisteners below
+
+document.getElementById("storyTest").addEventListener("click", function (next) {
+  printLetterByLetter("storyTest", gameIntro2);
+});
+document.getElementById("confirm").addEventListener("click", function (greeting) {
+  "Hello ".concat(player.name, ". What class are you?");
+});
+document.getElementById("warrior").addEventListener("click", classChoice);
+document.getElementById("ranger").addEventListener("click", classChoice);
+document.getElementById("rogue").addEventListener("click", classChoice); //</script> <!--End Javascript Script-->
+</html>

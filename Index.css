@@ -119,6 +119,7 @@ html {
 }
 
 body {
+  z-index: 1;
   font-size: 1.6rem;
   line-height: 1.5;
   font-family: "Oswald", sans-serif;
@@ -144,9 +145,114 @@ h1 {
   font-family: "Press Start 2P", cursive;
   font-size: 4rem;
   margin: 2% 5%;
+  background-image:url(assets/dirtblock-background.png);
 }
 
+
 /* BEGIN INTERFACE CSS */
+#menu{
+  z-index: 200;
+  width: 40%;
+  height: 40%;
+  position: absolute;
+  margin: 5% 30%;
+  justify-content: center;
+  display: inline-block;
+}
+.splash{
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  z-index: 200;
+  text-align: center;
+}
+
+.splash div{
+  background-color: black;
+}
+
+.start{
+  margin: 20%;
+  padding: 1% 5%;
+  font-size: 24px;
+  background-color: black;
+  /* border: 1px solid white; */
+  color: white;
+  font-family: "Press Start 2P", cursive;
+}
+
+.start:hover {
+  background-color: black;
+  color: darkred;
+  border: 1px solid darkred;
+  transition-duration: .4s;
+}
+
+#charInput{
+  font-size: 2rem;
+  color: white;
+  font-family: "Press Start 2P", cursive;
+  background-color: black;
+  /* border: 1px solid white; */
+  margin: 20% 5% 0 5%;
+}
+
+@keyframes fadeIn{
+  to{
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut{
+  to{
+    opacity: 0;
+  }
+}
+
+.fade-in{
+  opacity: 0;
+  animation: fadeIn 3s ease-in forwards; 
+}
+
+.quick-in{
+  opacity:0;
+  animation: fadeIn 1s ease-in forwards;
+}
+
+.fade-out{
+  opacity: 1;
+  animation: fadeOut 3s ease-in-out;
+}
+
+.hide{
+ visibility: hidden;
+ z-index: -100;
+}
+
+.reveal{
+  visibility: visible;
+}
+
+#nextButton{
+  background-color: black;
+  color: white;
+  font-family: "Press Start 2P", cursive;
+}
+
+#nextButton:hover{
+  background-color: black;
+  color: darkred;
+}
+
+form, label, input{
+  border: 1px solid white;
+  background-color: black;
+  color: white;
+  font-family: "Press Start 2P", cursive;
+}
 
 #music_container {
   display: flex;
@@ -185,15 +291,14 @@ h1 {
   height: 100%;
   margin: 0;
   border: 0;
+  background-color: brown;
   border-right: 6px solid black;
-  background-image: url(assets/sliderbackground.png);
+  background-image: url(assets/sliderbackground.png); 
   background-repeat: repeat-x;
-  background-positon: center;
+  background-position: center; 
   background-size: contain;
   outline: none; 
 }
-
-
 
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none; 
@@ -225,7 +330,8 @@ h1 {
   display: flex;
   flex-flow: row no-wrap;
   width: 100%;
-  margin: auto;
+  max-height: 100vh;
+  /* margin: auto; */
 }
 
 .pageContainer div {
@@ -238,6 +344,7 @@ h1 {
   margin: 1%;
   display: flex;
   flex-flow: column nowrap;
+  /* max-height: 75vh; */
 }
 
 /* Top Section of cSheet */
@@ -403,6 +510,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  max-height: 15vh
 }
 
 .cSheetInventory {
@@ -410,25 +518,31 @@ h1 {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-evenly;
-  padding: 5%;
+  padding: auto;
+  height:10vh;
+}
+.cSheetInventory{
+  max-width: 100%;
+  max-height: 15vh;
 }
 
-.cSheetInventory p {
+.cSheetInventory img{
   background-color: #695f4d;
+  border:none;
+  width: 10%;
 }
 
-.items {
-  width: 25%;
+/* .items {
   padding: 4%;
   margin: 2%;
-}
+} */
 
-#item1 {
+/* #item1 {
   width: 10%;
 }
 
 #item2 {
-  width: 10%;
+  width: 8%;
 }
 
 #item3 {
@@ -446,30 +560,37 @@ h1 {
 #item6 {
   width: 10%;
 
-}
+} */
 
 /* Right Side */
-
+#testBox {
+  animation: type 8s steps(60, start);
+}
 .rightSide {
   width: 50%;
-  background-color: #695f4d;
+  max-height: 100%;
   border: none;
   display: flex;
   margin: 1% 1% 1% 0;
-  border: 6px solid black;
+  /* border: 6px solid black; */
 }
 
 .rightSide div {
+  background-color: #695f4d;
   width: 100%;
   display: flex;
   flex-flow: row wrap;
   align-content: center;
 }
-
+.right{
+  margin: auto;
+  height: 100%;
+}
 .right div {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 
@@ -479,7 +600,6 @@ h1 {
 .roomContainer{
   max-width: 100%;
   margin: 1%;
-  /* padding: 30%; */
 }
 
 .roomContainer div{
@@ -507,7 +627,7 @@ h1 {
   margin: 1%;
 }
 
-#roomOption1{
+/* #roomOption1{
 
 }
 
@@ -529,7 +649,7 @@ h1 {
 
 #roomIdTester{
   margin: 1%;
-}
+} */
 
 #storyContainer{
   width: 100%;
@@ -555,7 +675,7 @@ h1 {
 }
 
 #enemyImg {
-  width: 50%;
+  width: 25%;
   background-color: black;
 }
 

@@ -2,21 +2,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- <script defer src="Index.js"></script> -->
     <title>A Journey Underground</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
-    <script src="Index.js"></script>
     <link rel="stylesheet" type="text/css" href="Index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <title>A Journey Underground</title>
-
 </head>
 
     <body> <!--Main Content-->
+        <!-- <div class="splash">
+            <button class ="start fade-in">A Journey Underground</button>
+           
+            <div>
+                <p id="charInput" class="hide"></p>
+                <button id="nextButton" class="hide">Next</button>
+            </div> 
+            
+            <form onsubmit="getName()">
+                <label for="pName">Name:</label>
+                <input type="text" id="pName" name="pName" required maxlength="30">
+                <input type="submit">
+            </form>
+        </div>  -->
         <header>
             <div id="music_container">
                 <audio id="background_music" src="assets/Тиффани-TheBeginning-.mp3" loop autoplay></audio> 
@@ -25,16 +36,22 @@
                 </div>
                 <img src="assets/audiosprite.png" alt="soundsprite">
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="100" class="slider" id="volume-control">
+                    <input type="range" min="1" max="100" value="" class="slider" id="volume-control">
                 </div>
-                <output id="volume-container">100</output>
+                <p id="volume-container"></p>
             </div>
-            <button id="save" onclick="saveGame()">Save your Game!</button>
-            <button id="load" onclick="loadGame()">Load your Game!</button>
+            
+            
+            <button id="menuButton" onclick="openMenu()">Menu</button>
             <h1>
                 A Journey Underground
             </h1>
         </header>
+        <div id="menu">
+            <button id="save" onclick="saveGame()">Save your Game!</button>
+            <button id="load" onclick="loadGame()">Load your Game!</button>
+            <button id="closeMenu" onclick='openMenu()'>Close Menu</button>
+        </div>
         <div class= "pageContainer">
             <section id='cSheet'> <!--Start cSheet-->
                 <div class = "cSheetTop">
@@ -144,7 +161,7 @@
                     </section> <!--End of Mini Map-->
                     <div class="charArt">
                         <img src = "assets/Player1.png">
-                        <p id=playerName>playerName</p>
+                        <p id=playerName></p>
                         <!--<p>Status: playerStatus</p> -->
                     </div>
                 </div>
@@ -180,27 +197,25 @@
 
                     <h3>Inventory</h3>
                         <div class="cSheetInventory">
-                                <img id = "item1" src=''/>
-                                <img id = "item2" src=''/>
-                                <img id = "item3" src=''/>
-                                <img id = "item4" src=''/>
-                                <img id = "item5" src=''/>
-                                <img id = "item6" src=''/> 
-                        </div>    
+                                <img onclick='player.inventory[0].useItem(0)' id = "item1" src=''/>
+                                <img onclick='player.inventory[1].useItem(1)' id = "item2" src=''/>
+                                <img onclick='player.inventory[2].useItem(2)' id = "item3" src=''/>
+                                <img onclick='player.inventory[3].useItem(3)' id = "item4" src=''/>
+                                <img onclick='player.inventory[4].useItem(4)' id = "item5" src=''/>
+                                <img onclick='player.inventory[5].useItem(5)' id = "item6" src=''/>
+                        </div> <!-- End cSheetInventory-->
+                        </div>  <!--End cSheetBottom-->  
                 </section> 
                 <section class="rightSide"> <!--Start of rightSide-->
                     <div class="right"> 
                         <div class="roomContainer">
-                            room
                             <div id="fightScreen">
-
 
                                 <div>
                                     <img id="enemyImg" src= '' class="enemyImg">
                                     <p id="enemyName"></p>
-    
-    
                                 </div>
+
                                 <div id = 'enemyStats'>
                                     <div>
                                         <img id= "enemyHealthImg" src = "">
@@ -219,29 +234,29 @@
                         </div>
                         <div class="buttons"> <!--start Room buttons-->
                             <button onclick='Button()'>Room Button</button>
-                            <!-- <button onclick='stat1Increment()'>Increment stat1!</button> -->
+                            <button id= roomOption5 onclick= 'option5()'></button>
                             <button id= roomOption1 onclick= 'option1()'></button>
-                            <button id= roomOption2 onclick= 'option2()'></button>
                             <button id= roomOption3 onclick= 'option3()'></button>
-                            <button id= roomOption4 onclick= 'option4()'></button>                     
-                            <button id= roomOption5 onclick= 'roomArr[player.room].roomInteract()'></button>
+                            <button id= roomOption4 onclick= 'option4()'></button> 
+                            <button id= roomOption2 onclick= 'option2()'></button>                    
+
                             <div id="roomIdTester"></div>
                             <div id="playerLog"></div>   
                             <div id="combatLog"></div>
                             <div id="storyContainer"> <!--start of story container-->
-                                <p id="storyTest" onclick="Next()"></p>
+                                <p id="storyTest" click="Next()"></p>
                                 <input id="name" type="text"> 
-                                <button id="confirm" onclick='greeting()'></button><!--user input-->
-                                <button id="warrior" onclick= 'warrior()'></button><!--buttons for class choice-->
-                                <button id="ranger" onclick= 'ranger()'></button>
-                                <button id="rogue" onclick= 'rogue()'></button>
+                                <button id="confirm" click='greeting()'></button><!--user input-->
+                                <button id="warrior" click= 'warrior()'></button><!--buttons for class choice-->
+                                <button id="ranger" click= 'ranger()'></button>
+                                <button id="rogue" click= 'rogue()'></button>
                             </div> <!--End of story container-->
-                        </div> <!--End of Room Buttons-->
-                        
+                        </div> <!--End of Room Buttons-->  
                     </div>
                 </section> <!--End of rightSide-->
             </div> <!--End of pageContainer-->
     </body> <!--End of Main Content-->
+    <script src="Index.js"></script>
     <script type="text/javascript"> //Javascript script
         document.getElementById("cSheetStatField1").innerHTML = `${player.strength}`;
         document.getElementById("cSheetStatField2").innerHTML = `${player.dexterity}`;
@@ -249,15 +264,30 @@
         document.getElementById("cSheetHealth").innerHTML = `${player.hpCurrent}/${player.hpTotal}`;
         document.getElementById("cSheetArmor").innerHTML = `${player.armor+player.tempArmor}`;
         document.getElementById("cSheetWeapon").innerHTML = `${player.dmg}`;
-        document.getElementById("playerName").innerHTML = `${player.playerName}`;
+        document.getElementById("playerName").innerHTML = `${player.name}`;
         document.getElementById("roomIdTester").innerHTML = `${player.room}`
         document.getElementById(startingRoom.mapId).style.backgroundColor = 'black'
         roomText()
-        document.getElementById("name").style.display ='none';
+        document.getElementById("playerName").style.display = 'none';
         document.getElementById("warrior").style.display = 'none';
         document.getElementById("ranger").style.display = 'none';
         document.getElementById("rogue").style.display = 'none';
         document.getElementById("confirm").style.display = 'none';
         document.getElementById("fightScreen").style.display = 'none'
-    </script> <!--End Javascript Script-->
+        document.getElementById('menu').style.display = 'none'
+
+        //Story eventlisteners below
+        document.getElementById("storyTest").addEventListener("click", next => {
+            printLetterByLetter("storyTest", gameIntro2);
+        });
+        
+        document.getElementById("confirm").addEventListener("click", greeting => {`Hello ${player.name}. What class are you?`
+        })
+
+        document.getElementById("warrior").addEventListener("click", classChoice);
+       
+        document.getElementById("ranger").addEventListener("click", classChoice);
+        
+        document.getElementById("rogue").addEventListener("click", classChoice);
+//   </script> <!--End Javascript Script-->
 </html>
